@@ -109,8 +109,8 @@ void autonomous(void) {
 void usercontrol(void) {
   int axis1, axis3;
   while (1) {
-    axis1 = Controller1.Axis1.position(percent);
-    axis3 = Controller1.Axis3.position(percent);
+    axis1 = Controller.Axis1.position(percent);
+    axis3 = Controller.Axis3.position(percent);
 
     if (reversed) {
       FrontLeft.spin(forward, axis3 + axis1, percent);
