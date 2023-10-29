@@ -14,6 +14,8 @@ motor MiddleLeft = motor(PORT3, ratio18_1, false);
 motor MiddleRight = motor(PORT4, ratio18_1, true);
 motor BackLeft = motor(PORT5, ratio18_1, false);
 motor BackRight = motor(PORT6, ratio18_1, true);
+digital_out LeftWing = digital_out(Brain.ThreeWirePort.A);
+digital_out RightWing = digital_out(Brain.ThreeWirePort.B);
 
 // VEXcode generated functions
 // define variable for remote controller enable/disable

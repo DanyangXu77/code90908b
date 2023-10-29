@@ -24,6 +24,8 @@ double desiredTurnValue;
 
 bool pidOn = true;
 
+bool wingsOn = false;
+
 void resetDriveSensors() {
   FrontLeft.resetPosition();
   FrontRight.resetPosition();
@@ -89,6 +91,12 @@ void turn(double angle) {
   while ((MiddleLeft.position(degrees) - angle) > 2 && (MiddleRight.position(degrees) + angle) > 2) wait(20, msec);
 }
 
+void toggleWings() {
+  wingsOn = !wingsOn;
+  LeftWing.set(wingsOn);
+  RightWing.set(wingsOn);
+}
+
 void preauton() {
 
 }
@@ -120,7 +128,7 @@ void usercontrol(void) {
       MiddleRight.spin(reverse, axis3 + axis3, percent);
     }
   }
-  
+
   wait(20, msec);
 }
 
