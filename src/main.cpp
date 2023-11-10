@@ -3,7 +3,6 @@
 #include <cmath>
 #include <robot-config.h>
 #include <vex.h>
-
 using namespace vex;
 
 competition Competition;
@@ -25,6 +24,15 @@ double desiredTurnValue;
 bool pidOn = true;
 
 bool wingsOn = false;
+bool wingsOn2 = true;
+
+bool cata2 = true;
+
+bool autonStarted = false;
+
+char* mode = "no_auton";
+
+// extern uint32_t pic_map[];
 
 void resetDriveSensors() {
   FrontLeft.resetPosition();
@@ -81,6 +89,7 @@ void drive(double angle) {
   desiredLateralValue = angle;
   desiredTurnValue = 0;
   while ((MiddleLeft.position(degrees) - angle) > 2 && (MiddleRight.position(degrees) - angle) > 2) wait(20, msec);
+  pidOn = false;
 }
 
 void turn(double angle) {
@@ -89,21 +98,79 @@ void turn(double angle) {
   desiredLateralValue = 0;
   desiredTurnValue = angle;
   while ((MiddleLeft.position(degrees) - angle) > 2 && (MiddleRight.position(degrees) + angle) > 2) wait(20, msec);
+  pidOn = false;
 }
 
-void toggleWings() {
-  wingsOn = !wingsOn;
-  LeftWing.set(wingsOn);
-  RightWing.set(wingsOn);
+void centrePrintAt(int xPos, int yPos, char* txt) {
+  int xDiff = Brain.Screen.getStringWidth(txt);
+  int yDiff = Brain.Screen.getStringHeight(txt);
+  Brain.Screen.printAt(xPos - xDiff / 2, yPos + yDiff / 2, txt);
 }
 
 void preauton() {
+  Intake.setStopping(brake);
 
+  Brain.Screen.setPenWidth(20);
+
+  Brain.Screen.setPenColor(white);
+  Brain.Screen.drawRectangle(10, 10, 210, 210);
+  Brain.Screen.drawRectangle(250, 10, 210, 210);
+  Brain.Screen.setFont(mono30);
+  centrePrintAt(120, 120, "CLOSE AUTON");
+  centrePrintAt(360, 120, "FAR AUTON");
+  // Brain.Screen.drawImageFromBuffer(pic_map, 0, 0, 480, 240);
+  while (!autonStarted) {
+    if (Brain.Screen.pressing()) {
+      if (Brain.Screen.xPosition() < 240) {
+        if (mode == "close_auton") {
+          continue;
+        }
+        mode = "close_auton";
+        Brain.Screen.setPenColor(red);
+        Brain.Screen.drawRectangle(10, 10, 210, 210);
+        centrePrintAt(120, 120, "CLOSE AUTON");
+        Brain.Screen.setFont(mono15);
+        centrePrintAt(120, 180, "(selected)");
+        Brain.Screen.setPenColor(black);
+        Brain.Screen.drawRectangle(250, 10, 210, 210);
+        Brain.Screen.setFont(mono30);
+        Brain.Screen.setPenColor(white);
+        centrePrintAt(360, 120, "FAR AUTON");
+        Brain.Screen.drawImageFromFile("pic.png", 0, 0);
+      } else {
+        if (mode == "far_auton") {
+          continue;
+        }
+        mode = "far_auton";
+        Brain.Screen.setPenColor(red);
+        Brain.Screen.drawRectangle(250, 10, 210, 210);
+        centrePrintAt(360, 120, "FAR AUTON");
+        Brain.Screen.setFont(mono15);
+        centrePrintAt(360, 180, "(selected)");
+        Brain.Screen.setPenColor(black);
+        Brain.Screen.drawRectangle(10, 10, 210, 210);
+        Brain.Screen.setFont(mono30);
+        Brain.Screen.getStringWidth("");
+        Brain.Screen.setPenColor(white);
+        centrePrintAt(120, 120, "CLOSE AUTON");
+        Brain.Screen.drawImageFromFile("pic.png", 0, 0);
+      }
+    }
+    wait(20, msec);
+  }
 }
 
 void autonomous(void) {
   thread p(pid);
-  wait(20, msec);
+  autonStarted = true;
+  Brain.Screen.clearScreen();
+  centrePrintAt(240, 120, "using mode");
+  centrePrintAt(240, 180, mode);
+  if (mode == "close_auton") {
+
+  } else if (mode == "far_auton") {
+
+  }
 }
 
 void usercontrol(void) {
@@ -115,17 +182,46 @@ void usercontrol(void) {
     if (reversed) {
       FrontLeft.spin(forward, axis3 + axis1, percent);
       FrontRight.spin(forward, axis3 - axis1, percent);
-      BackLeft.spin(forward, axis3 + axis1, percent);
-      BackRight.spin(forward, axis3 - axis1, percent);
       MiddleLeft.spin(forward, axis3 + axis1, percent);
       MiddleRight.spin(forward, axis3 - axis1, percent);
+      BackLeft.spin(forward, axis3 + axis1, percent);
+      BackRight.spin(forward, axis3 - axis1, percent);
     } else {
       FrontLeft.spin(reverse, axis3 - axis1, percent);
-      FrontRight.spin(reverse, axis3 + axis3, percent);
-      BackLeft.spin(reverse, axis3 - axis3, percent);
-      BackRight.spin(reverse, axis3 + axis3, percent);
-      MiddleLeft.spin(reverse, axis3 - axis3, percent);
-      MiddleRight.spin(reverse, axis3 + axis3, percent);
+      FrontRight.spin(reverse, axis3 + axis1, percent);
+      MiddleLeft.spin(reverse, axis3 - axis1, percent);
+      MiddleRight.spin(reverse, axis3 + axis1, percent);
+      BackLeft.spin(reverse, axis3 - axis1, percent);
+      BackRight.spin(reverse, axis3 + axis1, percent);
+    }
+    
+    if (Controller.ButtonR1.pressing()) {
+      Intake.spin(forward, 200, rpm);
+    } else {
+      Intake.stop();
+    }
+
+    if (Controller.ButtonB.pressing()) {
+      if (cata2) {
+        cata2 = false;
+        CatapultLift.spinFor(forward, 250, degrees, 160, rpm, false);
+        wait(500, msec);
+        Catapult.spinFor(forward, 16560, degrees, 140, rpm, true);
+        CatapultLift.spinFor(reverse, 250, degrees, 160, rpm, false);
+        CatapultRelease.set(false);
+      }
+    } else {
+      cata2 = true;
+    }
+
+    if (Controller.ButtonL1.pressing()) {
+      if (wingsOn2) {
+        wingsOn = !wingsOn;
+        Wings.set(wingsOn);
+        wingsOn2 = false;
+      }
+    } else {
+      wingsOn2 = true;
     }
   }
 
