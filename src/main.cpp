@@ -12,8 +12,8 @@ competition Competition;
 
 double pi = 3.14159265358979323846264338327950288419716939937510582097494459;
 
-double inches = 1;
-double turns = 1;
+double driveInches = 1;
+double driveDegrees = 1;
 
 bool reversed = false;
 
@@ -107,7 +107,7 @@ void drive(double angle) {
   cout << "start";
   pidOn = true;
   resetDriveSensors();
-  desiredLateralValue = angle;
+  desiredLateralValue = angle * driveInches;
   desiredTurnValue = 0;
   while ((MiddleLeft.position(vex::degrees) - angle) > 2 && (MiddleRight.position(vex::degrees) - angle) > 2) wait(20, msec);
   pidOn = false;
@@ -119,7 +119,7 @@ void turn(double angle) {
   pidOn = true;
   resetDriveSensors();
   desiredLateralValue = 0;
-  desiredTurnValue = angle;
+  desiredTurnValue = angle * driveDegrees;
   while ((MiddleLeft.position(vex::degrees) - angle) > 2 && (MiddleRight.position(vex::degrees) + angle) > 2) wait(20, msec);
   pidOn = false;
   cout << "end";
@@ -139,7 +139,7 @@ void preauton() {
   while (!autonStarted) {
     if (Brain.Screen.pressing()) {
       if (Brain.Screen.xPosition() < 240) {
-        if (strncmp(mode, "close_auton", 11)) {
+        if (mode == "close_auton") {
           continue;
         }
         mode = "close_auton";
@@ -154,7 +154,7 @@ void preauton() {
         Brain.Screen.setPenColor(white);
         centrePrintAt(360, 120, "FAR AUTON");
       } else {
-        if (strncmp(mode, "close_auton", 11)) {
+        if (mode == "far_auton") {
           continue;
         }
         mode = "far_auton";
@@ -183,10 +183,11 @@ void autonomous(void) {
   centrePrintAt(240, 180, mode);
 
   cout << "program start";
+  drive(20);
 
-  if (strncmp(mode, "close_auton", 11)) {
+  if (mode == "close_auton") {
     
-  } else if (strncmp(mode, "close_auton", 11)) {
+  } else if (mode == "far_auton") {
 
   }
 }
