@@ -167,6 +167,8 @@ void preauton() {
 
   Brain.Screen.setPenWidth(20);
 
+  Wings.set(false);
+
   Brain.Screen.setPenColor(white);
   Brain.Screen.drawRectangle(10, 10, 210, 210);
   Brain.Screen.drawRectangle(250, 10, 210, 210);
@@ -208,7 +210,7 @@ void preauton() {
         centrePrintAt(120, 120, "CLOSE AUTON");
       }
     }
-    wait(20, msec);
+    wait(20, vex::msec);
   }
 }
 
@@ -222,26 +224,62 @@ void autonomous(void) {
   cout << "program start";
 
   if (mode == "close_auton") {
+    Wings.set(true);
     drive(80, vex::reverse);
-    turn(90, vex::forward);
-    drive(5, vex::reverse);
-    Intake.spinFor(vex::reverse, 200, vex::degrees, 200, vex::rpm);
+    turn(95, vex::forward);
+    drive(7, vex::reverse);
+    Intake.spinFor(vex::reverse, 200, vex::degrees, 200, vex::rpm, true);
+    drive(7, vex::forward);
   } else if (mode == "far_auton") {
+    Wings.set(true);
     drive(80, vex::reverse);
-    turn(90, vex::reverse);
-    drive(5, vex::reverse);
-    Intake.spinFor(vex::reverse, 200, vex::degrees, 200, vex::rpm);
+    turn(95, vex::reverse);
+    drive(7, vex::reverse);
+    Intake.spinFor(vex::reverse, 200, vex::degrees, 200, vex::rpm, true);
+    drive(7, vex::forward);
   } else {
 
   }
 }
 
+void cata() {
+  while (true) {
+    if (Controller.ButtonDown.pressing()) {
+      CatapultRelease.set(true);
+      wait(200, vex::msec);
+      CatapultRelease.set(false);
+    }
+    if (Controller.ButtonB.pressing()) {
+      if (cata2) {
+        cata2 = false;
+        CatapultLift.spinFor(vex::forward, 250, vex::degrees, 160, vex::rpm, false);
+        wait(500, vex::msec);
+        Catapult.spinFor(vex::forward, 16560, vex::degrees, 80, vex::rpm, false);
+        while (Catapult.isSpinning()) {
+          if (Controller.ButtonX.pressing()) {
+            Catapult.stop();
+            CatapultLift.spinFor(vex::reverse, 250, vex::degrees, 160, vex::rpm, false);
+          }
+        }
+        CatapultLift.spinFor(vex::reverse, 250, vex::degrees, 160, vex::rpm, false);
+        CatapultRelease.set(true);
+        wait(200, vex::msec);
+        CatapultRelease.set(false);
+      }
+    } else {
+      cata2 = true;
+    }
+  }
+}
+
 void usercontrol(void) {
+  thread drive(cata);
   setMotorsType(vex::coast);
-  pidOn = false;
-  killPID = true;
-  int axis1, axis3;
+  // pidOn = false;
+  // killPID = true;
   while (1) {
+    int axis1, axis3;
+
     axis1 = Controller.Axis1.position(vex::percent);
     axis3 = Controller.Axis3.position(vex::percent);
 
@@ -260,7 +298,7 @@ void usercontrol(void) {
       BackLeft.spin(vex::reverse, axis3 - axis1, vex::percent);
       BackRight.spin(vex::reverse, axis3 + axis1, vex::percent);
     }
-    
+
     if (Controller.ButtonR1.pressing()) {
       Intake.spin(vex::forward, 200, vex::rpm);
     } else if (Controller.ButtonR2.pressing()) {
@@ -269,24 +307,11 @@ void usercontrol(void) {
       Intake.stop();
     }
 
-    if (Controller.ButtonB.pressing()) {
-      if (cata2) {
-        cata2 = false;
-        CatapultLift.spinFor(vex::forward, 250, vex::degrees, 160, vex::rpm, false);
-        wait(500, msec);
-        Catapult.spinFor(vex::forward, 16560, vex::degrees, 140, vex::rpm, true);
-        CatapultLift.spinFor(vex::reverse, 250, vex::degrees, 160, vex::rpm, false);
-        CatapultRelease.set(false);
-      }
-    } else {
-      cata2 = true;
-    }
-
     if (Controller.ButtonL1.pressing()) {
       if (wingsOn2) {
         wingsOn = !wingsOn;
         Wings.set(wingsOn);
-        wingsOn2 = false;
+        wingsOn2 = false; 
       }
     } else {
       wingsOn2 = true;
@@ -299,7 +324,7 @@ void usercontrol(void) {
     }
   }
 
-  wait(20, msec);
+  wait(20, vex::msec);
 }
 
 int main() {
@@ -309,6 +334,6 @@ int main() {
   preauton();
 
   while (true) {
-    wait(100, msec);
+    wait(100, vex::msec);
   }
 }

@@ -20,7 +20,7 @@ digital_out Wings = digital_out(Brain.ThreeWirePort.A);
 motor Intake = motor(PORT11, ratio18_1, false);
 motor CatapultLift = motor(PORT20, ratio36_1, false);
 motor Catapult = motor(PORT7, ratio18_1, false);
-digital_out CatapultRelease = digital_out(Brain.ThreeWirePort.C);
+digital_out CatapultRelease = digital_out(Brain.ThreeWirePort.B);
 
 // VEXcode generated functions
 // define variable for remote controller enable/disable
