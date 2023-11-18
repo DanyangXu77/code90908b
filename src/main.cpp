@@ -4,13 +4,20 @@
 #include <robot-config.h>
 #include <vex.h>
 using namespace vex;
+#include <iostream>
+using namespace std;
+
 
 competition Competition;
 
-double pi = 3.1415926535897932384626433;
+double pi = 3.14159265358979323846264338327950288419716939937510582097494459;
+
+double inches = 1;
+double turns = 1;
+
 bool reversed = false;
 
-double lateralkP = 0, lateralkI = 0, lateralkD = 0;
+double lateralkP = 0.5, lateralkI = 0, lateralkD = 0;
 double turnkP = 0, turnkI = 0, turnkD = 0;
 double lateralError, previousLateralError, turnError, previousTurnError;
 
@@ -43,11 +50,23 @@ void resetDriveSensors() {
   BackRight.resetPosition();
 }
 
+char* dtc(double d) {
+  char* buffer = new char[sizeof(d)];
+  sprintf(buffer, "%f", d);
+  return buffer;
+}
+
+void centrePrintAt(int xPos, int yPos, char* txt) {
+  int xDiff = Brain.Screen.getStringWidth(txt);
+  int yDiff = Brain.Screen.getStringHeight(txt);
+  Brain.Screen.printAt(xPos - xDiff / 2, yPos + yDiff / 2, txt);
+}
+
 void pid() {
   while (true) {
     if (pidOn) {
-      double leftMotorPosition = MiddleLeft.position(degrees);
-      double rightMotorPosition = MiddleRight.position(degrees);
+      double leftMotorPosition = MiddleLeft.position(vex::degrees);
+      double rightMotorPosition = MiddleRight.position(vex::degrees);
       double averageMotorPosition = (leftMotorPosition + rightMotorPosition) / 2;
       double turnDifference = leftMotorPosition - rightMotorPosition;
 
@@ -65,46 +84,45 @@ void pid() {
 
       double lateralMotorPower = lateralError * lateralkP + totalLateralError * lateralkI + lateralErrorDifference * lateralkD;
 
-      double turnMotorPower =
-          (turnError * turnkP + totalTurnError * turnkI + turnErrorDifference * turnkD);
+      double turnMotorPower = turnError * turnkP + totalTurnError * turnkI + turnErrorDifference * turnkD;
 
       previousLateralError = lateralError;
       previousTurnError = turnError;
       
       wait(20, msec);
 
-      FrontLeft.spin(forward, lateralMotorPower + turnMotorPower, volt);
-      FrontRight.spin(forward, lateralMotorPower - turnMotorPower, volt);
-      MiddleLeft.spin(forward, lateralMotorPower + turnMotorPower, volt);
-      MiddleRight.spin(forward, lateralMotorPower - turnMotorPower, volt);
-      BackLeft.spin(forward, lateralMotorPower + turnMotorPower, volt);
-      BackRight.spin(forward, lateralMotorPower - turnMotorPower, volt);
+      cout << leftMotorPosition << ", " << rightMotorPosition;
+
+      FrontLeft.spin(vex::forward, lateralMotorPower + turnMotorPower, vex::percent);
+      FrontRight.spin(vex::forward, lateralMotorPower - turnMotorPower, vex::percent);
+      MiddleLeft.spin(vex::forward, lateralMotorPower + turnMotorPower, vex::percent);
+      MiddleRight.spin(vex::forward, lateralMotorPower - turnMotorPower, vex::percent);
+      BackLeft.spin(vex::forward, lateralMotorPower + turnMotorPower, vex::percent);
+      BackRight.spin(vex::forward, lateralMotorPower - turnMotorPower, vex::percent);
     }
   }
 }
 
 void drive(double angle) {
+  cout << "start";
   pidOn = true;
   resetDriveSensors();
   desiredLateralValue = angle;
   desiredTurnValue = 0;
-  while ((MiddleLeft.position(degrees) - angle) > 2 && (MiddleRight.position(degrees) - angle) > 2) wait(20, msec);
+  while ((MiddleLeft.position(vex::degrees) - angle) > 2 && (MiddleRight.position(vex::degrees) - angle) > 2) wait(20, msec);
   pidOn = false;
+  cout << "end";
 }
 
 void turn(double angle) {
+  cout << "start";
   pidOn = true;
   resetDriveSensors();
   desiredLateralValue = 0;
   desiredTurnValue = angle;
-  while ((MiddleLeft.position(degrees) - angle) > 2 && (MiddleRight.position(degrees) + angle) > 2) wait(20, msec);
+  while ((MiddleLeft.position(vex::degrees) - angle) > 2 && (MiddleRight.position(vex::degrees) + angle) > 2) wait(20, msec);
   pidOn = false;
-}
-
-void centrePrintAt(int xPos, int yPos, char* txt) {
-  int xDiff = Brain.Screen.getStringWidth(txt);
-  int yDiff = Brain.Screen.getStringHeight(txt);
-  Brain.Screen.printAt(xPos - xDiff / 2, yPos + yDiff / 2, txt);
+  cout << "end";
 }
 
 void preauton() {
@@ -118,11 +136,10 @@ void preauton() {
   Brain.Screen.setFont(mono30);
   centrePrintAt(120, 120, "CLOSE AUTON");
   centrePrintAt(360, 120, "FAR AUTON");
-  // Brain.Screen.drawImageFromBuffer(pic_map, 0, 0, 480, 240);
   while (!autonStarted) {
     if (Brain.Screen.pressing()) {
       if (Brain.Screen.xPosition() < 240) {
-        if (mode == "close_auton") {
+        if (strncmp(mode, "close_auton", 11)) {
           continue;
         }
         mode = "close_auton";
@@ -136,9 +153,8 @@ void preauton() {
         Brain.Screen.setFont(mono30);
         Brain.Screen.setPenColor(white);
         centrePrintAt(360, 120, "FAR AUTON");
-        Brain.Screen.drawImageFromFile("pic.png", 0, 0);
       } else {
-        if (mode == "far_auton") {
+        if (strncmp(mode, "close_auton", 11)) {
           continue;
         }
         mode = "far_auton";
@@ -153,7 +169,6 @@ void preauton() {
         Brain.Screen.getStringWidth("");
         Brain.Screen.setPenColor(white);
         centrePrintAt(120, 120, "CLOSE AUTON");
-        Brain.Screen.drawImageFromFile("pic.png", 0, 0);
       }
     }
     wait(20, msec);
@@ -166,9 +181,12 @@ void autonomous(void) {
   Brain.Screen.clearScreen();
   centrePrintAt(240, 120, "using mode");
   centrePrintAt(240, 180, mode);
-  if (mode == "close_auton") {
 
-  } else if (mode == "far_auton") {
+  cout << "program start";
+
+  if (strncmp(mode, "close_auton", 11)) {
+    
+  } else if (strncmp(mode, "close_auton", 11)) {
 
   }
 }
@@ -176,27 +194,29 @@ void autonomous(void) {
 void usercontrol(void) {
   int axis1, axis3;
   while (1) {
-    axis1 = Controller.Axis1.position(percent);
-    axis3 = Controller.Axis3.position(percent);
+    axis1 = Controller.Axis1.position(vex::percent);
+    axis3 = Controller.Axis3.position(vex::percent);
 
     if (reversed) {
-      FrontLeft.spin(forward, axis3 + axis1, percent);
-      FrontRight.spin(forward, axis3 - axis1, percent);
-      MiddleLeft.spin(forward, axis3 + axis1, percent);
-      MiddleRight.spin(forward, axis3 - axis1, percent);
-      BackLeft.spin(forward, axis3 + axis1, percent);
-      BackRight.spin(forward, axis3 - axis1, percent);
+      FrontLeft.spin(vex::forward, axis3 + axis1, vex::percent);
+      FrontRight.spin(vex::forward, axis3 - axis1, vex::percent);
+      MiddleLeft.spin(vex::forward, axis3 + axis1, vex::percent);
+      MiddleRight.spin(vex::forward, axis3 - axis1, vex::percent);
+      BackLeft.spin(vex::forward, axis3 + axis1, vex::percent);
+      BackRight.spin(vex::forward, axis3 - axis1, vex::percent);
     } else {
-      FrontLeft.spin(reverse, axis3 - axis1, percent);
-      FrontRight.spin(reverse, axis3 + axis1, percent);
-      MiddleLeft.spin(reverse, axis3 - axis1, percent);
-      MiddleRight.spin(reverse, axis3 + axis1, percent);
-      BackLeft.spin(reverse, axis3 - axis1, percent);
-      BackRight.spin(reverse, axis3 + axis1, percent);
+      FrontLeft.spin(vex::reverse, axis3 - axis1, vex::percent);
+      FrontRight.spin(vex::reverse, axis3 + axis1, vex::percent);
+      MiddleLeft.spin(vex::reverse, axis3 - axis1, vex::percent);
+      MiddleRight.spin(vex::reverse, axis3 + axis1, vex::percent);
+      BackLeft.spin(vex::reverse, axis3 - axis1, vex::percent);
+      BackRight.spin(vex::reverse, axis3 + axis1, vex::percent);
     }
     
     if (Controller.ButtonR1.pressing()) {
-      Intake.spin(forward, 200, rpm);
+      Intake.spin(vex::forward, 200, vex::rpm);
+    } else if (Controller.ButtonR2.pressing()) {
+      Intake.spin(vex::reverse, 200, vex::rpm);
     } else {
       Intake.stop();
     }
@@ -204,10 +224,10 @@ void usercontrol(void) {
     if (Controller.ButtonB.pressing()) {
       if (cata2) {
         cata2 = false;
-        CatapultLift.spinFor(forward, 250, degrees, 160, rpm, false);
+        CatapultLift.spinFor(vex::forward, 250, vex::degrees, 160, vex::rpm, false);
         wait(500, msec);
-        Catapult.spinFor(forward, 16560, degrees, 140, rpm, true);
-        CatapultLift.spinFor(reverse, 250, degrees, 160, rpm, false);
+        Catapult.spinFor(vex::forward, 16560, vex::degrees, 140, vex::rpm, true);
+        CatapultLift.spinFor(vex::reverse, 250, vex::degrees, 160, vex::rpm, false);
         CatapultRelease.set(false);
       }
     } else {
