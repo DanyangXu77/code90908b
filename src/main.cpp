@@ -7,7 +7,6 @@ using namespace vex;
 #include <iostream>
 using namespace std;
 
-
 competition Competition;
 
 double pi = 3.14159265358979323846264338327950288419716939937510582097494459;
