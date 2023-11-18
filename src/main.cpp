@@ -228,8 +228,12 @@ void autonomous(void) {
     drive(5, vex::reverse);
     Intake.spinFor(vex::reverse, 200, vex::degrees, 200, vex::rpm);
   } else if (mode == "far_auton") {
-
+    drive(80, vex::reverse);
+    turn(90, vex::reverse);
+    drive(5, vex::reverse);
+    Intake.spinFor(vex::reverse, 200, vex::degrees, 200, vex::rpm);
   } else {
+
   }
 }
 
