@@ -65,6 +65,20 @@ void setMotorsType(vex::brakeType type) {
   BackRight.setBrake(type);
 }
 
+void startIntake(vex::directionType direction) {
+  Intake.spin(direction, 200, vex::rpm);
+}
+
+void stopIntake() {
+  Intake.stop();
+}
+
+void unIntake() {
+    startIntake(vex::forward);
+    wait(500, msec);
+    startIntake(vex::reverse);
+}
+
 char* dtc(double d) {
   char* buffer = new char[sizeof(d)];
   sprintf(buffer, "%f", d);
@@ -77,89 +91,89 @@ void centrePrintAt(int xPos, int yPos, char* txt) {
   Brain.Screen.printAt(xPos - xDiff / 2, yPos + yDiff / 2, txt);
 }
 
-// void pid() {
-//   while (true) {
-//     if (pidOn) {
-//       double leftMotorPosition = MiddleLeft.position(vex::degrees);
-//       double rightMotorPosition = MiddleRight.position(vex::degrees);
-//       double averageMotorPosition = (leftMotorPosition + rightMotorPosition) / 2;
-//       double turnDifference = leftMotorPosition - rightMotorPosition;
+void pid() {
+  while (true) {
+    if (pidOn) {
+      double leftMotorPosition = MiddleLeft.position(vex::degrees);
+      double rightMotorPosition = MiddleRight.position(vex::degrees);
+      double averageMotorPosition = (leftMotorPosition + rightMotorPosition) / 2;
+      double turnDifference = leftMotorPosition - rightMotorPosition;
 
-//       lateralError = desiredLateralValue - averageMotorPosition;
+      lateralError = desiredLateralValue - averageMotorPosition;
 
-//       lateralErrorDifference = lateralError - previousLateralError;
+      lateralErrorDifference = lateralError - previousLateralError;
 
-//       turnError = desiredTurnValue - turnErrorDifference;
+      turnError = desiredTurnValue - turnErrorDifference;
 
-//       turnErrorDifference = turnError - previousTurnError;
+      turnErrorDifference = turnError - previousTurnError;
 
-//       totalLateralError += lateralError;
+      totalLateralError += lateralError;
 
-//       totalTurnError += turnError;
+      totalTurnError += turnError;
 
-//       double lateralMotorPower = lateralError * lateralkP + totalLateralError * lateralkI + lateralErrorDifference * lateralkD;
+      double lateralMotorPower = lateralError * lateralkP + totalLateralError * lateralkI + lateralErrorDifference * lateralkD;
 
-//       double turnMotorPower = turnError * turnkP + totalTurnError * turnkI + turnErrorDifference * turnkD;
+      double turnMotorPower = turnError * turnkP + totalTurnError * turnkI + turnErrorDifference * turnkD;
 
-//       previousLateralError = lateralError;
-//       previousTurnError = turnError;
+      previousLateralError = lateralError;
+      previousTurnError = turnError;
       
-//       wait(20, msec);
+      wait(20, msec);
 
-//       cout << leftMotorPosition << ", " << rightMotorPosition;
+      cout << leftMotorPosition << ", " << rightMotorPosition;
 
-//       FrontLeft.spin(vex::forward, lateralMotorPower + turnMotorPower, vex::percent);
-//       FrontRight.spin(vex::forward, lateralMotorPower - turnMotorPower, vex::percent);
-//       MiddleLeft.spin(vex::forward, lateralMotorPower + turnMotorPower, vex::percent);
-//       MiddleRight.spin(vex::forward, lateralMotorPower - turnMotorPower, vex::percent);
-//       BackLeft.spin(vex::forward, lateralMotorPower + turnMotorPower, vex::percent);
-//       BackRight.spin(vex::forward, lateralMotorPower - turnMotorPower, vex::percent);
-//     }
+      FrontLeft.spin(vex::forward, lateralMotorPower + turnMotorPower, vex::percent);
+      FrontRight.spin(vex::forward, lateralMotorPower - turnMotorPower, vex::percent);
+      MiddleLeft.spin(vex::forward, lateralMotorPower + turnMotorPower, vex::percent);
+      MiddleRight.spin(vex::forward, lateralMotorPower - turnMotorPower, vex::percent);
+      BackLeft.spin(vex::forward, lateralMotorPower + turnMotorPower, vex::percent);
+      BackRight.spin(vex::forward, lateralMotorPower - turnMotorPower, vex::percent);
+    }
 
-//     if (killPID) {
-//       break;
-//     }
-//   }
-// }
+    if (killPID) {
+      break;
+    }
+  }
+}
 
 void drive(double angle, vex::directionType direction) {
-  // cout << "start";
-  // pidOn = true;
-  // resetDriveSensors();
-  // desiredLateralValue = angle * driveInches;
-  // desiredTurnValue = 0;
-  // while ((MiddleLeft.position(vex::degrees) - angle) > 2 && (MiddleRight.position(vex::degrees) - angle) > 2) wait(20, msec);
-  // pidOn = false;
-  // cout << "end";
+  cout << "start";
+  pidOn = true;
+  resetDriveSensors();
+  desiredLateralValue = angle * driveInches;
+  desiredTurnValue = 0;
+  while (abs(MiddleLeft.position(vex::degrees) - angle) > 2 && abs(MiddleRight.position(vex::degrees) - angle) > 2) wait(20, msec);
+  pidOn = false;
+  cout << "end";
 
-  double turnAmount = 360 / 3.125 / pi * angle;
+  // double turnAmount = 360 / 3.125 / pi * angle;
 
-  FrontLeft.spinFor(direction, turnAmount, vex::degrees, 200, vex::rpm, false);
-  FrontRight.spinFor(direction, turnAmount, vex::degrees, 200, vex::rpm, false);
-  MiddleLeft.spinFor(direction, turnAmount, vex::degrees, 200, vex::rpm, false);
-  MiddleRight.spinFor(direction, turnAmount, vex::degrees, 200, vex::rpm, false);
-  BackLeft.spinFor(direction, turnAmount, vex::degrees, 200, vex::rpm, false);
-  BackRight.spinFor(direction, turnAmount, vex::degrees, 200, vex::rpm, true);
+  // FrontLeft.spinFor(direction, turnAmount, vex::degrees, 200, vex::rpm, false);
+  // FrontRight.spinFor(direction, turnAmount, vex::degrees, 200, vex::rpm, false);
+  // MiddleLeft.spinFor(direction, turnAmount, vex::degrees, 200, vex::rpm, false);
+  // MiddleRight.spinFor(direction, turnAmount, vex::degrees, 200, vex::rpm, false);
+  // BackLeft.spinFor(direction, turnAmount, vex::degrees, 200, vex::rpm, false);
+  // BackRight.spinFor(direction, turnAmount, vex::degrees, 200, vex::rpm, true);
 }
 
 void turn(double angle, vex::directionType direction) {
-  // cout << "start";
-  // pidOn = true;
-  // resetDriveSensors();
-  // desiredLateralValue = 0;
-  // desiredTurnValue = angle * driveDegrees;
-  // while ((MiddleLeft.position(vex::degrees) - angle) > 2 && (MiddleRight.position(vex::degrees) + angle) > 2) wait(20, msec);
-  // pidOn = false;
-  // cout << "end";
+  cout << "start";
+  pidOn = true;
+  resetDriveSensors();
+  desiredLateralValue = 0;
+  desiredTurnValue = angle * driveDegrees;
+  while (abs(MiddleLeft.position(vex::degrees) - angle) > 2 && abs(MiddleRight.position(vex::degrees) + angle) > 2) wait(20, msec);
+  pidOn = false;
+  cout << "end";
 
-  double turnAmount = 5 * angle;
+  // double turnAmount = 5 * angle;
 
-  FrontLeft.spinFor(direction, turnAmount, degrees, 200, rpm, false);
-  FrontRight.spinFor(opposite(direction), turnAmount, degrees, 200, rpm, false);
-  MiddleLeft.spinFor(direction, turnAmount, degrees, 200, rpm, false);
-  MiddleRight.spinFor(opposite(direction), turnAmount, degrees, 200, rpm, false);
-  BackLeft.spinFor(direction, turnAmount, degrees, 200, rpm, false);
-  BackRight.spinFor(opposite(direction), turnAmount, degrees, 200, rpm, true);
+  // FrontLeft.spinFor(direction, turnAmount, degrees, 200, rpm, false);
+  // FrontRight.spinFor(opposite(direction), turnAmount, degrees, 200, rpm, false);
+  // MiddleLeft.spinFor(direction, turnAmount, degrees, 200, rpm, false);
+  // MiddleRight.spinFor(opposite(direction), turnAmount, degrees, 200, rpm, false);
+  // BackLeft.spinFor(direction, turnAmount, degrees, 200, rpm, false);
+  // BackRight.spinFor(opposite(direction), turnAmount, degrees, 200, rpm, true);
 }
 
 void preauton() {
@@ -223,20 +237,49 @@ void autonomous(void) {
 
   cout << "program start";
 
+  int dummy = 0;
+
   if (mode == "close_auton") {
     Wings.set(true);
-    drive(80, vex::reverse);
-    turn(95, vex::forward);
-    drive(7, vex::reverse);
-    Intake.spinFor(vex::reverse, 200, vex::degrees, 200, vex::rpm, true);
-    drive(7, vex::forward);
+    turn(90, vex::reverse);
+    drive(20, vex::forward);
+    turn(45, vex::forward);
+    Wings.set(false);
+    wait(500, msec);
+    Wings.set(true);
+    turn(45, vex::reverse);
+    drive(20, vex::reverse);
+    turn(90, vex::forward);
+    drive(48, vex::reverse);
+    turn(90, vex::reverse);
+    drive(5, vex::reverse);
+    unIntake();
+    drive(5, vex::forward);
+    turn(90,vex::forward);
+    drive(48, vex::forward);
+    turn(90, vex::forward);
+    Wings.set(false);
+
   } else if (mode == "far_auton") {
     Wings.set(true);
-    drive(80, vex::reverse);
-    turn(95, vex::reverse);
-    drive(7, vex::reverse);
-    Intake.spinFor(vex::reverse, 200, vex::degrees, 200, vex::rpm, true);
+    drive(49, vex::reverse);
+    turn(90, vex::reverse);
+    drive(5, vex::forward);
+    unIntake();
+    drive(5, vex::reverse);
+    turn(135, vex::reverse);
     drive(7, vex::forward);
+    drive(7, vex::reverse);
+    turn(135, vex::forward);
+    unIntake();
+    turn(161.6, vex::forward);
+    drive(38, vex::forward);
+    drive(38, vex::reverse);
+    turn(161.6, vex::reverse);
+    unIntake();
+    turn(161.6, vex::forward);
+    drive(38, vex::forward);
+    drive(38, vex::reverse);
   } else {
 
   }
