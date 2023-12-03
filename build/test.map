@@ -68,49 +68,29 @@ Discarded input sections
                 0x0000000000000000       0x28 build/src/main.o
  .ARM.exidx.text._Z8oppositeN3vex13directionTypeE
                 0x0000000000000000        0x8 build/src/main.o
- .text._Z17resetDriveSensorsv
-                0x0000000000000000       0x54 build/src/main.o
- .ARM.exidx.text._Z17resetDriveSensorsv
+ .text._Z11startIntakeN3vex13directionTypeE
+                0x0000000000000000       0x48 build/src/main.o
+ .ARM.exidx.text._Z11startIntakeN3vex13directionTypeE
+                0x0000000000000000        0x8 build/src/main.o
+ .text._Z10stopIntakev
+                0x0000000000000000        0xc build/src/main.o
+ .ARM.exidx.text._Z10stopIntakev
+                0x0000000000000000        0x8 build/src/main.o
+ .text._Z8unIntakev
+                0x0000000000000000       0x98 build/src/main.o
+ .ARM.exidx.text._Z8unIntakev
                 0x0000000000000000        0x8 build/src/main.o
  .text._Z3dtcd  0x0000000000000000       0x38 build/src/main.o
  .ARM.exidx.text._Z3dtcd
                 0x0000000000000000        0x8 build/src/main.o
+ .text._Z5drived
+                0x0000000000000000      0x218 build/src/main.o
+ .ARM.exidx.text._Z5drived
+                0x0000000000000000        0x8 build/src/main.o
+ .data.pi       0x0000000000000000        0x8 build/src/main.o
  .data.driveInches
                 0x0000000000000000        0x8 build/src/main.o
- .data.driveDegrees
-                0x0000000000000000        0x8 build/src/main.o
- .data.lateralkP
-                0x0000000000000000        0x8 build/src/main.o
- .bss.lateralkI
-                0x0000000000000000        0x8 build/src/main.o
- .bss.lateralkD
-                0x0000000000000000        0x8 build/src/main.o
- .bss.turnkP    0x0000000000000000        0x8 build/src/main.o
- .bss.turnkI    0x0000000000000000        0x8 build/src/main.o
- .bss.turnkD    0x0000000000000000        0x8 build/src/main.o
- .bss.lateralError
-                0x0000000000000000        0x8 build/src/main.o
- .bss.previousLateralError
-                0x0000000000000000        0x8 build/src/main.o
- .bss.turnError
-                0x0000000000000000        0x8 build/src/main.o
- .bss.previousTurnError
-                0x0000000000000000        0x8 build/src/main.o
- .bss.lateralErrorDifference
-                0x0000000000000000        0x8 build/src/main.o
- .bss.turnErrorDifference
-                0x0000000000000000        0x8 build/src/main.o
- .bss.totalLateralError
-                0x0000000000000000        0x8 build/src/main.o
- .bss.totalTurnError
-                0x0000000000000000        0x8 build/src/main.o
- .bss.desiredLateralValue
-                0x0000000000000000        0x8 build/src/main.o
- .bss.desiredTurnValue
-                0x0000000000000000        0x8 build/src/main.o
- .data.pidOn    0x0000000000000000        0x1 build/src/main.o
- .bss.killPID   0x0000000000000000        0x1 build/src/main.o
- .llvm_addrsig  0x0000000000000000       0x15 build/src/main.o
+ .llvm_addrsig  0x0000000000000000       0x18 build/src/main.o
  .text          0x0000000000000000        0x0 build/src/pic.o
  .data          0x0000000000000000   0x1c2000 build/src/pic.o
  .comment       0x0000000000000000       0x2e build/src/pic.o
@@ -429,8 +409,6 @@ Discarded input sections
  .text.vexDeviceMotorEncoderUnitsGet
                 0x0000000000000000       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
  .text.vexDeviceMotorBrakeModeGet
-                0x0000000000000000       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
- .text.vexDeviceMotorPositionGet
                 0x0000000000000000       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
  .text.vexDeviceMotorPositionRawGet
                 0x0000000000000000       0x2c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
@@ -1258,10 +1236,6 @@ Discarded input sections
                 0x0000000000000000       0x44 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
  .text._ZN3vex5motor11setVelocityEdNS_13velocityUnitsE
                 0x0000000000000000       0x54 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
- .text._ZN3vex5motor11setPositionEdNS_13rotationUnitsE
-                0x0000000000000000       0x44 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
- .text._ZN3vex5motor13resetPositionEv
-                0x0000000000000000       0x20 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
  .text._ZN3vex5motor6spinToEdNS_13rotationUnitsEdNS_13velocityUnitsEb
                 0x0000000000000000       0xe0 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
  .text._ZN3vex5motor14spinToPositionEdNS_13rotationUnitsEdNS_13velocityUnitsEb
@@ -1274,8 +1248,6 @@ Discarded input sections
                 0x0000000000000000       0x34 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
  .text._ZN3vex5motor7spinForENS_13directionTypeEdNS_13rotationUnitsEb
                 0x0000000000000000       0x3c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
- .text._ZN3vex5motor8positionENS_13rotationUnitsE
-                0x0000000000000000       0x44 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
  .group         0x0000000000000000        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_controller.cpp.obj)
  .group         0x0000000000000000        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_controller.cpp.obj)
  .text          0x0000000000000000        0x0 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_controller.cpp.obj)
@@ -1326,8 +1298,6 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_thread.cpp.obj)
  .text._ZN3vex6threadC2EPFiPvES1_
                 0x0000000000000000       0x5c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_thread.cpp.obj)
- .text._ZN3vex6threadD2Ev
-                0x0000000000000000        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_thread.cpp.obj)
  .text._ZN3vex6thread8joinableEv
                 0x0000000000000000       0x28 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_thread.cpp.obj)
  .text._ZN3vex6thread6get_idEv
@@ -2003,8 +1973,6 @@ Discarded input sections
                 0x0000000000000000       0x18 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
  .text.vexMotorBrakeModeGet
                 0x0000000000000000       0x18 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
- .text.vexMotorPositionGet
-                0x0000000000000000       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
  .text.vexMotorPositionRawGet
                 0x0000000000000000       0x20 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
  .text.vexMotorPositionReset
@@ -2483,7 +2451,7 @@ Linker script and memory map
                 0x0000000000000400                _FIQ_STACK_SIZE = DEFINED (_FIQ_STACK_SIZE)?_FIQ_STACK_SIZE:0x400
                 0x0000000000000400                _UNDEF_STACK_SIZE = DEFINED (_UNDEF_STACK_SIZE)?_UNDEF_STACK_SIZE:0x400
 
-.text           0x0000000003800000     0x3940
+.text           0x0000000003800000     0x3d10
  *(.vectors)
  *(.boot_data)
  .boot_data     0x0000000003800000       0x20 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_startup.c.obj)
@@ -2499,616 +2467,638 @@ Linker script and memory map
  *(.text.*)
  .text._GLOBAL__sub_I_robot_config.cpp
                 0x0000000003800100      0x2a8 build/src/robot-config.o
+ .text._Z17resetDriveSensorsv
+                0x00000000038003a8       0x54 build/src/main.o
+                0x00000000038003a8                resetDriveSensors()
  .text._Z13setMotorsTypeN3vex9brakeTypeE
-                0x00000000038003a8       0x70 build/src/main.o
-                0x00000000038003a8                setMotorsType(vex::brakeType)
+                0x00000000038003fc       0x70 build/src/main.o
+                0x00000000038003fc                setMotorsType(vex::brakeType)
+ .text._Z10stopMotorsv
+                0x000000000380046c       0x54 build/src/main.o
+                0x000000000380046c                stopMotors()
  .text._Z13centrePrintAtiiPc
-                0x0000000003800418       0x58 build/src/main.o
-                0x0000000003800418                centrePrintAt(int, int, char*)
- .text._Z5drivedN3vex13directionTypeE
-                0x0000000003800470      0x170 build/src/main.o
-                0x0000000003800470                drive(double, vex::directionType)
- .text._Z4turndN3vex13directionTypeE
-                0x00000000038005e0      0x18c build/src/main.o
-                0x00000000038005e0                turn(double, vex::directionType)
+                0x00000000038004c0       0x58 build/src/main.o
+                0x00000000038004c0                centrePrintAt(int, int, char*)
+ .text._Z3pidv  0x0000000003800518      0x478 build/src/main.o
+                0x0000000003800518                pid()
+ .text._Z4turnd
+                0x0000000003800990      0x218 build/src/main.o
+                0x0000000003800990                turn(double)
  .text._Z8preautonv
-                0x000000000380076c      0x338 build/src/main.o
-                0x000000000380076c                preauton()
- *fill*         0x0000000003800aa4        0x4 
+                0x0000000003800ba8      0x338 build/src/main.o
+                0x0000000003800ba8                preauton()
  .text._Z10autonomousv
-                0x0000000003800aa8      0x240 build/src/main.o
-                0x0000000003800aa8                autonomous()
+                0x0000000003800ee0       0xe8 build/src/main.o
+                0x0000000003800ee0                autonomous()
  .text._Z4catav
-                0x0000000003800ce8      0x278 build/src/main.o
-                0x0000000003800ce8                cata()
+                0x0000000003800fc8      0x278 build/src/main.o
+                0x0000000003800fc8                cata()
  .text._Z11usercontrolv
-                0x0000000003800f60      0x358 build/src/main.o
-                0x0000000003800f60                usercontrol()
- .text.main     0x00000000038012b8       0x68 build/src/main.o
-                0x00000000038012b8                main
+                0x0000000003801240      0x358 build/src/main.o
+                0x0000000003801240                usercontrol()
+ .text.main     0x0000000003801598       0x68 build/src/main.o
+                0x0000000003801598                main
  .text._GLOBAL__sub_I_main.cpp
-                0x0000000003801320       0x5c build/src/main.o
- .text.vexMain  0x000000000380137c       0xb0 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_startup.c.obj)
-                0x000000000380137c                vexMain
+                0x0000000003801600       0x5c build/src/main.o
+ .text.vexMain  0x000000000380165c       0xb0 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_startup.c.obj)
+                0x000000000380165c                vexMain
  .text.__vex_function_prolog
-                0x000000000380142c       0x18 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_startup.c.obj)
-                0x000000000380142c                __vex_function_prolog
- .text._init    0x0000000003801444        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_startup.c.obj)
-                0x0000000003801444                _init
- .text._fini    0x0000000003801448        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_startup.c.obj)
-                0x0000000003801448                _fini
+                0x000000000380170c       0x18 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_startup.c.obj)
+                0x000000000380170c                __vex_function_prolog
+ .text._init    0x0000000003801724        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_startup.c.obj)
+                0x0000000003801724                _init
+ .text._fini    0x0000000003801728        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_startup.c.obj)
+                0x0000000003801728                _fini
  .text.vexStdlibVersionLinked
-                0x000000000380144c        0xc /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_util.c.obj)
-                0x000000000380144c                vexStdlibVersionLinked
+                0x000000000380172c        0xc /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_util.c.obj)
+                0x000000000380172c                vexStdlibVersionLinked
  .text.vexStdlibVersionVerify
-                0x0000000003801458       0x30 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_util.c.obj)
-                0x0000000003801458                vexStdlibVersionVerify
+                0x0000000003801738       0x30 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_util.c.obj)
+                0x0000000003801738                vexStdlibVersionVerify
  .text.vexPrivateApiEnable
-                0x0000000003801488       0x10 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801488                vexPrivateApiEnable
+                0x0000000003801768       0x10 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801768                vexPrivateApiEnable
  .text.vexStdlibMismatchError
-                0x0000000003801498       0x3c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801498                vexStdlibMismatchError
+                0x0000000003801778       0x3c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801778                vexStdlibMismatchError
  .text.vexTaskAdd
-                0x00000000038014d4       0x10 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x00000000038014d4                vexTaskAdd
+                0x00000000038017b4       0x10 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x00000000038017b4                vexTaskAdd
  .text.vexTasksRun
-                0x00000000038014e4       0x10 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x00000000038014e4                vexTasksRun
+                0x00000000038017c4       0x10 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x00000000038017c4                vexTasksRun
  .text.vexTaskYield
-                0x00000000038014f4       0x10 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x00000000038014f4                vexTaskYield
+                0x00000000038017d4       0x10 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x00000000038017d4                vexTaskYield
  .text.vexTaskCheckTimeslice
-                0x0000000003801504       0x10 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801504                vexTaskCheckTimeslice
+                0x00000000038017e4       0x10 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x00000000038017e4                vexTaskCheckTimeslice
  .text.vexTaskSleep
-                0x0000000003801514       0x10 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801514                vexTaskSleep
+                0x00000000038017f4       0x10 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x00000000038017f4                vexTaskSleep
  .text.vexTasksDump
-                0x0000000003801524       0x1c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801524                vexTasksDump
+                0x0000000003801804       0x1c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801804                vexTasksDump
  .text.vexTaskGetTaskIndex
-                0x0000000003801540       0x10 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801540                vexTaskGetTaskIndex
+                0x0000000003801820       0x10 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801820                vexTaskGetTaskIndex
  .text.vexTaskStopAll
-                0x0000000003801550       0x10 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801550                vexTaskStopAll
+                0x0000000003801830       0x10 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801830                vexTaskStopAll
  .text.vexTaskRemoveAllUser
-                0x0000000003801560       0x34 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801560                vexTaskRemoveAllUser
+                0x0000000003801840       0x34 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801840                vexTaskRemoveAllUser
  .text.vexTaskCompletionIdSet
-                0x0000000003801594       0x10 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801594                vexTaskCompletionIdSet
+                0x0000000003801874       0x10 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801874                vexTaskCompletionIdSet
  .text.vexTaskStopWithId
-                0x00000000038015a4       0x10 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x00000000038015a4                vexTaskStopWithId
+                0x0000000003801884       0x10 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801884                vexTaskStopWithId
  .text.vexCriticalSection
-                0x00000000038015b4       0x2c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x00000000038015b4                vexCriticalSection
+                0x0000000003801894       0x2c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801894                vexCriticalSection
  .text.vexEventAdd
-                0x00000000038015e0       0x34 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x00000000038015e0                vexEventAdd
+                0x00000000038018c0       0x34 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x00000000038018c0                vexEventAdd
  .text.vexEventUserIndexGet
-                0x0000000003801614       0x1c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801614                vexEventUserIndexGet
+                0x00000000038018f4       0x1c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x00000000038018f4                vexEventUserIndexGet
  .text.vexEventAddWithArg
-                0x0000000003801630       0x3c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801630                vexEventAddWithArg
+                0x0000000003801910       0x3c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801910                vexEventAddWithArg
  .text.vexEventsCleanup
-                0x000000000380166c       0x2c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x000000000380166c                vexEventsCleanup
+                0x000000000380194c       0x2c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x000000000380194c                vexEventsCleanup
  .text.vexDebug
-                0x0000000003801698       0x38 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801698                vexDebug
+                0x0000000003801978       0x38 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801978                vexDebug
  .text.vex_sprintf
-                0x00000000038016d0       0x40 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x00000000038016d0                vex_sprintf
+                0x00000000038019b0       0x40 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x00000000038019b0                vex_sprintf
  .text.vexSystemTimeGet
-                0x0000000003801710       0x1c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801710                vexSystemTimeGet
+                0x00000000038019f0       0x1c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x00000000038019f0                vexSystemTimeGet
  .text.vexSystemExitRequest
-                0x000000000380172c       0x1c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x000000000380172c                vexSystemExitRequest
+                0x0000000003801a0c       0x1c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801a0c                vexSystemExitRequest
  .text.vexDeviceGetByIndex
-                0x0000000003801748       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801748                vexDeviceGetByIndex
+                0x0000000003801a28       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801a28                vexDeviceGetByIndex
  .text.vexControllerGet
-                0x000000000380176c       0x2c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x000000000380176c                vexControllerGet
+                0x0000000003801a4c       0x2c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801a4c                vexControllerGet
  .text.vexDeviceAdiPortConfigSet
-                0x0000000003801798       0x34 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801798                vexDeviceAdiPortConfigSet
+                0x0000000003801a78       0x34 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801a78                vexDeviceAdiPortConfigSet
  .text.vexDeviceAdiPortConfigGet
-                0x00000000038017cc       0x2c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x00000000038017cc                vexDeviceAdiPortConfigGet
+                0x0000000003801aac       0x2c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801aac                vexDeviceAdiPortConfigGet
  .text.vexDeviceAdiValueSet
-                0x00000000038017f8       0x34 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x00000000038017f8                vexDeviceAdiValueSet
+                0x0000000003801ad8       0x34 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801ad8                vexDeviceAdiValueSet
  .text.vexDeviceMotorVelocitySet
-                0x000000000380182c       0x2c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x000000000380182c                vexDeviceMotorVelocitySet
+                0x0000000003801b0c       0x2c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801b0c                vexDeviceMotorVelocitySet
  .text.vexDeviceMotorVelocityGet
-                0x0000000003801858       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801858                vexDeviceMotorVelocityGet
+                0x0000000003801b38       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801b38                vexDeviceMotorVelocityGet
  .text.vexDeviceMotorActualVelocityGet
-                0x000000000380187c       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x000000000380187c                vexDeviceMotorActualVelocityGet
+                0x0000000003801b5c       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801b5c                vexDeviceMotorActualVelocityGet
  .text.vexDeviceMotorModeGet
-                0x00000000038018a0       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x00000000038018a0                vexDeviceMotorModeGet
+                0x0000000003801b80       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801b80                vexDeviceMotorModeGet
  .text.vexDeviceMotorZeroPositionFlagGet
-                0x00000000038018c4       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x00000000038018c4                vexDeviceMotorZeroPositionFlagGet
+                0x0000000003801ba4       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801ba4                vexDeviceMotorZeroPositionFlagGet
  .text.vexDeviceMotorReverseFlagSet
-                0x00000000038018e8       0x2c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x00000000038018e8                vexDeviceMotorReverseFlagSet
+                0x0000000003801bc8       0x2c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801bc8                vexDeviceMotorReverseFlagSet
  .text.vexDeviceMotorEncoderUnitsSet
-                0x0000000003801914       0x2c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801914                vexDeviceMotorEncoderUnitsSet
+                0x0000000003801bf4       0x2c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801bf4                vexDeviceMotorEncoderUnitsSet
  .text.vexDeviceMotorBrakeModeSet
-                0x0000000003801940       0x2c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801940                vexDeviceMotorBrakeModeSet
+                0x0000000003801c20       0x2c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801c20                vexDeviceMotorBrakeModeSet
  .text.vexDeviceMotorPositionSet
-                0x000000000380196c       0x34 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x000000000380196c                vexDeviceMotorPositionSet
+                0x0000000003801c4c       0x34 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801c4c                vexDeviceMotorPositionSet
+ .text.vexDeviceMotorPositionGet
+                0x0000000003801c80       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801c80                vexDeviceMotorPositionGet
  .text.vexDeviceMotorRelativeTargetSet
-                0x00000000038019a0       0x3c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x00000000038019a0                vexDeviceMotorRelativeTargetSet
+                0x0000000003801ca4       0x3c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801ca4                vexDeviceMotorRelativeTargetSet
  .text.vexDeviceMotorGearingSet
-                0x00000000038019dc       0x2c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x00000000038019dc                vexDeviceMotorGearingSet
+                0x0000000003801ce0       0x2c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801ce0                vexDeviceMotorGearingSet
  .text.vexDeviceMotorGearingGet
-                0x0000000003801a08       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801a08                vexDeviceMotorGearingGet
+                0x0000000003801d0c       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801d0c                vexDeviceMotorGearingGet
  .text.vexDisplayForegroundColor
-                0x0000000003801a2c       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801a2c                vexDisplayForegroundColor
+                0x0000000003801d30       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801d30                vexDisplayForegroundColor
  .text.vexDisplayBackgroundColor
-                0x0000000003801a50       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801a50                vexDisplayBackgroundColor
+                0x0000000003801d54       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801d54                vexDisplayBackgroundColor
  .text.vexDisplayBackgroundColorGet
-                0x0000000003801a74       0x1c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801a74                vexDisplayBackgroundColorGet
+                0x0000000003801d78       0x1c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801d78                vexDisplayBackgroundColorGet
  .text.vexDisplayRectDraw
-                0x0000000003801a90       0x4c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801a90                vexDisplayRectDraw
+                0x0000000003801d94       0x4c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801d94                vexDisplayRectDraw
  .text.vexDisplayRectClear
-                0x0000000003801adc       0x4c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801adc                vexDisplayRectClear
+                0x0000000003801de0       0x4c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801de0                vexDisplayRectClear
  .text.vexDisplayVPrintf
-                0x0000000003801b28       0x50 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801b28                vexDisplayVPrintf
+                0x0000000003801e2c       0x50 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801e2c                vexDisplayVPrintf
  .text.vexDisplayTextReference
-                0x0000000003801b78       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801b78                vexDisplayTextReference
+                0x0000000003801e7c       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801e7c                vexDisplayTextReference
  .text.vexDisplayTextSize
-                0x0000000003801b9c       0x2c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801b9c                vexDisplayTextSize
+                0x0000000003801ea0       0x2c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801ea0                vexDisplayTextSize
  .text.vexDisplayFontNamedSet
-                0x0000000003801bc8       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801bc8                vexDisplayFontNamedSet
+                0x0000000003801ecc       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801ecc                vexDisplayFontNamedSet
  .text.vexDisplayStringWidthGet
-                0x0000000003801bec       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801bec                vexDisplayStringWidthGet
+                0x0000000003801ef0       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801ef0                vexDisplayStringWidthGet
  .text.vexDisplayStringHeightGet
-                0x0000000003801c10       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801c10                vexDisplayStringHeightGet
+                0x0000000003801f14       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801f14                vexDisplayStringHeightGet
  .text.vexDisplayPenSizeSet
-                0x0000000003801c34       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801c34                vexDisplayPenSizeSet
+                0x0000000003801f38       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801f38                vexDisplayPenSizeSet
  .text.vexDisplayPenSizeGet
-                0x0000000003801c58       0x1c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801c58                vexDisplayPenSizeGet
+                0x0000000003801f5c       0x1c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801f5c                vexDisplayPenSizeGet
  .text.vexSystemStdlibImpureDataAddr
-                0x0000000003801c74       0x28 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801c74                vexSystemStdlibImpureDataAddr
+                0x0000000003801f78       0x28 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801f78                vexSystemStdlibImpureDataAddr
  .text.vexSystemStdlibImpureDataSize
-                0x0000000003801c9c       0x28 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801c9c                vexSystemStdlibImpureDataSize
+                0x0000000003801fa0       0x28 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801fa0                vexSystemStdlibImpureDataSize
  .text.vexSystemSaveUserData
-                0x0000000003801cc4       0x3c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801cc4                vexSystemSaveUserData
+                0x0000000003801fc8       0x3c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003801fc8                vexSystemSaveUserData
  .text.vexTouchDataGet
-                0x0000000003801d00       0x10 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801d00                vexTouchDataGet
+                0x0000000003802004       0x10 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003802004                vexTouchDataGet
  .text.vexDisplayThemeIdGet
-                0x0000000003801d10       0x38 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801d10                vexDisplayThemeIdGet
+                0x0000000003802014       0x38 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003802014                vexDisplayThemeIdGet
  .text.vexDeviceEventMaskSet
-                0x0000000003801d48       0x48 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801d48                vexDeviceEventMaskSet
+                0x000000000380204c       0x48 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x000000000380204c                vexDeviceEventMaskSet
  .text.vexDeviceEventMaskGet
-                0x0000000003801d90       0x3c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
-                0x0000000003801d90                vexDeviceEventMaskGet
+                0x0000000003802094       0x3c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003802094                vexDeviceEventMaskGet
  .text.vexSystemVersion
-                0x0000000003801dcc       0x10 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiversions.c.obj)
-                0x0000000003801dcc                vexSystemVersion
+                0x00000000038020d0       0x10 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiversions.c.obj)
+                0x00000000038020d0                vexSystemVersion
  .text.vexStdlibVersion
-                0x0000000003801ddc       0x10 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiversions.c.obj)
-                0x0000000003801ddc                vexStdlibVersion
- *fill*         0x0000000003801dec        0x4 
+                0x00000000038020e0       0x10 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiversions.c.obj)
+                0x00000000038020e0                vexStdlibVersion
  .text._ZN3vex4waitEdNS_9timeUnitsE
-                0x0000000003801df0       0x30 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
-                0x0000000003801df0                vex::wait(double, vex::timeUnits)
+                0x00000000038020f0       0x30 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
+                0x00000000038020f0                vex::wait(double, vex::timeUnits)
  .text._ZN3vex5motorD2Ev
-                0x0000000003801e20       0x20 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
-                0x0000000003801e20                vex::motor::~motor()
-                0x0000000003801e20                vex::motor::~motor()
+                0x0000000003802120       0x20 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
+                0x0000000003802120                vex::motor::~motor()
+                0x0000000003802120                vex::motor::~motor()
  .text._ZN3vex5motorD0Ev
-                0x0000000003801e40       0x1c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
-                0x0000000003801e40                vex::motor::~motor()
+                0x0000000003802140       0x1c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
+                0x0000000003802140                vex::motor::~motor()
  .text._ZN3vex5motor9installedEv
-                0x0000000003801e5c       0x18 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
-                0x0000000003801e5c                vex::motor::installed()
+                0x000000000380215c       0x18 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
+                0x000000000380215c                vex::motor::installed()
  .text._ZN3vex5motor15defaultStoppingENS_9brakeTypeE
-                0x0000000003801e74       0x30 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
-                0x0000000003801e74                vex::motor::defaultStopping(vex::brakeType)
+                0x0000000003802174       0x30 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
+                0x0000000003802174                vex::motor::defaultStopping(vex::brakeType)
  .text._ZN3vex5motor8setBrakeENS_9brakeTypeE
-                0x0000000003801ea4        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
-                0x0000000003801ea4                vex::motor::setBrake(vex::brakeType)
+                0x00000000038021a4        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
+                0x00000000038021a4                vex::motor::setBrake(vex::brakeType)
  .text._ZN3vex5motor11setStoppingENS_9brakeTypeE
-                0x0000000003801ea8        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
-                0x0000000003801ea8                vex::motor::setStopping(vex::brakeType)
+                0x00000000038021a8        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
+                0x00000000038021a8                vex::motor::setStopping(vex::brakeType)
  .text._ZN3vex5motorC2El
-                0x0000000003801eac       0x78 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
-                0x0000000003801eac                vex::motor::motor(long)
-                0x0000000003801eac                vex::motor::motor(long)
+                0x00000000038021ac       0x78 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
+                0x00000000038021ac                vex::motor::motor(long)
+                0x00000000038021ac                vex::motor::motor(long)
  .text._ZN3vex5motorC2ElNS_11gearSettingEb
-                0x0000000003801f24       0x34 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
-                0x0000000003801f24                vex::motor::motor(long, vex::gearSetting, bool)
-                0x0000000003801f24                vex::motor::motor(long, vex::gearSetting, bool)
+                0x0000000003802224       0x34 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
+                0x0000000003802224                vex::motor::motor(long, vex::gearSetting, bool)
+                0x0000000003802224                vex::motor::motor(long, vex::gearSetting, bool)
  .text._ZN3vex5motor14isSpinningModeEv
-                0x0000000003801f58       0x48 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
-                0x0000000003801f58                vex::motor::isSpinningMode()
+                0x0000000003802258       0x48 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
+                0x0000000003802258                vex::motor::isSpinningMode()
  .text._ZN3vex5motor10isSpinningEv
-                0x0000000003801fa0       0x44 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
-                0x0000000003801fa0                vex::motor::isSpinning()
+                0x00000000038022a0       0x44 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
+                0x00000000038022a0                vex::motor::isSpinning()
  .text._ZN3vex5motor4stopENS_9brakeTypeE
-                0x0000000003801fe4       0x30 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
-                0x0000000003801fe4                vex::motor::stop(vex::brakeType)
+                0x00000000038022e4       0x30 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
+                0x00000000038022e4                vex::motor::stop(vex::brakeType)
  .text._ZN3vex5motor4stopEv
-                0x0000000003802014        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
-                0x0000000003802014                vex::motor::stop()
+                0x0000000003802314        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
+                0x0000000003802314                vex::motor::stop()
  .text._ZN3vex5motor16velocityToScaledEdNS_13velocityUnitsE
-                0x000000000380201c       0x5c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
-                0x000000000380201c                vex::motor::velocityToScaled(double, vex::velocityUnits)
+                0x000000000380231c       0x5c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
+                0x000000000380231c                vex::motor::velocityToScaled(double, vex::velocityUnits)
  .text._ZN3vex5motor8velocityENS_13velocityUnitsE
-                0x0000000003802078       0x30 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
-                0x0000000003802078                vex::motor::velocity(vex::velocityUnits)
+                0x0000000003802378       0x30 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
+                0x0000000003802378                vex::motor::velocity(vex::velocityUnits)
  .text._ZN3vex5motor5valueEv
-                0x00000000038020a8       0x1c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
-                0x00000000038020a8                vex::motor::value()
+                0x00000000038023a8       0x1c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
+                0x00000000038023a8                vex::motor::value()
  .text._ZN3vex5motor16scaledToVelocityEdNS_13velocityUnitsE
-                0x00000000038020c4       0xa4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
-                0x00000000038020c4                vex::motor::scaledToVelocity(double, vex::velocityUnits)
+                0x00000000038023c4       0xa4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
+                0x00000000038023c4                vex::motor::scaledToVelocity(double, vex::velocityUnits)
  .text._ZN3vex5motor4spinENS_13directionTypeEdNS_13velocityUnitsE
-                0x0000000003802168       0x5c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
-                0x0000000003802168                vex::motor::spin(vex::directionType, double, vex::velocityUnits)
+                0x0000000003802468       0x5c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
+                0x0000000003802468                vex::motor::spin(vex::directionType, double, vex::velocityUnits)
  .text._ZN3vex5motor16setRotationUnitsENS_13rotationUnitsE
-                0x00000000038021c4       0x1c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
-                0x00000000038021c4                vex::motor::setRotationUnits(vex::rotationUnits)
+                0x00000000038024c4       0x1c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
+                0x00000000038024c4                vex::motor::setRotationUnits(vex::rotationUnits)
+ .text._ZN3vex5motor11setPositionEdNS_13rotationUnitsE
+                0x00000000038024e0       0x44 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
+                0x00000000038024e0                vex::motor::setPosition(double, vex::rotationUnits)
+ .text._ZN3vex5motor13resetPositionEv
+                0x0000000003802524       0x20 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
+                0x0000000003802524                vex::motor::resetPosition()
  .text._ZN3vex5motor7spinForEdNS_13rotationUnitsEdNS_13velocityUnitsEb
-                0x00000000038021e0       0xf4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
-                0x00000000038021e0                vex::motor::spinFor(double, vex::rotationUnits, double, vex::velocityUnits, bool)
+                0x0000000003802544       0xf4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
+                0x0000000003802544                vex::motor::spinFor(double, vex::rotationUnits, double, vex::velocityUnits, bool)
  .text._ZN3vex5motor7spinForENS_13directionTypeEdNS_13rotationUnitsEdNS_13velocityUnitsEb
-                0x00000000038022d4       0x34 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
-                0x00000000038022d4                vex::motor::spinFor(vex::directionType, double, vex::rotationUnits, double, vex::velocityUnits, bool)
+                0x0000000003802638       0x34 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
+                0x0000000003802638                vex::motor::spinFor(vex::directionType, double, vex::rotationUnits, double, vex::velocityUnits, bool)
+ .text._ZN3vex5motor8positionENS_13rotationUnitsE
+                0x000000000380266c       0x44 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
+                0x000000000380266c                vex::motor::position(vex::rotationUnits)
  .text._ZN3vex10controllerD2Ev
-                0x0000000003802308        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_controller.cpp.obj)
-                0x0000000003802308                vex::controller::~controller()
-                0x0000000003802308                vex::controller::~controller()
+                0x00000000038026b0        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_controller.cpp.obj)
+                0x00000000038026b0                vex::controller::~controller()
+                0x00000000038026b0                vex::controller::~controller()
  .text._ZN3vex10controller5valueE19_V5_ControllerIndex
-                0x000000000380230c        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_controller.cpp.obj)
-                0x000000000380230c                vex::controller::value(_V5_ControllerIndex)
+                0x00000000038026b4        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_controller.cpp.obj)
+                0x00000000038026b4                vex::controller::value(_V5_ControllerIndex)
  .text._ZNK3vex10controller6button8pressingEv
-                0x0000000003802314       0xc8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_controller.cpp.obj)
-                0x0000000003802314                vex::controller::button::pressing() const
+                0x00000000038026bc       0xc8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_controller.cpp.obj)
+                0x00000000038026bc                vex::controller::button::pressing() const
  .text._ZNK3vex10controller6button21_buttonToPressedEventEv
-                0x00000000038023dc       0x20 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_controller.cpp.obj)
-                0x00000000038023dc                vex::controller::button::_buttonToPressedEvent() const
+                0x0000000003802784       0x20 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_controller.cpp.obj)
+                0x0000000003802784                vex::controller::button::_buttonToPressedEvent() const
  .text._ZNK3vex10controller6button22_buttonToReleasedEventEv
-                0x00000000038023fc       0x20 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_controller.cpp.obj)
-                0x00000000038023fc                vex::controller::button::_buttonToReleasedEvent() const
+                0x00000000038027a4       0x20 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_controller.cpp.obj)
+                0x00000000038027a4                vex::controller::button::_buttonToReleasedEvent() const
  .text._ZN3vex10controller6buttonC2ENS0_11tButtonTypeEPS0_
-                0x000000000380241c       0x48 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_controller.cpp.obj)
-                0x000000000380241c                vex::controller::button::button(vex::controller::tButtonType, vex::controller*)
-                0x000000000380241c                vex::controller::button::button(vex::controller::tButtonType, vex::controller*)
+                0x00000000038027c4       0x48 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_controller.cpp.obj)
+                0x00000000038027c4                vex::controller::button::button(vex::controller::tButtonType, vex::controller*)
+                0x00000000038027c4                vex::controller::button::button(vex::controller::tButtonType, vex::controller*)
  .text._ZNK3vex10controller4axis5valueEv
-                0x0000000003802464       0x58 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_controller.cpp.obj)
-                0x0000000003802464                vex::controller::axis::value() const
+                0x000000000380280c       0x58 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_controller.cpp.obj)
+                0x000000000380280c                vex::controller::axis::value() const
  .text._ZNK3vex10controller4axis8positionENS_12percentUnitsE
-                0x00000000038024bc       0x1c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_controller.cpp.obj)
-                0x00000000038024bc                vex::controller::axis::position(vex::percentUnits) const
+                0x0000000003802864       0x1c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_controller.cpp.obj)
+                0x0000000003802864                vex::controller::axis::position(vex::percentUnits) const
  .text._ZNK3vex10controller4axis23_joystickToChangedEventEv
-                0x00000000038024d8       0x20 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_controller.cpp.obj)
-                0x00000000038024d8                vex::controller::axis::_joystickToChangedEvent() const
+                0x0000000003802880       0x20 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_controller.cpp.obj)
+                0x0000000003802880                vex::controller::axis::_joystickToChangedEvent() const
  .text._ZN3vex10controller4axisC2ENS0_9tAxisTypeEPS0_
-                0x00000000038024f8       0x2c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_controller.cpp.obj)
-                0x00000000038024f8                vex::controller::axis::axis(vex::controller::tAxisType, vex::controller*)
-                0x00000000038024f8                vex::controller::axis::axis(vex::controller::tAxisType, vex::controller*)
+                0x00000000038028a0       0x2c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_controller.cpp.obj)
+                0x00000000038028a0                vex::controller::axis::axis(vex::controller::tAxisType, vex::controller*)
+                0x00000000038028a0                vex::controller::axis::axis(vex::controller::tAxisType, vex::controller*)
  .text._ZN3vex10controllerC2Ev
-                0x0000000003802524      0x164 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_controller.cpp.obj)
-                0x0000000003802524                vex::controller::controller()
-                0x0000000003802524                vex::controller::controller()
+                0x00000000038028cc      0x164 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_controller.cpp.obj)
+                0x00000000038028cc                vex::controller::controller()
+                0x00000000038028cc                vex::controller::controller()
  .text._ZN3vex6threadC2EPFivE
-                0x0000000003802688       0x5c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_thread.cpp.obj)
-                0x0000000003802688                vex::thread::thread(int (*)())
-                0x0000000003802688                vex::thread::thread(int (*)())
+                0x0000000003802a30       0x5c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_thread.cpp.obj)
+                0x0000000003802a30                vex::thread::thread(int (*)())
+                0x0000000003802a30                vex::thread::thread(int (*)())
+ .text._ZN3vex6threadD2Ev
+                0x0000000003802a8c        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_thread.cpp.obj)
+                0x0000000003802a8c                vex::thread::~thread()
+                0x0000000003802a8c                vex::thread::~thread()
  .text._ZN3vex11this_thread9sleep_forEm
-                0x00000000038026e4        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_thread.cpp.obj)
-                0x00000000038026e4                vex::this_thread::sleep_for(unsigned long)
+                0x0000000003802a90        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_thread.cpp.obj)
+                0x0000000003802a90                vex::this_thread::sleep_for(unsigned long)
  .text._ZN3vex5event4initEmmPFvvE
-                0x00000000038026e8        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_event.cpp.obj)
-                0x00000000038026e8                vex::event::init(unsigned long, unsigned long, void (*)())
+                0x0000000003802a94        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_event.cpp.obj)
+                0x0000000003802a94                vex::event::init(unsigned long, unsigned long, void (*)())
  .text._ZN3vex5event4initEmmPFvPvES1_
-                0x00000000038026ec        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_event.cpp.obj)
-                0x00000000038026ec                vex::event::init(unsigned long, unsigned long, void (*)(void*), void*)
+                0x0000000003802a98        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_event.cpp.obj)
+                0x0000000003802a98                vex::event::init(unsigned long, unsigned long, void (*)(void*), void*)
  .text._ZN3vex5event9userindexEv
-                0x00000000038026f0        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_event.cpp.obj)
-                0x00000000038026f0                vex::event::userindex()
+                0x0000000003802a9c        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_event.cpp.obj)
+                0x0000000003802a9c                vex::event::userindex()
  .text._ZZN3vex6meventC4EmmENUlvE_4_FUNEv
-                0x00000000038026f4        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_mevent.cpp.obj)
+                0x0000000003802aa0        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_mevent.cpp.obj)
  .text._ZN3vex6meventC2Emm
-                0x00000000038026f8       0x70 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_mevent.cpp.obj)
-                0x00000000038026f8                vex::mevent::mevent(unsigned long, unsigned long)
-                0x00000000038026f8                vex::mevent::mevent(unsigned long, unsigned long)
+                0x0000000003802aa4       0x70 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_mevent.cpp.obj)
+                0x0000000003802aa4                vex::mevent::mevent(unsigned long, unsigned long)
+                0x0000000003802aa4                vex::mevent::mevent(unsigned long, unsigned long)
  .text._ZN3vex5brain9_getIndexEv
-                0x0000000003802768       0x10 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
-                0x0000000003802768                vex::brain::_getIndex()
+                0x0000000003802b14       0x10 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
+                0x0000000003802b14                vex::brain::_getIndex()
  .text._ZN3vex5brain3lcd9setCursorEll
-                0x0000000003802778       0x44 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
-                0x0000000003802778                vex::brain::lcd::setCursor(long, long)
+                0x0000000003802b24       0x44 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
+                0x0000000003802b24                vex::brain::lcd::setCursor(long, long)
  .text._ZN3vex5brain3lcd7setFontENS_8fontTypeE
-                0x00000000038027bc      0x23c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
-                0x00000000038027bc                vex::brain::lcd::setFont(vex::fontType)
+                0x0000000003802b68      0x23c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
+                0x0000000003802b68                vex::brain::lcd::setFont(vex::fontType)
  .text._ZN3vex5brain3lcdC2Ev
-                0x00000000038029f8       0x94 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
-                0x00000000038029f8                vex::brain::lcd::lcd()
-                0x00000000038029f8                vex::brain::lcd::lcd()
+                0x0000000003802da4       0x94 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
+                0x0000000003802da4                vex::brain::lcd::lcd()
+                0x0000000003802da4                vex::brain::lcd::lcd()
  .text._ZN3vex5brainC2Ev
-                0x0000000003802a8c       0x3c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
-                0x0000000003802a8c                vex::brain::brain()
-                0x0000000003802a8c                vex::brain::brain()
+                0x0000000003802e38       0x3c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
+                0x0000000003802e38                vex::brain::brain()
+                0x0000000003802e38                vex::brain::brain()
  .text._ZN3vex5brain3lcd11setPenWidthEm
-                0x0000000003802ac8       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
-                0x0000000003802ac8                vex::brain::lcd::setPenWidth(unsigned long)
+                0x0000000003802e74       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
+                0x0000000003802e74                vex::brain::lcd::setPenWidth(unsigned long)
  .text._ZN3vex5brain3lcd11setPenColorERKNS_5colorE
-                0x0000000003802aec       0x14 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
-                0x0000000003802aec                vex::brain::lcd::setPenColor(vex::color const&)
+                0x0000000003802e98       0x14 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
+                0x0000000003802e98                vex::brain::lcd::setPenColor(vex::color const&)
  .text._ZN3vex5brain3lcd14getStringWidthEPKc
-                0x0000000003802b00        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
-                0x0000000003802b00                vex::brain::lcd::getStringWidth(char const*)
+                0x0000000003802eac        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
+                0x0000000003802eac                vex::brain::lcd::getStringWidth(char const*)
  .text._ZN3vex5brain3lcd15getStringHeightEPKc
-                0x0000000003802b08        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
-                0x0000000003802b08                vex::brain::lcd::getStringHeight(char const*)
+                0x0000000003802eb4        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
+                0x0000000003802eb4                vex::brain::lcd::getStringHeight(char const*)
  .text._ZN3vex5brain3lcd7printAtEllPKcz
-                0x0000000003802b10       0x54 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
-                0x0000000003802b10                vex::brain::lcd::printAt(long, long, char const*, ...)
+                0x0000000003802ebc       0x54 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
+                0x0000000003802ebc                vex::brain::lcd::printAt(long, long, char const*, ...)
  .text._ZN3vex5brain3lcd12_clearScreenEm
-                0x0000000003802b64       0x38 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
-                0x0000000003802b64                vex::brain::lcd::_clearScreen(unsigned long)
+                0x0000000003802f10       0x38 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
+                0x0000000003802f10                vex::brain::lcd::_clearScreen(unsigned long)
  .text._ZN3vex5brain3lcd11clearScreenERKNS_5colorE
-                0x0000000003802b9c       0x20 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
-                0x0000000003802b9c                vex::brain::lcd::clearScreen(vex::color const&)
+                0x0000000003802f48       0x20 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
+                0x0000000003802f48                vex::brain::lcd::clearScreen(vex::color const&)
  .text._ZN3vex5brain3lcd11clearScreenEv
-                0x0000000003802bbc       0x2c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
-                0x0000000003802bbc                vex::brain::lcd::clearScreen()
+                0x0000000003802f68       0x2c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
+                0x0000000003802f68                vex::brain::lcd::clearScreen()
  .text._ZN3vex5brain3lcd13drawRectangleEiiii
-                0x0000000003802be8       0xdc /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
-                0x0000000003802be8                vex::brain::lcd::drawRectangle(int, int, int, int)
+                0x0000000003802f94       0xdc /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
+                0x0000000003802f94                vex::brain::lcd::drawRectangle(int, int, int, int)
  .text._ZN3vex5brain3lcd9xPositionEv
-                0x0000000003802cc4       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
-                0x0000000003802cc4                vex::brain::lcd::xPosition()
+                0x0000000003803070       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
+                0x0000000003803070                vex::brain::lcd::xPosition()
  .text._ZN3vex5brain3lcd8pressingEv
-                0x0000000003802ce8       0x20 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
-                0x0000000003802ce8                vex::brain::lcd::pressing()
+                0x0000000003803094       0x20 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
+                0x0000000003803094                vex::brain::lcd::pressing()
  .text._ZN3vex5brainD2Ev
-                0x0000000003802d08       0x20 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
-                0x0000000003802d08                vex::brain::~brain()
-                0x0000000003802d08                vex::brain::~brain()
+                0x00000000038030b4       0x20 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
+                0x00000000038030b4                vex::brain::~brain()
+                0x00000000038030b4                vex::brain::~brain()
  .text._ZN3vex11competition8_disableEPv
-                0x0000000003802d28       0xa4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_competition.cpp.obj)
-                0x0000000003802d28                vex::competition::_disable(void*)
+                0x00000000038030d4       0xa4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_competition.cpp.obj)
+                0x00000000038030d4                vex::competition::_disable(void*)
  .text._ZN3vex11competition11_autonomousEv
-                0x0000000003802dcc       0x80 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_competition.cpp.obj)
-                0x0000000003802dcc                vex::competition::_autonomous()
+                0x0000000003803178       0x80 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_competition.cpp.obj)
+                0x0000000003803178                vex::competition::_autonomous()
  .text._ZN3vex11competition14_drivercontrolEv
-                0x0000000003802e4c       0x80 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_competition.cpp.obj)
-                0x0000000003802e4c                vex::competition::_drivercontrol()
+                0x00000000038031f8       0x80 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_competition.cpp.obj)
+                0x00000000038031f8                vex::competition::_drivercontrol()
  .text._ZN3vex11competitionC2Ev
-                0x0000000003802ecc      0x13c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_competition.cpp.obj)
-                0x0000000003802ecc                vex::competition::competition()
-                0x0000000003802ecc                vex::competition::competition()
+                0x0000000003803278      0x13c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_competition.cpp.obj)
+                0x0000000003803278                vex::competition::competition()
+                0x0000000003803278                vex::competition::competition()
  .text._ZN3vex11competitionD2Ev
-                0x0000000003803008        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_competition.cpp.obj)
-                0x0000000003803008                vex::competition::~competition()
-                0x0000000003803008                vex::competition::~competition()
+                0x00000000038033b4        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_competition.cpp.obj)
+                0x00000000038033b4                vex::competition::~competition()
+                0x00000000038033b4                vex::competition::~competition()
  .text._ZN3vex11competition10autonomousEPFvvE
-                0x000000000380300c       0x44 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_competition.cpp.obj)
-                0x000000000380300c                vex::competition::autonomous(void (*)())
+                0x00000000038033b8       0x44 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_competition.cpp.obj)
+                0x00000000038033b8                vex::competition::autonomous(void (*)())
  .text._ZN3vex11competition13drivercontrolEPFvvE
-                0x0000000003803050       0x44 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_competition.cpp.obj)
-                0x0000000003803050                vex::competition::drivercontrol(void (*)())
+                0x00000000038033fc       0x44 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_competition.cpp.obj)
+                0x00000000038033fc                vex::competition::drivercontrol(void (*)())
  .text._ZN3vex7triportD2Ev
-                0x0000000003803094       0x38 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_triport.cpp.obj)
-                0x0000000003803094                vex::triport::~triport()
-                0x0000000003803094                vex::triport::~triport()
+                0x0000000003803440       0x38 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_triport.cpp.obj)
+                0x0000000003803440                vex::triport::~triport()
+                0x0000000003803440                vex::triport::~triport()
  .text._ZN3vex7triportD0Ev
-                0x00000000038030cc       0x1c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_triport.cpp.obj)
-                0x00000000038030cc                vex::triport::~triport()
+                0x0000000003803478       0x1c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_triport.cpp.obj)
+                0x0000000003803478                vex::triport::~triport()
  .text._ZN3vex7triport9installedEv
-                0x00000000038030e8       0x18 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_triport.cpp.obj)
-                0x00000000038030e8                vex::triport::installed()
+                0x0000000003803494       0x18 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_triport.cpp.obj)
+                0x0000000003803494                vex::triport::installed()
  .text._ZN3vex7triport4portC2ElPS0_
-                0x0000000003803100       0x74 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_triport.cpp.obj)
-                0x0000000003803100                vex::triport::port::port(long, vex::triport*)
-                0x0000000003803100                vex::triport::port::port(long, vex::triport*)
+                0x00000000038034ac       0x74 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_triport.cpp.obj)
+                0x00000000038034ac                vex::triport::port::port(long, vex::triport*)
+                0x00000000038034ac                vex::triport::port::port(long, vex::triport*)
  .text._ZN3vex7triportC2El
-                0x0000000003803174       0xf0 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_triport.cpp.obj)
-                0x0000000003803174                vex::triport::triport(long)
-                0x0000000003803174                vex::triport::triport(long)
+                0x0000000003803520       0xf0 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_triport.cpp.obj)
+                0x0000000003803520                vex::triport::triport(long)
+                0x0000000003803520                vex::triport::triport(long)
  .text._ZN3vex7triport4port4typeENS_11triportTypeE
-                0x0000000003803264       0x30 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_triport.cpp.obj)
-                0x0000000003803264                vex::triport::port::type(vex::triportType)
+                0x0000000003803610       0x30 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_triport.cpp.obj)
+                0x0000000003803610                vex::triport::port::type(vex::triportType)
  .text._ZN3vex7triport4port4typeEv
-                0x0000000003803294       0x38 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_triport.cpp.obj)
-                0x0000000003803294                vex::triport::port::type()
+                0x0000000003803640       0x38 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_triport.cpp.obj)
+                0x0000000003803640                vex::triport::port::type()
  .text._ZN3vex7triport4port5valueEl
-                0x00000000038032cc       0x18 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_triport.cpp.obj)
-                0x00000000038032cc                vex::triport::port::value(long)
+                0x0000000003803678       0x18 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_triport.cpp.obj)
+                0x0000000003803678                vex::triport::port::value(long)
  .text._ZN3vex11__trideviceC2ERNS_7triport4portENS_11triportTypeE
-                0x00000000038032e4       0x5c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_triport.cpp.obj)
-                0x00000000038032e4                vex::__tridevice::__tridevice(vex::triport::port&, vex::triportType)
-                0x00000000038032e4                vex::__tridevice::__tridevice(vex::triport::port&, vex::triportType)
+                0x0000000003803690       0x5c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_triport.cpp.obj)
+                0x0000000003803690                vex::__tridevice::__tridevice(vex::triport::port&, vex::triportType)
+                0x0000000003803690                vex::__tridevice::__tridevice(vex::triport::port&, vex::triportType)
  .text._ZN3vex11digital_outC2ERNS_7triport4portE
-                0x0000000003803340       0x18 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_triport.cpp.obj)
-                0x0000000003803340                vex::digital_out::digital_out(vex::triport::port&)
-                0x0000000003803340                vex::digital_out::digital_out(vex::triport::port&)
+                0x00000000038036ec       0x18 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_triport.cpp.obj)
+                0x00000000038036ec                vex::digital_out::digital_out(vex::triport::port&)
+                0x00000000038036ec                vex::digital_out::digital_out(vex::triport::port&)
  .text._ZN3vex11digital_outD2Ev
-                0x0000000003803358        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_triport.cpp.obj)
-                0x0000000003803358                vex::digital_out::~digital_out()
-                0x0000000003803358                vex::digital_out::~digital_out()
+                0x0000000003803704        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_triport.cpp.obj)
+                0x0000000003803704                vex::digital_out::~digital_out()
+                0x0000000003803704                vex::digital_out::~digital_out()
  .text._ZN3vex11digital_out3setEb
-                0x000000000380335c        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_triport.cpp.obj)
-                0x000000000380335c                vex::digital_out::set(bool)
+                0x0000000003803708        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_triport.cpp.obj)
+                0x0000000003803708                vex::digital_out::set(bool)
  .text._ZN3vex5colorD2Ev
-                0x0000000003803364        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_color.cpp.obj)
-                0x0000000003803364                vex::color::~color()
-                0x0000000003803364                vex::color::~color()
+                0x0000000003803710        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_color.cpp.obj)
+                0x0000000003803710                vex::color::~color()
+                0x0000000003803710                vex::color::~color()
  .text._ZNK3vex5colorcvmEv
-                0x0000000003803368        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_color.cpp.obj)
-                0x0000000003803368                vex::color::operator unsigned long() const
+                0x0000000003803714        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_color.cpp.obj)
+                0x0000000003803714                vex::color::operator unsigned long() const
  .text.startup._GLOBAL__sub_I__ZN3vex5color5blackE
-                0x0000000003803370      0x164 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_color.cpp.obj)
+                0x000000000380371c      0x164 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_color.cpp.obj)
  .text._ZN3vex5timerD2Ev
-                0x00000000038034d4        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_timer.cpp.obj)
-                0x00000000038034d4                vex::timer::~timer()
-                0x00000000038034d4                vex::timer::~timer()
+                0x0000000003803880        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_timer.cpp.obj)
+                0x0000000003803880                vex::timer::~timer()
+                0x0000000003803880                vex::timer::~timer()
  .text._ZN3vex5timer5clearEv
-                0x00000000038034d8       0x1c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_timer.cpp.obj)
-                0x00000000038034d8                vex::timer::clear()
+                0x0000000003803884       0x1c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_timer.cpp.obj)
+                0x0000000003803884                vex::timer::clear()
  .text._ZN3vex5timerC2Ev
-                0x00000000038034f4       0x14 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_timer.cpp.obj)
-                0x00000000038034f4                vex::timer::timer()
-                0x00000000038034f4                vex::timer::timer()
+                0x00000000038038a0       0x14 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_timer.cpp.obj)
+                0x00000000038038a0                vex::timer::timer()
+                0x00000000038038a0                vex::timer::timer()
  .text.vexAdiPortConfigSet
-                0x0000000003803508       0x28 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
-                0x0000000003803508                vexAdiPortConfigSet
+                0x00000000038038b4       0x28 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
+                0x00000000038038b4                vexAdiPortConfigSet
  .text.vexAdiPortConfigGet
-                0x0000000003803530       0x28 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
-                0x0000000003803530                vexAdiPortConfigGet
+                0x00000000038038dc       0x28 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
+                0x00000000038038dc                vexAdiPortConfigGet
  .text.vexAdiValueSet
-                0x0000000003803558       0x28 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
-                0x0000000003803558                vexAdiValueSet
+                0x0000000003803904       0x28 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
+                0x0000000003803904                vexAdiValueSet
  .text.vexMotorVelocitySet
-                0x0000000003803580       0x20 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
-                0x0000000003803580                vexMotorVelocitySet
+                0x000000000380392c       0x20 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
+                0x000000000380392c                vexMotorVelocitySet
  .text.vexMotorVelocityGet
-                0x00000000038035a0       0x18 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
-                0x00000000038035a0                vexMotorVelocityGet
+                0x000000000380394c       0x18 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
+                0x000000000380394c                vexMotorVelocityGet
  .text.vexMotorActualVelocityGet
-                0x00000000038035b8       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
-                0x00000000038035b8                vexMotorActualVelocityGet
+                0x0000000003803964       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
+                0x0000000003803964                vexMotorActualVelocityGet
  .text.vexMotorModeGet
-                0x00000000038035dc       0x18 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
-                0x00000000038035dc                vexMotorModeGet
+                0x0000000003803988       0x18 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
+                0x0000000003803988                vexMotorModeGet
  .text.vexMotorZeroPositionFlagGet
-                0x00000000038035f4       0x18 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
-                0x00000000038035f4                vexMotorZeroPositionFlagGet
+                0x00000000038039a0       0x18 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
+                0x00000000038039a0                vexMotorZeroPositionFlagGet
  .text.vexMotorReverseFlagSet
-                0x000000000380360c       0x20 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
-                0x000000000380360c                vexMotorReverseFlagSet
+                0x00000000038039b8       0x20 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
+                0x00000000038039b8                vexMotorReverseFlagSet
  .text.vexMotorEncoderUnitsSet
-                0x000000000380362c       0x20 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
-                0x000000000380362c                vexMotorEncoderUnitsSet
+                0x00000000038039d8       0x20 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
+                0x00000000038039d8                vexMotorEncoderUnitsSet
  .text.vexMotorBrakeModeSet
-                0x000000000380364c       0x20 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
-                0x000000000380364c                vexMotorBrakeModeSet
+                0x00000000038039f8       0x20 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
+                0x00000000038039f8                vexMotorBrakeModeSet
  .text.vexMotorPositionSet
-                0x000000000380366c       0x28 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
-                0x000000000380366c                vexMotorPositionSet
+                0x0000000003803a18       0x28 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
+                0x0000000003803a18                vexMotorPositionSet
+ .text.vexMotorPositionGet
+                0x0000000003803a40       0x24 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
+                0x0000000003803a40                vexMotorPositionGet
  .text.vexMotorRelativeTargetSet
-                0x0000000003803694       0x30 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
-                0x0000000003803694                vexMotorRelativeTargetSet
+                0x0000000003803a64       0x30 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
+                0x0000000003803a64                vexMotorRelativeTargetSet
  .text.vexMotorGearingSet
-                0x00000000038036c4       0x20 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
-                0x00000000038036c4                vexMotorGearingSet
+                0x0000000003803a94       0x20 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
+                0x0000000003803a94                vexMotorGearingSet
  .text.vexMotorGearingGet
-                0x00000000038036e4       0x18 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
-                0x00000000038036e4                vexMotorGearingGet
+                0x0000000003803ab4       0x18 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
+                0x0000000003803ab4                vexMotorGearingGet
  .text.vexEventMaskSet
-                0x00000000038036fc       0x28 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
-                0x00000000038036fc                vexEventMaskSet
+                0x0000000003803acc       0x28 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
+                0x0000000003803acc                vexEventMaskSet
  .text.vexEventMaskGet
-                0x0000000003803724       0x18 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
-                0x0000000003803724                vexEventMaskGet
+                0x0000000003803af4       0x18 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
+                0x0000000003803af4                vexEventMaskGet
  .text._ZN3vex6deviceD2Ev
-                0x000000000380373c        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_device.cpp.obj)
-                0x000000000380373c                vex::device::~device()
-                0x000000000380373c                vex::device::~device()
+                0x0000000003803b0c        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_device.cpp.obj)
+                0x0000000003803b0c                vex::device::~device()
+                0x0000000003803b0c                vex::device::~device()
  .text._ZN3vex6device5valueEv
-                0x0000000003803740        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_device.cpp.obj)
-                0x0000000003803740                vex::device::value()
+                0x0000000003803b10        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_device.cpp.obj)
+                0x0000000003803b10                vex::device::value()
  .text._ZN3vex6deviceD0Ev
-                0x0000000003803748       0x14 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_device.cpp.obj)
-                0x0000000003803748                vex::device::~device()
+                0x0000000003803b18       0x14 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_device.cpp.obj)
+                0x0000000003803b18                vex::device::~device()
  .text._ZN3vex6device4initEl
-                0x000000000380375c       0x30 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_device.cpp.obj)
-                0x000000000380375c                vex::device::init(long)
+                0x0000000003803b2c       0x30 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_device.cpp.obj)
+                0x0000000003803b2c                vex::device::init(long)
  .text._ZN3vex6deviceC2El
-                0x000000000380378c       0x20 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_device.cpp.obj)
-                0x000000000380378c                vex::device::device(long)
-                0x000000000380378c                vex::device::device(long)
+                0x0000000003803b5c       0x20 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_device.cpp.obj)
+                0x0000000003803b5c                vex::device::device(long)
+                0x0000000003803b5c                vex::device::device(long)
  .text._ZN3vex6device4typeEv
-                0x00000000038037ac       0x10 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_device.cpp.obj)
-                0x00000000038037ac                vex::device::type()
+                0x0000000003803b7c       0x10 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_device.cpp.obj)
+                0x0000000003803b7c                vex::device::type()
  .text._ZN3vex6device9installedEv
-                0x00000000038037bc       0x14 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_device.cpp.obj)
-                0x00000000038037bc                vex::device::installed()
+                0x0000000003803b8c       0x14 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_device.cpp.obj)
+                0x0000000003803b8c                vex::device::installed()
  .text._ZN3vex4taskC2EPFivE
-                0x00000000038037d0       0x5c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_task.cpp.obj)
-                0x00000000038037d0                vex::task::task(int (*)())
-                0x00000000038037d0                vex::task::task(int (*)())
+                0x0000000003803ba0       0x5c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_task.cpp.obj)
+                0x0000000003803ba0                vex::task::task(int (*)())
+                0x0000000003803ba0                vex::task::task(int (*)())
  .text._ZN3vex4taskD2Ev
-                0x000000000380382c        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_task.cpp.obj)
-                0x000000000380382c                vex::task::~task()
-                0x000000000380382c                vex::task::~task()
+                0x0000000003803bfc        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_task.cpp.obj)
+                0x0000000003803bfc                vex::task::~task()
+                0x0000000003803bfc                vex::task::~task()
  .text._ZN3vex4task4stopEPvi
-                0x0000000003803830       0x1c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_task.cpp.obj)
-                0x0000000003803830                vex::task::stop(void*, int)
+                0x0000000003803c00       0x1c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_task.cpp.obj)
+                0x0000000003803c00                vex::task::stop(void*, int)
  .text._ZN3vex4task6_indexEPFivE
-                0x000000000380384c       0x14 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_task.cpp.obj)
-                0x000000000380384c                vex::task::_index(int (*)())
+                0x0000000003803c1c       0x14 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_task.cpp.obj)
+                0x0000000003803c1c                vex::task::_index(int (*)())
  .text._ZN3vex4task8_stopAllEv
-                0x0000000003803860       0x3c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_task.cpp.obj)
-                0x0000000003803860                vex::task::_stopAll()
+                0x0000000003803c30       0x3c /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_task.cpp.obj)
+                0x0000000003803c30                vex::task::_stopAll()
  .text.__libc_fini_array
-                0x000000000380389c       0x30 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/gcc/libs/libc.a(lib_a-fini.o)
-                0x000000000380389c                __libc_fini_array
+                0x0000000003803c6c       0x30 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/gcc/libs/libc.a(lib_a-fini.o)
+                0x0000000003803c6c                __libc_fini_array
  .text.__libc_init_array
-                0x00000000038038cc       0x58 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/gcc/libs/libc.a(lib_a-init.o)
-                0x00000000038038cc                __libc_init_array
- *fill*         0x0000000003803924        0x4 
+                0x0000000003803c9c       0x58 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/gcc/libs/libc.a(lib_a-init.o)
+                0x0000000003803c9c                __libc_init_array
+ *fill*         0x0000000003803cf4        0x4 
  .text.__libc_init_array.__stub
-                0x0000000003803928       0x18 linker stubs
+                0x0000000003803cf8       0x18 linker stubs
  *(.gnu.linkonce.t.*)
  *(.plt)
  *(.gnu_warning)
  *(.gcc_except_table)
  *(.glue_7)
- .glue_7        0x0000000003803940        0x0 linker stubs
+ .glue_7        0x0000000003803d10        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x0000000003803940        0x0 linker stubs
+ .glue_7t       0x0000000003803d10        0x0 linker stubs
  *(.vfp11_veneer)
- .vfp11_veneer  0x0000000003803940        0x0 linker stubs
+ .vfp11_veneer  0x0000000003803d10        0x0 linker stubs
  *(.ARM.extab)
  *(.gnu.linkonce.armextab.*)
 
-.v4_bx          0x0000000003803940        0x0
- .v4_bx         0x0000000003803940        0x0 linker stubs
+.v4_bx          0x0000000003803d10        0x0
+ .v4_bx         0x0000000003803d10        0x0 linker stubs
 
-.iplt           0x0000000003803940        0x0
- .iplt          0x0000000003803940        0x0 build/src/robot-config.o
+.iplt           0x0000000003803d10        0x0
+ .iplt          0x0000000003803d10        0x0 build/src/robot-config.o
 
 .init
  *(.init)
@@ -3116,543 +3106,609 @@ Linker script and memory map
 .fini
  *(.fini)
 
-.rodata         0x0000000003803940      0x1d8
-                0x0000000003803940                __rodata_start = .
+.rodata         0x0000000003803d10      0x1d8
+                0x0000000003803d10                __rodata_start = .
  *(.rodata)
  *(.rodata.*)
  .rodata.str1.1
-                0x0000000003803940       0x5c build/src/main.o
-                                         0x5d (size before relaxing)
+                0x0000000003803d10       0x58 build/src/main.o
+                                         0x5f (size before relaxing)
  .rodata.str1.1
-                0x000000000380399c       0x2e /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_startup.c.obj)
- *fill*         0x00000000038039ca        0x2 
+                0x0000000003803d68       0x2e /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_startup.c.obj)
+ *fill*         0x0000000003803d96        0x2 
  .rodata._ZN3vex6PORT20E
-                0x00000000038039cc        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
-                0x00000000038039cc                vex::PORT20
+                0x0000000003803d98        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
+                0x0000000003803d98                vex::PORT20
  .rodata._ZN3vex7reverseE
-                0x00000000038039d0        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
-                0x00000000038039d0                vex::reverse
+                0x0000000003803d9c        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
+                0x0000000003803d9c                vex::reverse
  .rodata._ZN3vex7forwardE
-                0x00000000038039d4        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
-                0x00000000038039d4                vex::forward
+                0x0000000003803da0        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
+                0x0000000003803da0                vex::forward
  .rodata._ZN3vex6PORT14E
-                0x00000000038039d8        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
-                0x00000000038039d8                vex::PORT14
+                0x0000000003803da4        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
+                0x0000000003803da4                vex::PORT14
  .rodata._ZN3vex5whiteE
-                0x00000000038039dc        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
-                0x00000000038039dc                vex::white
+                0x0000000003803da8        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
+                0x0000000003803da8                vex::white
  .rodata._ZN3vex6mono30E
-                0x00000000038039e0        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
-                0x00000000038039e0                vex::mono30
+                0x0000000003803dac        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
+                0x0000000003803dac                vex::mono30
  .rodata._ZN3vex3redE
-                0x00000000038039e4        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
-                0x00000000038039e4                vex::red
+                0x0000000003803db0        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
+                0x0000000003803db0                vex::red
  .rodata._ZN3vex5blackE
-                0x00000000038039e8        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
-                0x00000000038039e8                vex::black
+                0x0000000003803db4        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
+                0x0000000003803db4                vex::black
  .rodata._ZN3vex4msecE
-                0x00000000038039ec        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
-                0x00000000038039ec                vex::msec
+                0x0000000003803db8        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
+                0x0000000003803db8                vex::msec
  .rodata._ZN3vex6PORT18E
-                0x00000000038039f0        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
-                0x00000000038039f0                vex::PORT18
+                0x0000000003803dbc        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
+                0x0000000003803dbc                vex::PORT18
  .rodata._ZN3vex9ratio36_1E
-                0x00000000038039f4        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
-                0x00000000038039f4                vex::ratio36_1
+                0x0000000003803dc0        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
+                0x0000000003803dc0                vex::ratio36_1
  .rodata._ZN3vex3rpmE
-                0x00000000038039f8        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
-                0x00000000038039f8                vex::rpm
+                0x0000000003803dc4        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
+                0x0000000003803dc4                vex::rpm
  .rodata._ZN3vex6PORT11E
-                0x00000000038039fc        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
-                0x00000000038039fc                vex::PORT11
+                0x0000000003803dc8        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
+                0x0000000003803dc8                vex::PORT11
  .rodata._ZN3vex7percentE
-                0x0000000003803a00        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
-                0x0000000003803a00                vex::percent
+                0x0000000003803dcc        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
+                0x0000000003803dcc                vex::percent
  .rodata._ZN3vex6PORT15E
-                0x0000000003803a04        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
-                0x0000000003803a04                vex::PORT15
+                0x0000000003803dd0        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
+                0x0000000003803dd0                vex::PORT15
  .rodata._ZN3vex7degreesE
-                0x0000000003803a08        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
-                0x0000000003803a08                vex::degrees
+                0x0000000003803dd4        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
+                0x0000000003803dd4                vex::degrees
  .rodata._ZN3vex6PORT22E
-                0x0000000003803a0c        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
-                0x0000000003803a0c                vex::PORT22
+                0x0000000003803dd8        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
+                0x0000000003803dd8                vex::PORT22
  .rodata._ZN3vex4holdE
-                0x0000000003803a10        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
-                0x0000000003803a10                vex::hold
+                0x0000000003803ddc        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
+                0x0000000003803ddc                vex::hold
  .rodata._ZN3vex5PORT7E
-                0x0000000003803a14        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
-                0x0000000003803a14                vex::PORT7
+                0x0000000003803de0        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
+                0x0000000003803de0                vex::PORT7
  .rodata._ZN3vex6PORT16E
-                0x0000000003803a18        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
-                0x0000000003803a18                vex::PORT16
+                0x0000000003803de4        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
+                0x0000000003803de4                vex::PORT16
  .rodata._ZN3vex8ratio6_1E
-                0x0000000003803a1c        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
-                0x0000000003803a1c                vex::ratio6_1
+                0x0000000003803de8        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
+                0x0000000003803de8                vex::ratio6_1
  .rodata._ZN3vex5brakeE
-                0x0000000003803a20        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
-                0x0000000003803a20                vex::brake
+                0x0000000003803dec        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
+                0x0000000003803dec                vex::brake
  .rodata._ZN3vex5coastE
-                0x0000000003803a24        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
-                0x0000000003803a24                vex::coast
+                0x0000000003803df0        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
+                0x0000000003803df0                vex::coast
  .rodata._ZN3vex6PORT13E
-                0x0000000003803a28        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
-                0x0000000003803a28                vex::PORT13
+                0x0000000003803df4        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
+                0x0000000003803df4                vex::PORT13
  .rodata._ZN3vex9ratio18_1E
-                0x0000000003803a2c        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
-                0x0000000003803a2c                vex::ratio18_1
+                0x0000000003803df8        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
+                0x0000000003803df8                vex::ratio18_1
  .rodata._ZN3vex6mono15E
-                0x0000000003803a30        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
-                0x0000000003803a30                vex::mono15
+                0x0000000003803dfc        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
+                0x0000000003803dfc                vex::mono15
  .rodata._ZN3vex6PORT17E
-                0x0000000003803a34        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
-                0x0000000003803a34                vex::PORT17
+                0x0000000003803e00        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
+                0x0000000003803e00                vex::PORT17
+ *fill*         0x0000000003803e04        0x4 
  .rodata._ZTVN3vex5motorE
-                0x0000000003803a38       0x18 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
-                0x0000000003803a38                vtable for vex::motor
+                0x0000000003803e08       0x18 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
+                0x0000000003803e08                vtable for vex::motor
  .rodata.CSWTCH.16
-                0x0000000003803a50        0xb /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_controller.cpp.obj)
+                0x0000000003803e20        0xb /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_controller.cpp.obj)
  .rodata.CSWTCH.18
-                0x0000000003803a5b        0xb /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_controller.cpp.obj)
+                0x0000000003803e2b        0xb /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_controller.cpp.obj)
  .rodata.CSWTCH.24
-                0x0000000003803a66        0x3 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_controller.cpp.obj)
+                0x0000000003803e36        0x3 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_controller.cpp.obj)
  .rodata.str1.1
-                0x0000000003803a69       0x14 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_thread.cpp.obj)
+                0x0000000003803e39       0x14 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_thread.cpp.obj)
  .rodata.str1.1
-                0x0000000003803a7d       0x2d /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
- *fill*         0x0000000003803aaa        0x6 
+                0x0000000003803e4d       0x2d /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
+ *fill*         0x0000000003803e7a        0x6 
  .rodata._ZTVN3vex7triportE
-                0x0000000003803ab0       0x18 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_triport.cpp.obj)
-                0x0000000003803ab0                vtable for vex::triport
+                0x0000000003803e80       0x18 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_triport.cpp.obj)
+                0x0000000003803e80                vtable for vex::triport
  .rodata.CSWTCH.38
-                0x0000000003803ac8       0x10 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_triport.cpp.obj)
+                0x0000000003803e98       0x10 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_triport.cpp.obj)
  .rodata.CSWTCH.33
-                0x0000000003803ad8        0xe /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_triport.cpp.obj)
- *fill*         0x0000000003803ae6        0x2 
+                0x0000000003803ea8        0xe /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_triport.cpp.obj)
+ *fill*         0x0000000003803eb6        0x2 
  .rodata._ZTVN3vex6deviceE
-                0x0000000003803ae8       0x18 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_device.cpp.obj)
-                0x0000000003803ae8                vtable for vex::device
+                0x0000000003803eb8       0x18 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_device.cpp.obj)
+                0x0000000003803eb8                vtable for vex::device
  .rodata.str1.1
-                0x0000000003803b00       0x14 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_task.cpp.obj)
+                0x0000000003803ed0       0x14 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_task.cpp.obj)
  .rodata.str1.4
-                0x0000000003803b14        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/gcc/libs/libc.a(lib_a-impure.o)
+                0x0000000003803ee4        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/gcc/libs/libc.a(lib_a-impure.o)
                                           0x2 (size before relaxing)
  *(.gnu.linkonce.r.*)
-                0x0000000003803b18                __rodata_end = .
+                0x0000000003803ee8                __rodata_end = .
 
-.rodata1        0x0000000003803b18        0x0
-                0x0000000003803b18                __rodata1_start = .
+.rodata1        0x0000000003803ee8        0x0
+                0x0000000003803ee8                __rodata1_start = .
  *(.rodata1)
  *(.rodata1.*)
-                0x0000000003803b18                __rodata1_end = .
+                0x0000000003803ee8                __rodata1_end = .
 
-.sdata2         0x0000000003803b18        0x0
-                0x0000000003803b18                __sdata2_start = .
+.sdata2         0x0000000003803ee8        0x0
+                0x0000000003803ee8                __sdata2_start = .
  *(.sdata2)
  *(.sdata2.*)
  *(.gnu.linkonce.s2.*)
-                0x0000000003803b18                __sdata2_end = .
+                0x0000000003803ee8                __sdata2_end = .
 
-.sbss2          0x0000000003803b18        0x0
-                0x0000000003803b18                __sbss2_start = .
+.sbss2          0x0000000003803ee8        0x0
+                0x0000000003803ee8                __sbss2_start = .
  *(.sbss2)
  *(.sbss2.*)
  *(.gnu.linkonce.sb2.*)
-                0x0000000003803b18                __sbss2_end = .
+                0x0000000003803ee8                __sbss2_end = .
 
-.data           0x0000000003803b18      0x44c
-                0x0000000003803b18                __data_start = .
+.data           0x0000000003803ee8      0x48c
+                0x0000000003803ee8                __data_start = .
  *(.data)
  *(.data.*)
- .data.pi       0x0000000003803b18        0x8 build/src/main.o
-                0x0000000003803b18                pi
+ .data.driveDegrees
+                0x0000000003803ee8        0x8 build/src/main.o
+                0x0000000003803ee8                driveDegrees
+ .data.lateralkP
+                0x0000000003803ef0        0x8 build/src/main.o
+                0x0000000003803ef0                lateralkP
+ .data.lateralkI
+                0x0000000003803ef8        0x8 build/src/main.o
+                0x0000000003803ef8                lateralkI
+ .data.lateralkD
+                0x0000000003803f00        0x8 build/src/main.o
+                0x0000000003803f00                lateralkD
+ .data.turnkP   0x0000000003803f08        0x8 build/src/main.o
+                0x0000000003803f08                turnkP
+ .data.turnkI   0x0000000003803f10        0x8 build/src/main.o
+                0x0000000003803f10                turnkI
+ .data.turnkD   0x0000000003803f18        0x8 build/src/main.o
+                0x0000000003803f18                turnkD
+ .data.leftMultiplier
+                0x0000000003803f20        0x8 build/src/main.o
+                0x0000000003803f20                leftMultiplier
+ .data.rightMultiplier
+                0x0000000003803f28        0x8 build/src/main.o
+                0x0000000003803f28                rightMultiplier
+ .data.pidOn    0x0000000003803f30        0x1 build/src/main.o
+                0x0000000003803f30                pidOn
  .data.wingsOn2
-                0x0000000003803b20        0x1 build/src/main.o
-                0x0000000003803b20                wingsOn2
- .data.cata2    0x0000000003803b21        0x1 build/src/main.o
-                0x0000000003803b21                cata2
- *fill*         0x0000000003803b22        0x2 
- .data.mode     0x0000000003803b24        0x4 build/src/main.o
-                0x0000000003803b24                mode
+                0x0000000003803f31        0x1 build/src/main.o
+                0x0000000003803f31                wingsOn2
+ .data.cata2    0x0000000003803f32        0x1 build/src/main.o
+                0x0000000003803f32                cata2
+ *fill*         0x0000000003803f33        0x1 
+ .data.mode     0x0000000003803f34        0x4 build/src/main.o
+                0x0000000003803f34                mode
  .data.appRunning
-                0x0000000003803b28        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_startup.c.obj)
-                0x0000000003803b28                appRunning
- .data.__yoff   0x0000000003803b2c        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003803f38        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_startup.c.obj)
+                0x0000000003803f38                appRunning
+ .data.__yoff   0x0000000003803f3c        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
  .data._ZN3vex24__default_motor_velocityE
-                0x0000000003803b30        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
-                0x0000000003803b30                vex::__default_motor_velocity
- *fill*         0x0000000003803b34        0x4 
+                0x0000000003803f40        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
+                0x0000000003803f40                vex::__default_motor_velocity
+ *fill*         0x0000000003803f44        0x4 
  .data.impure_data
-                0x0000000003803b38      0x428 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/gcc/libs/libc.a(lib_a-impure.o)
+                0x0000000003803f48      0x428 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/gcc/libs/libc.a(lib_a-impure.o)
  .data._impure_ptr
-                0x0000000003803f60        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/gcc/libs/libc.a(lib_a-impure.o)
-                0x0000000003803f60                _impure_ptr
+                0x0000000003804370        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/gcc/libs/libc.a(lib_a-impure.o)
+                0x0000000003804370                _impure_ptr
  *(.gnu.linkonce.d.*)
  *(.jcr)
  *(.got)
  *(.got.plt)
-                0x0000000003803f64                __data_end = .
+                0x0000000003804374                __data_end = .
 
-.igot.plt       0x0000000003803f64        0x0
- .igot.plt      0x0000000003803f64        0x0 build/src/robot-config.o
+.igot.plt       0x0000000003804374        0x0
+ .igot.plt      0x0000000003804374        0x0 build/src/robot-config.o
 
-.data1          0x0000000003803f64        0x0
-                0x0000000003803f64                __data1_start = .
+.data1          0x0000000003804374        0x0
+                0x0000000003804374                __data1_start = .
  *(.data1)
  *(.data1.*)
-                0x0000000003803f64                __data1_end = .
+                0x0000000003804374                __data1_end = .
 
 .got
  *(.got)
 
-.ctors          0x0000000003803f64        0x0
-                0x0000000003803f64                __CTOR_LIST__ = .
-                0x0000000003803f64                ___CTORS_LIST___ = .
+.ctors          0x0000000003804374        0x0
+                0x0000000003804374                __CTOR_LIST__ = .
+                0x0000000003804374                ___CTORS_LIST___ = .
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT_BY_NAME(.ctors.*))
  *(.ctors)
-                0x0000000003803f64                __CTOR_END__ = .
-                0x0000000003803f64                ___CTORS_END___ = .
+                0x0000000003804374                __CTOR_END__ = .
+                0x0000000003804374                ___CTORS_END___ = .
 
-.dtors          0x0000000003803f64        0x0
-                0x0000000003803f64                __DTOR_LIST__ = .
-                0x0000000003803f64                ___DTORS_LIST___ = .
+.dtors          0x0000000003804374        0x0
+                0x0000000003804374                __DTOR_LIST__ = .
+                0x0000000003804374                ___DTORS_LIST___ = .
  *crtbegin.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o) .dtors)
  *(SORT_BY_NAME(.dtors.*))
  *(.dtors)
-                0x0000000003803f64                __DTOR_END__ = .
-                0x0000000003803f64                ___DTORS_END___ = .
+                0x0000000003804374                __DTOR_END__ = .
+                0x0000000003804374                ___DTORS_END___ = .
 
-.fixup          0x0000000003803f64        0x0
-                0x0000000003803f64                __fixup_start = .
+.fixup          0x0000000003804374        0x0
+                0x0000000003804374                __fixup_start = .
  *(.fixup)
-                0x0000000003803f64                __fixup_end = .
+                0x0000000003804374                __fixup_end = .
 
 .eh_frame
  *(.eh_frame)
 
-.eh_framehdr    0x0000000003803f64        0x0
-                0x0000000003803f64                __eh_framehdr_start = .
+.eh_framehdr    0x0000000003804374        0x0
+                0x0000000003804374                __eh_framehdr_start = .
  *(.eh_framehdr)
-                0x0000000003803f64                __eh_framehdr_end = .
+                0x0000000003804374                __eh_framehdr_end = .
 
 .gcc_except_table
  *(.gcc_except_table)
 
-.mmu_tbl        0x0000000003804000        0x0
-                0x0000000003804000                __mmu_tbl_start = .
+.mmu_tbl        0x0000000003808000        0x0
+                0x0000000003808000                __mmu_tbl_start = .
  *(.mmu_tbl)
-                0x0000000003804000                __mmu_tbl_end = .
+                0x0000000003808000                __mmu_tbl_end = .
 
-.ARM.exidx      0x0000000003803f64        0x8
-                0x0000000003803f64                __exidx_start = .
+.ARM.exidx      0x0000000003804374        0x8
+                0x0000000003804374                __exidx_start = .
  *(.ARM.exidx*)
  .ARM.exidx.text._GLOBAL__sub_I_robot_config.cpp
-                0x0000000003803f64        0x8 build/src/robot-config.o
+                0x0000000003804374        0x8 build/src/robot-config.o
+ .ARM.exidx.text._Z17resetDriveSensorsv
+                0x000000000380437c        0x0 build/src/main.o
+                                          0x8 (size before relaxing)
  .ARM.exidx.text._Z13setMotorsTypeN3vex9brakeTypeE
-                0x0000000003803f6c        0x0 build/src/main.o
+                0x000000000380437c        0x0 build/src/main.o
+                                          0x8 (size before relaxing)
+ .ARM.exidx.text._Z10stopMotorsv
+                0x000000000380437c        0x0 build/src/main.o
                                           0x8 (size before relaxing)
  .ARM.exidx.text._Z13centrePrintAtiiPc
-                0x0000000003803f6c        0x0 build/src/main.o
+                0x000000000380437c        0x0 build/src/main.o
                                           0x8 (size before relaxing)
- .ARM.exidx.text._Z5drivedN3vex13directionTypeE
-                0x0000000003803f6c        0x0 build/src/main.o
+ .ARM.exidx.text._Z3pidv
+                0x000000000380437c        0x0 build/src/main.o
                                           0x8 (size before relaxing)
- .ARM.exidx.text._Z4turndN3vex13directionTypeE
-                0x0000000003803f6c        0x0 build/src/main.o
+ .ARM.exidx.text._Z4turnd
+                0x000000000380437c        0x0 build/src/main.o
                                           0x8 (size before relaxing)
  .ARM.exidx.text._Z8preautonv
-                0x0000000003803f6c        0x0 build/src/main.o
+                0x000000000380437c        0x0 build/src/main.o
                                           0x8 (size before relaxing)
  .ARM.exidx.text._Z10autonomousv
-                0x0000000003803f6c        0x0 build/src/main.o
+                0x000000000380437c        0x0 build/src/main.o
                                           0x8 (size before relaxing)
  .ARM.exidx.text._Z4catav
-                0x0000000003803f6c        0x0 build/src/main.o
+                0x000000000380437c        0x0 build/src/main.o
                                           0x8 (size before relaxing)
  .ARM.exidx.text._Z11usercontrolv
-                0x0000000003803f6c        0x0 build/src/main.o
+                0x000000000380437c        0x0 build/src/main.o
                                           0x8 (size before relaxing)
  .ARM.exidx.text.main
-                0x0000000003803f6c        0x0 build/src/main.o
+                0x000000000380437c        0x0 build/src/main.o
                                           0x8 (size before relaxing)
  .ARM.exidx.text._GLOBAL__sub_I_main.cpp
-                0x0000000003803f6c        0x0 build/src/main.o
+                0x000000000380437c        0x0 build/src/main.o
                                           0x8 (size before relaxing)
  *(.gnu.linkonce.armexidix.*.*)
-                0x0000000003803f6c                __exidx_end = .
+                0x000000000380437c                __exidx_end = .
 
-.rel.dyn        0x0000000003803f6c        0x0
- .rel.iplt      0x0000000003803f6c        0x0 build/src/robot-config.o
+.rel.dyn        0x000000000380437c        0x0
+ .rel.iplt      0x000000000380437c        0x0 build/src/robot-config.o
 
-.preinit_array  0x0000000003803f6c        0x0
-                0x0000000003803f6c                __preinit_array_start = .
+.preinit_array  0x000000000380437c        0x0
+                0x000000000380437c                __preinit_array_start = .
  *(SORT_BY_NAME(.preinit_array.*))
  *(.preinit_array)
-                0x0000000003803f6c                __preinit_array_end = .
+                0x000000000380437c                __preinit_array_end = .
 
-.init_array     0x0000000003803f6c        0xc
-                0x0000000003803f6c                __init_array_start = .
+.init_array     0x000000000380437c        0xc
+                0x000000000380437c                __init_array_start = .
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array)
- .init_array    0x0000000003803f6c        0x4 build/src/robot-config.o
- .init_array    0x0000000003803f70        0x4 build/src/main.o
- .init_array    0x0000000003803f74        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_color.cpp.obj)
-                0x0000000003803f78                __init_array_end = .
+ .init_array    0x000000000380437c        0x4 build/src/robot-config.o
+ .init_array    0x0000000003804380        0x4 build/src/main.o
+ .init_array    0x0000000003804384        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_color.cpp.obj)
+                0x0000000003804388                __init_array_end = .
 
-.fini_array     0x0000000003803f78        0x0
-                0x0000000003803f78                __fini_array_start = .
+.fini_array     0x0000000003804388        0x0
+                0x0000000003804388                __fini_array_start = .
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array)
-                0x0000000003803f78                __fini_array_end = .
+                0x0000000003804388                __fini_array_end = .
 
 .ARM.attributes
-                0x0000000003803f78       0x3c
-                0x0000000003803f78                __ARM.attributes_start = .
+                0x0000000003804388       0x3c
+                0x0000000003804388                __ARM.attributes_start = .
  *(.ARM.attributes)
  .ARM.attributes
-                0x0000000003803f78       0x3a build/src/robot-config.o
+                0x0000000003804388       0x3a build/src/robot-config.o
  .ARM.attributes
-                0x0000000003803fb2       0x3a build/src/main.o
+                0x00000000038043c2       0x3a build/src/main.o
  .ARM.attributes
-                0x0000000003803fec       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_startup.c.obj)
+                0x00000000038043fc       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_startup.c.obj)
  .ARM.attributes
-                0x0000000003804021       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_util.c.obj)
+                0x0000000003804431       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_util.c.obj)
  .ARM.attributes
-                0x0000000003804056       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
+                0x0000000003804466       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apijump.c.obj)
  .ARM.attributes
-                0x000000000380408b       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiversions.c.obj)
+                0x000000000380449b       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiversions.c.obj)
  .ARM.attributes
-                0x00000000038040c0       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
+                0x00000000038044d0       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_global.cpp.obj)
  .ARM.attributes
-                0x00000000038040f5       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
+                0x0000000003804505       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_motor.cpp.obj)
  .ARM.attributes
-                0x000000000380412a       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_controller.cpp.obj)
+                0x000000000380453a       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_controller.cpp.obj)
  .ARM.attributes
-                0x000000000380415f       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_thread.cpp.obj)
+                0x000000000380456f       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_thread.cpp.obj)
  .ARM.attributes
-                0x0000000003804194       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_event.cpp.obj)
+                0x00000000038045a4       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_event.cpp.obj)
  .ARM.attributes
-                0x00000000038041c9       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_mevent.cpp.obj)
+                0x00000000038045d9       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_mevent.cpp.obj)
  .ARM.attributes
-                0x00000000038041fe       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
+                0x000000000380460e       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_brain.cpp.obj)
  .ARM.attributes
-                0x0000000003804233       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_competition.cpp.obj)
+                0x0000000003804643       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_competition.cpp.obj)
  .ARM.attributes
-                0x0000000003804268       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_triport.cpp.obj)
+                0x0000000003804678       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_triport.cpp.obj)
  .ARM.attributes
-                0x000000000380429d       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_color.cpp.obj)
+                0x00000000038046ad       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_color.cpp.obj)
  .ARM.attributes
-                0x00000000038042d2       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_timer.cpp.obj)
+                0x00000000038046e2       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_timer.cpp.obj)
  .ARM.attributes
-                0x0000000003804307       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
+                0x0000000003804717       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_apiuser.c.obj)
  .ARM.attributes
-                0x000000000380433c       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_device.cpp.obj)
+                0x000000000380474c       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_device.cpp.obj)
  .ARM.attributes
-                0x0000000003804371       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_task.cpp.obj)
+                0x0000000003804781       0x35 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_task.cpp.obj)
  .ARM.attributes
-                0x00000000038043a6       0x2b /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/gcc/libs/libc.a(lib_a-fini.o)
+                0x00000000038047b6       0x2b /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/gcc/libs/libc.a(lib_a-fini.o)
  .ARM.attributes
-                0x00000000038043d1       0x2b /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/gcc/libs/libc.a(lib_a-impure.o)
+                0x00000000038047e1       0x2b /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/gcc/libs/libc.a(lib_a-impure.o)
  .ARM.attributes
-                0x00000000038043fc       0x2b /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/gcc/libs/libc.a(lib_a-init.o)
-                0x0000000003804427                __ARM.attributes_end = .
+                0x000000000380480c       0x2b /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/gcc/libs/libc.a(lib_a-init.o)
+                0x0000000003804837                __ARM.attributes_end = .
 
-.sdata          0x0000000003803f78        0x0
-                0x0000000003803f78                __sdata_start = .
+.sdata          0x0000000003804388        0x0
+                0x0000000003804388                __sdata_start = .
  *(.sdata)
  *(.sdata.*)
  *(.gnu.linkonce.s.*)
-                0x0000000003803f78                __sdata_end = .
+                0x0000000003804388                __sdata_end = .
 
-.sbss           0x0000000003803f78        0x0
-                0x0000000003803f78                __sbss_start = .
+.sbss           0x0000000003804388        0x0
+                0x0000000003804388                __sbss_start = .
  *(.sbss)
  *(.sbss.*)
  *(.gnu.linkonce.sb.*)
-                0x0000000003803f78                __sbss_end = .
+                0x0000000003804388                __sbss_end = .
 
-.tdata          0x0000000003803f78        0x0
-                0x0000000003803f78                __tdata_start = .
+.tdata          0x0000000003804388        0x0
+                0x0000000003804388                __tdata_start = .
  *(.tdata)
  *(.tdata.*)
  *(.gnu.linkonce.td.*)
-                0x0000000003803f78                __tdata_end = .
+                0x0000000003804388                __tdata_end = .
 
-.tbss           0x0000000003803f78        0x0
-                0x0000000003803f78                __tbss_start = .
+.tbss           0x0000000003804388        0x0
+                0x0000000003804388                __tbss_start = .
  *(.tbss)
  *(.tbss.*)
  *(.gnu.linkonce.tb.*)
-                0x0000000003803f78                __tbss_end = .
+                0x0000000003804388                __tbss_end = .
 
-.bss            0x0000000003803f78      0x679
-                0x0000000003803f78                __bss_start = .
+.bss            0x0000000003804388      0x6d1
+                0x0000000003804388                __bss_start = .
  *(.bss)
  *(.bss.*)
- .bss.Brain     0x0000000003803f78      0x2bc build/src/robot-config.o
-                0x0000000003803f78                Brain
+ .bss.Brain     0x0000000003804388      0x2bc build/src/robot-config.o
+                0x0000000003804388                Brain
  .bss.Controller
-                0x0000000003804234      0x1ac build/src/robot-config.o
-                0x0000000003804234                Controller
+                0x0000000003804644      0x1ac build/src/robot-config.o
+                0x0000000003804644                Controller
  .bss.FrontLeft
-                0x00000000038043e0       0x24 build/src/robot-config.o
-                0x00000000038043e0                FrontLeft
+                0x00000000038047f0       0x24 build/src/robot-config.o
+                0x00000000038047f0                FrontLeft
  .bss.FrontRight
-                0x0000000003804404       0x24 build/src/robot-config.o
-                0x0000000003804404                FrontRight
+                0x0000000003804814       0x24 build/src/robot-config.o
+                0x0000000003804814                FrontRight
  .bss.MiddleLeft
-                0x0000000003804428       0x24 build/src/robot-config.o
-                0x0000000003804428                MiddleLeft
+                0x0000000003804838       0x24 build/src/robot-config.o
+                0x0000000003804838                MiddleLeft
  .bss.MiddleRight
-                0x000000000380444c       0x24 build/src/robot-config.o
-                0x000000000380444c                MiddleRight
- .bss.BackLeft  0x0000000003804470       0x24 build/src/robot-config.o
-                0x0000000003804470                BackLeft
+                0x000000000380485c       0x24 build/src/robot-config.o
+                0x000000000380485c                MiddleRight
+ .bss.BackLeft  0x0000000003804880       0x24 build/src/robot-config.o
+                0x0000000003804880                BackLeft
  .bss.BackRight
-                0x0000000003804494       0x24 build/src/robot-config.o
-                0x0000000003804494                BackRight
- .bss.Wings     0x00000000038044b8       0x18 build/src/robot-config.o
-                0x00000000038044b8                Wings
- .bss.Intake    0x00000000038044d0       0x24 build/src/robot-config.o
-                0x00000000038044d0                Intake
+                0x00000000038048a4       0x24 build/src/robot-config.o
+                0x00000000038048a4                BackRight
+ .bss.Wings     0x00000000038048c8       0x18 build/src/robot-config.o
+                0x00000000038048c8                Wings
+ .bss.Intake    0x00000000038048e0       0x24 build/src/robot-config.o
+                0x00000000038048e0                Intake
  .bss.CatapultLift
-                0x00000000038044f4       0x24 build/src/robot-config.o
-                0x00000000038044f4                CatapultLift
- .bss.Catapult  0x0000000003804518       0x24 build/src/robot-config.o
-                0x0000000003804518                Catapult
+                0x0000000003804904       0x24 build/src/robot-config.o
+                0x0000000003804904                CatapultLift
+ .bss.Catapult  0x0000000003804928       0x24 build/src/robot-config.o
+                0x0000000003804928                Catapult
  .bss.CatapultRelease
-                0x000000000380453c       0x18 build/src/robot-config.o
-                0x000000000380453c                CatapultRelease
+                0x000000000380494c       0x18 build/src/robot-config.o
+                0x000000000380494c                CatapultRelease
  .bss._ZStL8__ioinit
-                0x0000000003804554        0x1 build/src/main.o
- *fill*         0x0000000003804555        0x3 
+                0x0000000003804964        0x1 build/src/main.o
+ *fill*         0x0000000003804965        0x3 
  .bss.Competition
-                0x0000000003804558       0x28 build/src/main.o
-                0x0000000003804558                Competition
- .bss.reversed  0x0000000003804580        0x1 build/src/main.o
-                0x0000000003804580                reversed
- .bss.wingsOn   0x0000000003804581        0x1 build/src/main.o
-                0x0000000003804581                wingsOn
+                0x0000000003804968       0x28 build/src/main.o
+                0x0000000003804968                Competition
+ .bss.reversed  0x0000000003804990        0x1 build/src/main.o
+                0x0000000003804990                reversed
+ *fill*         0x0000000003804991        0x7 
+ .bss.lateralError
+                0x0000000003804998        0x8 build/src/main.o
+                0x0000000003804998                lateralError
+ .bss.previousLateralError
+                0x00000000038049a0        0x8 build/src/main.o
+                0x00000000038049a0                previousLateralError
+ .bss.turnError
+                0x00000000038049a8        0x8 build/src/main.o
+                0x00000000038049a8                turnError
+ .bss.previousTurnError
+                0x00000000038049b0        0x8 build/src/main.o
+                0x00000000038049b0                previousTurnError
+ .bss.lateralErrorDifference
+                0x00000000038049b8        0x8 build/src/main.o
+                0x00000000038049b8                lateralErrorDifference
+ .bss.turnErrorDifference
+                0x00000000038049c0        0x8 build/src/main.o
+                0x00000000038049c0                turnErrorDifference
+ .bss.totalLateralError
+                0x00000000038049c8        0x8 build/src/main.o
+                0x00000000038049c8                totalLateralError
+ .bss.totalTurnError
+                0x00000000038049d0        0x8 build/src/main.o
+                0x00000000038049d0                totalTurnError
+ .bss.desiredLateralValue
+                0x00000000038049d8        0x8 build/src/main.o
+                0x00000000038049d8                desiredLateralValue
+ .bss.desiredTurnValue
+                0x00000000038049e0        0x8 build/src/main.o
+                0x00000000038049e0                desiredTurnValue
+ .bss.wingsOn   0x00000000038049e8        0x1 build/src/main.o
+                0x00000000038049e8                wingsOn
  .bss.autonStarted
-                0x0000000003804582        0x1 build/src/main.o
-                0x0000000003804582                autonStarted
- *fill*         0x0000000003804583        0x1 
+                0x00000000038049e9        0x1 build/src/main.o
+                0x00000000038049e9                autonStarted
+ .bss.killPID   0x00000000038049ea        0x1 build/src/main.o
+                0x00000000038049ea                killPID
+ .bss.stopMotorsInPID
+                0x00000000038049eb        0x1 build/src/main.o
+                0x00000000038049eb                stopMotorsInPID
  .bss.__dso_handle
-                0x0000000003804584        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_startup.c.obj)
-                0x0000000003804584                __dso_handle
+                0x00000000038049ec        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_startup.c.obj)
+                0x00000000038049ec                __dso_handle
  .bss._ZN3vex6thread8_labelIdE
-                0x0000000003804588        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_thread.cpp.obj)
-                0x0000000003804588                vex::thread::_labelId
+                0x00000000038049f0        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_thread.cpp.obj)
+                0x00000000038049f0                vex::thread::_labelId
  .bss._ZN3vex11competition22bStopTasksBetweenModesE
-                0x000000000380458c        0x1 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_competition.cpp.obj)
-                0x000000000380458c                vex::competition::bStopTasksBetweenModes
+                0x00000000038049f4        0x1 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_competition.cpp.obj)
+                0x00000000038049f4                vex::competition::bStopTasksBetweenModes
  .bss._ZN3vex11competition25bStopAllTasksBetweenModesE
-                0x000000000380458d        0x1 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_competition.cpp.obj)
-                0x000000000380458d                vex::competition::bStopAllTasksBetweenModes
+                0x00000000038049f5        0x1 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_competition.cpp.obj)
+                0x00000000038049f5                vex::competition::bStopAllTasksBetweenModes
  .bss._ZN3vex11competition14_auton_pendingE
-                0x000000000380458e        0x1 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_competition.cpp.obj)
-                0x000000000380458e                vex::competition::_auton_pending
- *fill*         0x000000000380458f        0x1 
+                0x00000000038049f6        0x1 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_competition.cpp.obj)
+                0x00000000038049f6                vex::competition::_auton_pending
+ *fill*         0x00000000038049f7        0x1 
  .bss._ZN3vex11competition20_autonomous_callbackE
-                0x0000000003804590        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_competition.cpp.obj)
-                0x0000000003804590                vex::competition::_autonomous_callback
+                0x00000000038049f8        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_competition.cpp.obj)
+                0x00000000038049f8                vex::competition::_autonomous_callback
  .bss._ZN3vex11competition23_drivercontrol_callbackE
-                0x0000000003804594        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_competition.cpp.obj)
-                0x0000000003804594                vex::competition::_drivercontrol_callback
+                0x00000000038049fc        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_competition.cpp.obj)
+                0x00000000038049fc                vex::competition::_drivercontrol_callback
  .bss._ZN3vex11competition15_driver_pendingE
-                0x0000000003804598        0x1 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_competition.cpp.obj)
-                0x0000000003804598                vex::competition::_driver_pending
- *fill*         0x0000000003804599        0x3 
+                0x0000000003804a00        0x1 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_competition.cpp.obj)
+                0x0000000003804a00                vex::competition::_driver_pending
+ *fill*         0x0000000003804a01        0x3 
  .bss._ZN3vex5color6orangeE
-                0x000000000380459c        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_color.cpp.obj)
-                0x000000000380459c                vex::color::orange
+                0x0000000003804a04        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_color.cpp.obj)
+                0x0000000003804a04                vex::color::orange
  .bss._ZN3vex5color5blackE
-                0x00000000038045a4        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_color.cpp.obj)
-                0x00000000038045a4                vex::color::black
+                0x0000000003804a0c        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_color.cpp.obj)
+                0x0000000003804a0c                vex::color::black
  .bss._ZN3vex5color6yellowE
-                0x00000000038045ac        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_color.cpp.obj)
-                0x00000000038045ac                vex::color::yellow
+                0x0000000003804a14        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_color.cpp.obj)
+                0x0000000003804a14                vex::color::yellow
  .bss._ZN3vex5color5greenE
-                0x00000000038045b4        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_color.cpp.obj)
-                0x00000000038045b4                vex::color::green
+                0x0000000003804a1c        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_color.cpp.obj)
+                0x0000000003804a1c                vex::color::green
  .bss._ZN3vex5color6purpleE
-                0x00000000038045bc        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_color.cpp.obj)
-                0x00000000038045bc                vex::color::purple
+                0x0000000003804a24        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_color.cpp.obj)
+                0x0000000003804a24                vex::color::purple
  .bss._ZN3vex5color4cyanE
-                0x00000000038045c4        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_color.cpp.obj)
-                0x00000000038045c4                vex::color::cyan
+                0x0000000003804a2c        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_color.cpp.obj)
+                0x0000000003804a2c                vex::color::cyan
  .bss._ZN3vex5color4blueE
-                0x00000000038045cc        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_color.cpp.obj)
-                0x00000000038045cc                vex::color::blue
+                0x0000000003804a34        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_color.cpp.obj)
+                0x0000000003804a34                vex::color::blue
  .bss._ZN3vex5color3redE
-                0x00000000038045d4        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_color.cpp.obj)
-                0x00000000038045d4                vex::color::red
+                0x0000000003804a3c        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_color.cpp.obj)
+                0x0000000003804a3c                vex::color::red
  .bss._ZN3vex5color11transparentE
-                0x00000000038045dc        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_color.cpp.obj)
-                0x00000000038045dc                vex::color::transparent
+                0x0000000003804a44        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_color.cpp.obj)
+                0x0000000003804a44                vex::color::transparent
  .bss._ZN3vex5color5whiteE
-                0x00000000038045e4        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_color.cpp.obj)
-                0x00000000038045e4                vex::color::white
+                0x0000000003804a4c        0x8 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_color.cpp.obj)
+                0x0000000003804a4c                vex::color::white
  .bss._ZN3vex4task8_labelIdE
-                0x00000000038045ec        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_task.cpp.obj)
-                0x00000000038045ec                vex::task::_labelId
+                0x0000000003804a54        0x4 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(vex_task.cpp.obj)
+                0x0000000003804a54                vex::task::_labelId
  *(.gnu.linkonce.b.*)
  *(COMMON)
- COMMON         0x00000000038045f0        0x1 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_startup.c.obj)
-                0x00000000038045f0                __vex_critical_section
-                0x00000000038045f1                __bss_end = .
-                0x0000000003803f78                _SDA_BASE_ = (__sdata_start + ((__sbss_end - __sdata_start) / 0x2))
-                0x0000000003803b18                _SDA2_BASE_ = (__sdata2_start + ((__sbss2_end - __sdata2_start) / 0x2))
+ COMMON         0x0000000003804a58        0x1 /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/libv5rt.a(v5_startup.c.obj)
+                0x0000000003804a58                __vex_critical_section
+                0x0000000003804a59                __bss_end = .
+                0x0000000003804388                _SDA_BASE_ = (__sdata_start + ((__sbss_end - __sdata_start) / 0x2))
+                0x0000000003803ee8                _SDA2_BASE_ = (__sdata2_start + ((__sbss2_end - __sdata2_start) / 0x2))
 
-.heap           0x00000000038045f1   0x10000f
-                0x0000000003804600                . = ALIGN (0x10)
- *fill*         0x00000000038045f1        0xf 
-                0x0000000003804600                _heap = .
-                0x0000000003804600                HeapBase = .
-                0x0000000003804600                _heap_start = .
-                0x0000000003904600                . = (. + _HEAP_SIZE)
- *fill*         0x0000000003804600   0x100000 
-                0x0000000003904600                _heap_end = .
-                0x0000000003904600                HeapLimit = .
+.heap           0x0000000003804a59   0x100007
+                0x0000000003804a60                . = ALIGN (0x10)
+ *fill*         0x0000000003804a59        0x7 
+                0x0000000003804a60                _heap = .
+                0x0000000003804a60                HeapBase = .
+                0x0000000003804a60                _heap_start = .
+                0x0000000003904a60                . = (. + _HEAP_SIZE)
+ *fill*         0x0000000003804a60   0x100000 
+                0x0000000003904a60                _heap_end = .
+                0x0000000003904a60                HeapLimit = .
 
-.stack          0x0000000003904600     0x3800
-                0x0000000003904600                . = ALIGN (0x10)
-                0x0000000003904600                _stack_end = .
-                0x0000000003906600                . = (. + _STACK_SIZE)
- *fill*         0x0000000003904600     0x2000 
-                0x0000000003906600                . = ALIGN (0x10)
-                0x0000000003906600                _stack = .
-                0x0000000003906600                __stack = _stack
-                0x0000000003906600                . = ALIGN (0x10)
-                0x0000000003906600                _irq_stack_end = .
-                0x0000000003906a00                . = (. + _IRQ_STACK_SIZE)
- *fill*         0x0000000003906600      0x400 
-                0x0000000003906a00                . = ALIGN (0x10)
-                0x0000000003906a00                __irq_stack = .
-                0x0000000003906a00                _supervisor_stack_end = .
-                0x0000000003907200                . = (. + _SUPERVISOR_STACK_SIZE)
- *fill*         0x0000000003906a00      0x800 
-                0x0000000003907200                . = ALIGN (0x10)
-                0x0000000003907200                __supervisor_stack = .
-                0x0000000003907200                _abort_stack_end = .
-                0x0000000003907600                . = (. + _ABORT_STACK_SIZE)
- *fill*         0x0000000003907200      0x400 
-                0x0000000003907600                . = ALIGN (0x10)
-                0x0000000003907600                __abort_stack = .
-                0x0000000003907600                _fiq_stack_end = .
-                0x0000000003907a00                . = (. + _FIQ_STACK_SIZE)
- *fill*         0x0000000003907600      0x400 
-                0x0000000003907a00                . = ALIGN (0x10)
-                0x0000000003907a00                __fiq_stack = .
-                0x0000000003907a00                _undef_stack_end = .
-                0x0000000003907e00                . = (. + _UNDEF_STACK_SIZE)
- *fill*         0x0000000003907a00      0x400 
-                0x0000000003907e00                . = ALIGN (0x10)
-                0x0000000003907e00                __undef_stack = .
-                0x0000000003907e00                _end = .
+.stack          0x0000000003904a60     0x3800
+                0x0000000003904a60                . = ALIGN (0x10)
+                0x0000000003904a60                _stack_end = .
+                0x0000000003906a60                . = (. + _STACK_SIZE)
+ *fill*         0x0000000003904a60     0x2000 
+                0x0000000003906a60                . = ALIGN (0x10)
+                0x0000000003906a60                _stack = .
+                0x0000000003906a60                __stack = _stack
+                0x0000000003906a60                . = ALIGN (0x10)
+                0x0000000003906a60                _irq_stack_end = .
+                0x0000000003906e60                . = (. + _IRQ_STACK_SIZE)
+ *fill*         0x0000000003906a60      0x400 
+                0x0000000003906e60                . = ALIGN (0x10)
+                0x0000000003906e60                __irq_stack = .
+                0x0000000003906e60                _supervisor_stack_end = .
+                0x0000000003907660                . = (. + _SUPERVISOR_STACK_SIZE)
+ *fill*         0x0000000003906e60      0x800 
+                0x0000000003907660                . = ALIGN (0x10)
+                0x0000000003907660                __supervisor_stack = .
+                0x0000000003907660                _abort_stack_end = .
+                0x0000000003907a60                . = (. + _ABORT_STACK_SIZE)
+ *fill*         0x0000000003907660      0x400 
+                0x0000000003907a60                . = ALIGN (0x10)
+                0x0000000003907a60                __abort_stack = .
+                0x0000000003907a60                _fiq_stack_end = .
+                0x0000000003907e60                . = (. + _FIQ_STACK_SIZE)
+ *fill*         0x0000000003907a60      0x400 
+                0x0000000003907e60                . = ALIGN (0x10)
+                0x0000000003907e60                __fiq_stack = .
+                0x0000000003907e60                _undef_stack_end = .
+                0x0000000003908260                . = (. + _UNDEF_STACK_SIZE)
+ *fill*         0x0000000003907e60      0x400 
+                0x0000000003908260                . = ALIGN (0x10)
+                0x0000000003908260                __undef_stack = .
+                0x0000000003908260                _end = .
 LOAD /home/vyx/.config/Code - Insiders/User/globalStorage/vexrobotics.vexcode/sdk/cpp/V5/V5_20220726_10_00_00/vexv5/stdlib_0.lib
 LOAD build/src/robot-config.o
 LOAD build/src/main.o
