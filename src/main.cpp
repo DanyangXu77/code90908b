@@ -11,22 +11,22 @@ competition Competition;
 
 double pi = 3.14159265358979323846264338327950288419716939937510582097494459;
 
-double driveInches = 0.019;
-double driveDegrees = 5;
+double driveInches = 57;
+double driveDegrees = 5.67;
 
 bool reversed = false;
 
 double lateralkP = 0.12, lateralkI = 0.000001, lateralkD = 0.01;
 double turnkP = 0.125, turnkI = 0.000001, turnkD = 0.025;
 double lateralError, previousLateralError, turnError, previousTurnError;
-double leftMultiplier = 1.005, rightMultiplier = 0.995;
+double leftMultiplier = 1.0048, rightMultiplier = 0.9952;
 
 double lateralErrorDifference, turnErrorDifference;
 
 double totalLateralError, totalTurnError;
 
-double desiredLateralValue;
-double desiredTurnValue;
+double desiredLateralValue = 0;
+double desiredTurnValue = 0;
 
 bool pidOn = true;
 
@@ -86,9 +86,11 @@ void stopIntake() {
 }
 
 void unIntake() {
-    startIntake(vex::forward);
-    wait(500, msec);
-    startIntake(vex::reverse);
+  cout << "intake reverse" << endl;
+  startIntake(vex::reverse);
+  wait(500, msec);
+  startIntake(vex::forward);
+  cout << "intake forward" << endl;
 }
 
 char* dtc(double d) {
@@ -162,7 +164,7 @@ void pid() {
 }
 
 void drive(double angle) {
-  cout << "start" << endl;
+  cout << "start drive " << angle << endl;
   resetDriveSensors();
   pidOn = true;
   stopMotorsInPID = false;
@@ -171,17 +173,17 @@ void drive(double angle) {
   desiredLateralValue = -1 * angle * driveInches;
   desiredTurnValue = 0;
   wait(20, msec);
-  while (abs(lateralError) > desiredLateralValue * 0.005) {
+  while (abs(lateralError) > 3) {
     wait(20, msec);
   }
   stopMotorsInPID = true;
   pidOn = false;
-  cout << "end" << endl;
+  cout << "end drive " << angle << endl;
   stopMotors();
 }
 
 void turn(double angle) {
-  cout << "start" << endl;
+  cout << "start turn " << angle << endl;
   resetDriveSensors();
   pidOn = true;
   stopMotorsInPID = false;
@@ -190,14 +192,16 @@ void turn(double angle) {
   desiredLateralValue = 0;
   desiredTurnValue = angle * driveDegrees;
   wait(20, msec);
-  while (abs(turnError) > desiredTurnValue * 0.005) {
+  while (abs(turnError) > 3) {
     wait(20, msec);
   }
   stopMotorsInPID = true;
   pidOn = false;
-  cout << "end" << endl;
+  cout << "end turn " << angle << endl;
   stopMotors();
 }
+
+vex::thread p(pid);
 
 void preauton() {
   Intake.setStopping(brake);
@@ -212,9 +216,10 @@ void preauton() {
   Brain.Screen.setFont(mono30);
   centrePrintAt(120, 120, "CLOSE AUTON");
   centrePrintAt(360, 120, "FAR AUTON");
+
   while (!autonStarted) {
     if (Brain.Screen.pressing()) {
-      if (Brain.Screen.xPosition() < 500) {
+      if (Brain.Screen.xPosition() < 240) {
         if (mode == "close_auton") {
           continue;
         }
@@ -252,23 +257,28 @@ void preauton() {
 }
 
 void autonomous(void) {
-  vex::thread p(pid);
   setMotorsType(vex::brake);
   autonStarted = true;
   Brain.Screen.clearScreen();
-  // centrePrintAt(240, 120, "using mode");
-  // centrePrintAt(240, 180, mode);
+  centrePrintAt(240, 120, "using mode");
+  centrePrintAt(240, 180, mode);
 
   cout << "program start" << endl;
 
   int dummy = 0;
 
-  bool testing = true;
+  bool testing = false;
+
+  // mode = "far_auton";
+
+  // unIntake() doesn't work.
 
   if (testing) {
-    turn(90);
+    drive(0);
+    unIntake();
   } else if (mode == "close_auton") {
     Wings.set(true);
+    cout << "start close_auton" << endl;
     turn(-90);
     drive(20);
     turn(45);
@@ -290,15 +300,17 @@ void autonomous(void) {
 
   } else if (mode == "far_auton") {
     Wings.set(true);
-    drive(-48);
-    turn(-90);
-    drive(5);
+    cout << "start far_auton" << endl;
+    drive(48);
+    turn(90);
+    drive(2);
     unIntake();
-    drive(-5);
+    drive(-15);
     turn(-135);
     drive(7);
     drive(-7);
     turn(135);
+    drive(12);
     unIntake();
     turn(161.6);
     drive(38);
@@ -309,10 +321,13 @@ void autonomous(void) {
     drive(38);
     drive(-38);
   } else {
-
+    killPID = true;
+    pidOn = false;
+    stopMotors();
   }
-  // killPID = true;
-  // stopMotors();
+  killPID = true;
+  pidOn = false;
+  stopMotors();
 }
 
 void cata() {
@@ -346,7 +361,10 @@ void cata() {
 }
 
 void usercontrol(void) {
-  thread drive(cata);
+  thread c(cata);
+  killPID = true;
+  stopMotors();
+  Intake.stop();
   setMotorsType(vex::coast);
   // pidOn = false;
   // killPID = true;
