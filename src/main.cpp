@@ -339,12 +339,12 @@ void autonomous(void) {
     // Wings.set(false);
     cout << "start close_auton" << endl;
     Wings.set(true);
-    susDrive(58);
-    sussyAmoger = false;
+    drive(48);
+    turn(50);
+    drive(10);
     drive(-10);
-    Wings.set(true);
-    turn(-90);
-    drive(6);
+    turn(-135);
+    drive(3);
     unIntake();
     waitUntil(!Intake.isSpinning());
     drive(-6);
