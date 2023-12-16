@@ -2,6 +2,7 @@
 #include <string>
 #include <cmath>
 #include <robot-config.h>
+#include <future>
 #include <vex.h>
 using namespace vex;
 #include <iostream>
@@ -25,6 +26,8 @@ double lateralErrorDifference, turnErrorDifference;
 
 double totalLateralError, totalTurnError;
 
+double pidDampening = 1;
+
 double desiredLateralValue = 0;
 double desiredTurnValue = 0;
 
@@ -43,11 +46,17 @@ bool stopMotorsInPID = false;
 
 char* mode = "no_auton";
 
+bool sussyAmoger = false;
+
 // extern uint32_t pic_map[];
 
 vex::directionType opposite(vex::directionType direction) {
   if (direction == vex::forward) return vex::reverse;
   return vex::forward;
+}
+
+double sign(double i) {
+  return std::round(abs(i) / i);
 }
 
 void resetDriveSensors() {
@@ -86,11 +95,11 @@ void stopIntake() {
 }
 
 void unIntake() {
-  cout << "intake reverse" << endl;
-  startIntake(vex::reverse);
-  wait(500, msec);
-  startIntake(vex::forward);
   cout << "intake forward" << endl;
+  startIntake(vex::forward);
+  vex::wait(500, vex::msec);
+  startIntake(vex::reverse);
+  cout << "intake reverse" << endl;
 }
 
 char* dtc(double d) {
@@ -126,7 +135,9 @@ void pid() {
       totalTurnError += turnError;
 
       if (totalLateralError > 1000) totalLateralError = 1000;
-      if (totalTurnError > 1000) totalTurnError = 1000;
+      if (totalTurnError < -1000) totalTurnError = -1000;
+      if (totalLateralError > 1000) totalLateralError = 1000;
+      if (totalTurnError < -1000) totalTurnError = -1000;
 
       double lateralMotorPower = lateralError * lateralkP + totalLateralError * lateralkI + lateralErrorDifference * lateralkD;
 
@@ -136,11 +147,18 @@ void pid() {
 
       previousTurnError = turnError;
       
-      wait(20, msec);
+      wait(20, vex::msec);
 
-      cout << leftMotorPosition << ", " << rightMotorPosition << endl;
+      cout << leftMotorPosition << ", " << rightMotorPosition << ", " << lateralError << endl;
+
+      if (sussyAmoger && lateralError < 600) {
+        Wings.set(false);
+      }
 
       if (stopMotorsInPID) {
+        desiredLateralValue = 0;
+        desiredTurnValue = 0;
+        resetDriveSensors();
         FrontLeft.stop();
         FrontRight.stop();
         MiddleLeft.stop();
@@ -148,12 +166,13 @@ void pid() {
         BackLeft.stop();
         BackRight.stop();
       } else {
-        FrontLeft.spin(vex::forward, (lateralMotorPower + turnMotorPower) * leftMultiplier, vex::percent);
-        FrontRight.spin(vex::forward, (lateralMotorPower - turnMotorPower) * rightMultiplier, vex::percent);
-        MiddleLeft.spin(vex::forward, (lateralMotorPower + turnMotorPower) * leftMultiplier, vex::percent);
-        MiddleRight.spin(vex::forward, (lateralMotorPower - turnMotorPower) * rightMultiplier, vex::percent);
-        BackLeft.spin(vex::forward, (lateralMotorPower + turnMotorPower) * leftMultiplier, vex::percent);
-        BackRight.spin(vex::forward, (lateralMotorPower - turnMotorPower) * rightMultiplier, vex::percent);
+        double signMultiplier = sign(desiredLateralValue + desiredTurnValue);
+        FrontLeft.spin(vex::forward, (lateralMotorPower + turnMotorPower) * leftMultiplier * pidDampening, vex::percent);
+        FrontRight.spin(vex::forward, (lateralMotorPower - turnMotorPower) * rightMultiplier * pidDampening, vex::percent);
+        MiddleLeft.spin(vex::forward, (lateralMotorPower + turnMotorPower) * leftMultiplier * pidDampening, vex::percent);
+        MiddleRight.spin(vex::forward, (lateralMotorPower - turnMotorPower) * rightMultiplier * pidDampening, vex::percent);
+        BackLeft.spin(vex::forward, (lateralMotorPower + turnMotorPower) * leftMultiplier * pidDampening, vex::percent);
+        BackRight.spin(vex::forward, (lateralMotorPower - turnMotorPower) * rightMultiplier * pidDampening, vex::percent);
       }
     }
 
@@ -172,12 +191,11 @@ void drive(double angle) {
   totalTurnError = 0;
   desiredLateralValue = -1 * angle * driveInches;
   desiredTurnValue = 0;
-  wait(20, msec);
+  wait(20, vex::msec);
   while (abs(lateralError) > 3) {
-    wait(20, msec);
+    wait(20, vex::msec);
   }
   stopMotorsInPID = true;
-  pidOn = false;
   cout << "end drive " << angle << endl;
   stopMotors();
 }
@@ -191,12 +209,11 @@ void turn(double angle) {
   totalTurnError = 0;
   desiredLateralValue = 0;
   desiredTurnValue = angle * driveDegrees;
-  wait(20, msec);
+  wait(20, vex::msec);
   while (abs(turnError) > 3) {
-    wait(20, msec);
+    wait(20, vex::msec);
   }
   stopMotorsInPID = true;
-  pidOn = false;
   cout << "end turn " << angle << endl;
   stopMotors();
 }
@@ -269,57 +286,74 @@ void autonomous(void) {
 
   bool testing = false;
 
-  // mode = "far_auton";
+  // mode = "no_auton";
 
   // unIntake() doesn't work.
 
   if (testing) {
-    drive(0);
-    unIntake();
   } else if (mode == "close_auton") {
-    Wings.set(true);
+    // cout << "start close_auton" << endl;
+    // Wings.set(true);
+    // turn(-90);
+    // drive(20);
+    // turn(45);
+    // Wings.set(false);
+    // wait(500, vex::msec);
+    // Wings.set(true);
+    // turn(-45);
+    // drive(-20);
+    // turn(90);
+    // drive(-48);
+    // turn(-90);
+    // drive(-5);
+    // unIntake();
+    // waitUntil(!Intake.isSpinning());
+    // drive(5);
+    // turn(90);
+    // drive(48);
+    // turn(90);
+    // Wings.set(false);
     cout << "start close_auton" << endl;
-    turn(-90);
-    drive(20);
-    turn(45);
-    Wings.set(false);
-    wait(500, msec);
+    sussyAmoger = true;
     Wings.set(true);
-    turn(-45);
-    drive(-20);
-    turn(90);
-    drive(-48);
+    drive(58);
+    sussyAmoger = false;
+    Wings.set(true);
+    drive(-10);
     turn(-90);
-    drive(-5);
+    drive(2);
     unIntake();
-    drive(5);
-    turn(90);
-    drive(48);
-    turn(90);
-    Wings.set(false);
-
+    waitUntil(!Intake.isSpinning());
+    drive(-6);
+    drive(8);
   } else if (mode == "far_auton") {
-    Wings.set(true);
     cout << "start far_auton" << endl;
+    Wings.set(true);
     drive(48);
     turn(90);
     drive(2);
     unIntake();
-    drive(-15);
-    turn(-135);
-    drive(7);
-    drive(-7);
-    turn(135);
-    drive(12);
-    unIntake();
-    turn(161.6);
-    drive(38);
-    drive(-38);
-    turn(-161.6);
-    unIntake();
-    turn(161.6);
-    drive(38);
-    drive(-38);
+    waitUntil(!Intake.isSpinning());
+    // drive(-6);
+    // drive(6);
+    drive(-24);
+    Wings.set(false);
+    wait(1000, vex::msec);
+    drive(27);
+    Wings.set(true);
+    // turn(-120);
+    // susDrive(10);
+    // turn(120);
+    // waitUntil(!Intake.isSpinning());
+    // turn(161.6);
+    // drive(38);
+    // drive(-38);
+    // turn(-161.6);
+    // unIntake();
+    // waitUntil(!Intake.isSpinning());
+    // turn(161.6);
+    // drive(38);
+    // drive(-38);
   } else {
     killPID = true;
     pidOn = false;
