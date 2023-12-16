@@ -151,7 +151,8 @@ void pid() {
 
       cout << leftMotorPosition << ", " << rightMotorPosition << ", " << lateralError << endl;
 
-      if (sussyAmoger && lateralError < 600) {
+      if (sussyAmoger && lateralError > -1000) {
+        cout << "SUS AMOGUS WARNING!!11!1!!!1" << endl;
         Wings.set(false);
       }
 
@@ -193,6 +194,27 @@ void drive(double angle) {
   desiredTurnValue = 0;
   wait(20, vex::msec);
   while (abs(lateralError) > 3) {
+    wait(20, vex::msec);
+  }
+  stopMotorsInPID = true;
+  cout << "end drive " << angle << endl;
+  stopMotors();
+}
+
+void susDrive(double angle)
+{
+  cout << "start drive " << angle << endl;
+  resetDriveSensors();
+  pidOn = true;
+  stopMotorsInPID = false;
+  totalLateralError = 0;
+  totalTurnError = 0;
+  desiredLateralValue = -1 * angle * driveInches;
+  desiredTurnValue = 0;
+  sussyAmoger = true;
+  wait(20, vex::msec);
+  while (abs(lateralError) > 3)
+  {
     wait(20, vex::msec);
   }
   stopMotorsInPID = true;
@@ -314,14 +336,13 @@ void autonomous(void) {
     // turn(90);
     // Wings.set(false);
     cout << "start close_auton" << endl;
-    sussyAmoger = true;
     Wings.set(true);
-    drive(58);
+    susDrive(58);
     sussyAmoger = false;
-    Wings.set(true);
     drive(-10);
+    Wings.set(true);
     turn(-90);
-    drive(2);
+    drive(6);
     unIntake();
     waitUntil(!Intake.isSpinning());
     drive(-6);
@@ -400,8 +421,8 @@ void usercontrol(void) {
   stopMotors();
   Intake.stop();
   setMotorsType(vex::coast);
-  // pidOn = false;
-  // killPID = true;
+  pidOn = false;
+  killPID = true;
   while (1) {
     int axis1, axis3;
 
@@ -423,6 +444,8 @@ void usercontrol(void) {
       BackLeft.spin(vex::reverse, axis3 - axis1, vex::percent);
       BackRight.spin(vex::reverse, axis3 + axis1, vex::percent);
     }
+
+    // cout << axis1 << ", " << axis3 << endl;
 
     if (Controller.ButtonR1.pressing()) {
       Intake.spin(vex::forward, 200, vex::rpm);
