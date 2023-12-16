@@ -151,8 +151,9 @@ void pid() {
 
       cout << leftMotorPosition << ", " << rightMotorPosition << ", " << lateralError << endl;
 
-      if (sussyAmoger && lateralError > -1000) {
+      if (sussyAmoger && lateralError > -800) {
         cout << "SUS AMOGUS WARNING!!11!1!!!1" << endl;
+        Brain.Screen.print("sus amogus warning");
         Wings.set(false);
       }
 
@@ -201,8 +202,7 @@ void drive(double angle) {
   stopMotors();
 }
 
-void susDrive(double angle)
-{
+void susDrive(double angle) {
   cout << "start drive " << angle << endl;
   resetDriveSensors();
   pidOn = true;
@@ -213,8 +213,7 @@ void susDrive(double angle)
   desiredTurnValue = 0;
   sussyAmoger = true;
   wait(20, vex::msec);
-  while (abs(lateralError) > 3)
-  {
+  while (abs(lateralError) > 3){
     wait(20, vex::msec);
   }
   stopMotorsInPID = true;
@@ -308,12 +307,15 @@ void autonomous(void) {
 
   bool testing = false;
 
+  resetDriveSensors();
+
   // mode = "no_auton";
 
   // unIntake() doesn't work.
 
   if (testing) {
   } else if (mode == "close_auton") {
+    resetDriveSensors();
     // cout << "start close_auton" << endl;
     // Wings.set(true);
     // turn(-90);
@@ -348,6 +350,7 @@ void autonomous(void) {
     drive(-6);
     drive(8);
   } else if (mode == "far_auton") {
+    resetDriveSensors();
     cout << "start far_auton" << endl;
     Wings.set(true);
     drive(48);
