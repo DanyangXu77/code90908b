@@ -325,11 +325,6 @@ void autonomous(void) {
 
 void cata() {
   while (true) {
-    if (Controller.ButtonDown.pressing()) {
-      CatapultRelease.set(true);
-      wait(200, vex::msec);
-      CatapultRelease.set(false);
-    }
     if (Controller.ButtonB.pressing()) {
       if (cata2) {
         cata2 = false;
@@ -361,6 +356,7 @@ void usercontrol(void) {
   killPID = true;
   int axis1, axis3;
   while (1) {
+    cout << "sus" << endl;
     axis1 = Controller.Axis1.position(vex::percent);
     axis3 = Controller.Axis3.position(vex::percent);
 
