@@ -239,8 +239,6 @@ void turn(double angle) {
   stopMotors();
 }
 
-vex::thread p(pid);
-
 void preauton() {
   Intake.setStopping(brake);
 
@@ -295,6 +293,7 @@ void preauton() {
 }
 
 void autonomous(void) {
+  vex::thread p(pid);
   setMotorsType(vex::brake);
   autonStarted = true;
   Brain.Screen.clearScreen();
@@ -419,7 +418,8 @@ void cata() {
 }
 
 void usercontrol(void) {
-  thread c(cata);
+  vex::thread::interruptAll();
+  vex::thread c(cata);
   killPID = true;
   stopMotors();
   Intake.stop();
