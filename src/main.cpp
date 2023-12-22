@@ -46,6 +46,8 @@ bool killPID = false;
 
 bool stopMotorsInPID = false;
 
+bool arcade = true;
+
 char* mode = "no_auton";
 
 bool sussyAmoger = false;
@@ -353,26 +355,45 @@ void usercontrol(void) {
   setMotorsType(vex::coast);
   pidOn = false;
   killPID = true;
-  int axis1, axis3;
+  int axis1, axis2, axis3;
   while (1) {
     cout << "sus" << endl;
     axis1 = Controller.Axis1.position(vex::percent);
+    axis2 = Controller.Axis2.position(vex::percent);
     axis3 = Controller.Axis3.position(vex::percent);
 
     if (reversed) {
-      FrontLeft.spin(vex::forward, axis3 + axis1, vex::percent);
-      FrontRight.spin(vex::forward, axis3 - axis1, vex::percent);
-      MiddleLeft.spin(vex::forward, axis3 + axis1, vex::percent);
-      MiddleRight.spin(vex::forward, axis3 - axis1, vex::percent);
-      BackLeft.spin(vex::forward, axis3 + axis1, vex::percent);
-      BackRight.spin(vex::forward, axis3 - axis1, vex::percent);
+      if (arcade) {
+        FrontLeft.spin(vex::forward, axis3 + axis1, vex::percent);
+        FrontRight.spin(vex::forward, axis3 - axis1, vex::percent);
+        MiddleLeft.spin(vex::forward, axis3 + axis1, vex::percent);
+        MiddleRight.spin(vex::forward, axis3 - axis1, vex::percent);
+        BackLeft.spin(vex::forward, axis3 + axis1, vex::percent);
+        BackRight.spin(vex::forward, axis3 - axis1, vex::percent);
+      } else {
+        FrontLeft.spin(vex::forward, axis3, vex::percent);
+        FrontRight.spin(vex::forward, axis2, vex::percent);
+        MiddleLeft.spin(vex::forward, axis3, vex::percent);
+        MiddleRight.spin(vex::forward, axis2, vex::percent);
+        BackLeft.spin(vex::forward, axis3, vex::percent);
+        BackRight.spin(vex::forward, axis2, vex::percent);
+      }
     } else {
-      FrontLeft.spin(vex::reverse, axis3 - axis1, vex::percent);
-      FrontRight.spin(vex::reverse, axis3 + axis1, vex::percent);
-      MiddleLeft.spin(vex::reverse, axis3 - axis1, vex::percent);
-      MiddleRight.spin(vex::reverse, axis3 + axis1, vex::percent);
-      BackLeft.spin(vex::reverse, axis3 - axis1, vex::percent);
-      BackRight.spin(vex::reverse, axis3 + axis1, vex::percent);
+      if (arcade) {
+        FrontLeft.spin(vex::reverse, axis3 - axis1, vex::percent);
+        FrontRight.spin(vex::reverse, axis3 + axis1, vex::percent);
+        MiddleLeft.spin(vex::reverse, axis3 - axis1, vex::percent);
+        MiddleRight.spin(vex::reverse, axis3 + axis1, vex::percent);
+        BackLeft.spin(vex::reverse, axis3 - axis1, vex::percent);
+        BackRight.spin(vex::reverse, axis3 + axis1, vex::percent);
+      } else {
+        FrontLeft.spin(vex::reverse, axis3, vex::percent);
+        FrontRight.spin(vex::reverse, axis2, vex::percent);
+        MiddleLeft.spin(vex::reverse, axis3, vex::percent);
+        MiddleRight.spin(vex::reverse, axis2, vex::percent);
+        BackLeft.spin(vex::reverse, axis3, vex::percent);
+        BackRight.spin(vex::reverse, axis2, vex::percent);
+      }
     }
 
     // cout << axis1 << ", " << axis3 << endl;
@@ -394,6 +415,9 @@ void usercontrol(void) {
     } else {
       wingsOn2 = true;
     }
+
+    Controller.Screen.print("drive = ");
+    if (arcade) Controller.Screen.print("arcade"); else Controller.Screen.print("tank");
 
     if (Controller.ButtonX.pressing()) {
       setMotorsType(vex::hold);
