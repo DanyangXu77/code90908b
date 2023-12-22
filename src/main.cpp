@@ -22,7 +22,7 @@ bool reversed = false;
 double lateralkP = 0.12, lateralkI = 0.000001, lateralkD = 0.01;
 double turnkP = 0.125, turnkI = 0.000001, turnkD = 0.025;
 double lateralError, previousLateralError, turnError, previousTurnError;
-double leftMultiplier = 1.0048, rightMultiplier = 0.9952;
+double leftMultiplier = 1.0, rightMultiplier = 1.0;
 
 double lateralErrorDifference, turnErrorDifference;
 
@@ -324,30 +324,29 @@ void autonomous(void) {
 }
 
 void cata() {
-  while (true) {
-    if (Controller.ButtonB.pressing()) {
-      if (cata2) {
-        cata2 = false;
-        CatapultLift.spinFor(vex::forward, 250, vex::degrees, 160, vex::rpm, false);
-        wait(500, vex::msec);
-        Catapult.spinFor(vex::forward, 16560, vex::degrees, 80, vex::rpm, false);
-        while (Catapult.isSpinning()) {
-          if (Controller.ButtonX.pressing()) {
-            Catapult.stop();
-            CatapultLift.spinFor(vex::reverse, 250, vex::degrees, 160, vex::rpm, false);
-          }
-        }
-        CatapultLift.spinFor(vex::reverse, 250, vex::degrees, 160, vex::rpm, false);
-      }
-    } else {
-      cata2 = true;
-    }
-  }
+  // while (true) {
+  //   if (Controller.ButtonB.pressing()) {
+  //     if (cata2) {
+  //       cata2 = false;
+  //       CatapultLift.spinFor(vex::forward, 250, vex::degrees, 160, vex::rpm, false);
+  //       wait(500, vex::msec);
+  //       Catapult.spinFor(vex::forward, 16560, vex::degrees, 80, vex::rpm, false);
+  //       while (Catapult.isSpinning()) {
+  //         if (Controller.ButtonX.pressing()) {
+  //           Catapult.stop();
+  //           CatapultLift.spinFor(vex::reverse, 250, vex::degrees, 160, vex::rpm, false);
+  //         }
+  //       }
+  //       CatapultLift.spinFor(vex::reverse, 250, vex::degrees, 160, vex::rpm, false);
+  //     }
+  //   } else {
+  //     cata2 = true;
+  //   }
+  // }
 }
 
 void usercontrol(void) {
-  vex::thread::interruptAll();
-  vex::thread c(cata);
+  // vex::thread c(cata);
   killPID = true;
   stopMotors();
   Intake.stop();
@@ -407,6 +406,8 @@ void usercontrol(void) {
 }
 
 int main() {
+  Competition.bStopAllTasksBetweenModes = true;
+
   Competition.autonomous(autonomous);
   Competition.drivercontrol(usercontrol);
 
