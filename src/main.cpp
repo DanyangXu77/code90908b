@@ -10,6 +10,8 @@ using namespace std;
 
 competition Competition;
 
+double dummy = 0;
+
 double pi = 3.14159265358979323846264338327950288419716939937510582097494459;
 
 double driveInches = 57;
@@ -302,81 +304,15 @@ void autonomous(void) {
 
   cout << "program start" << endl;
 
-  int dummy = 0;
-
   bool testing = false;
 
   resetDriveSensors();
 
   // mode = "no_auton";
 
-  // unIntake() doesn't work.
-
   if (testing) {
   } else if (mode == "close_auton") {
-    resetDriveSensors();
-    // cout << "start close_auton" << endl;
-    // Wings.set(true);
-    // turn(-90);
-    // drive(20);
-    // turn(45);
-    // Wings.set(false);
-    // wait(500, vex::msec);
-    // Wings.set(true);
-    // turn(-45);
-    // drive(-20);
-    // turn(90);
-    // drive(-48);
-    // turn(-90);
-    // drive(-5);
-    // unIntake();
-    // waitUntil(!Intake.isSpinning());
-    // drive(5);
-    // turn(90);
-    // drive(48);
-    // turn(90);
-    // Wings.set(false);
-    cout << "start close_auton" << endl;
-    Wings.set(true);
-    drive(48);
-    turn(50);
-    drive(10);
-    drive(-10);
-    turn(-135);
-    drive(3);
-    unIntake();
-    waitUntil(!Intake.isSpinning());
-    drive(-6);
-    drive(8);
   } else if (mode == "far_auton") {
-    resetDriveSensors();
-    cout << "start far_auton" << endl;
-    Wings.set(true);
-    drive(48);
-    turn(90);
-    drive(2);
-    unIntake();
-    waitUntil(!Intake.isSpinning());
-    // drive(-6);
-    // drive(6);
-    drive(-24);
-    Wings.set(false);
-    wait(1000, vex::msec);
-    drive(27);
-    Wings.set(true);
-    // turn(-120);
-    // susDrive(10);
-    // turn(120);
-    // waitUntil(!Intake.isSpinning());
-    // turn(161.6);
-    // drive(38);
-    // drive(-38);
-    // turn(-161.6);
-    // unIntake();
-    // waitUntil(!Intake.isSpinning());
-    // turn(161.6);
-    // drive(38);
-    // drive(-38);
   } else {
     killPID = true;
     pidOn = false;
@@ -407,9 +343,6 @@ void cata() {
           }
         }
         CatapultLift.spinFor(vex::reverse, 250, vex::degrees, 160, vex::rpm, false);
-        CatapultRelease.set(true);
-        wait(200, vex::msec);
-        CatapultRelease.set(false);
       }
     } else {
       cata2 = true;
@@ -426,9 +359,8 @@ void usercontrol(void) {
   setMotorsType(vex::coast);
   pidOn = false;
   killPID = true;
+  int axis1, axis3;
   while (1) {
-    int axis1, axis3;
-
     axis1 = Controller.Axis1.position(vex::percent);
     axis3 = Controller.Axis3.position(vex::percent);
 
