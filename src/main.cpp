@@ -382,12 +382,12 @@ void usercontrol(void) {
       }
     } else {
       if (arcade) {
-        FrontLeft.spin(vex::reverse, axis3 - axis1, vex::percent);
-        FrontRight.spin(vex::reverse, axis3 + axis1, vex::percent);
-        MiddleLeft.spin(vex::reverse, axis3 - axis1, vex::percent);
-        MiddleRight.spin(vex::reverse, axis3 + axis1, vex::percent);
-        BackLeft.spin(vex::reverse, axis3 - axis1, vex::percent);
-        BackRight.spin(vex::reverse, axis3 + axis1, vex::percent);
+        FrontLeft.spin(vex::reverse, axis3 + axis1, vex::percent);
+        FrontRight.spin(vex::reverse, axis3 - axis1, vex::percent);
+        MiddleLeft.spin(vex::reverse, axis3 + axis1, vex::percent);
+        MiddleRight.spin(vex::reverse, axis3 - axis1, vex::percent);
+        BackLeft.spin(vex::reverse, axis3 + axis1, vex::percent);
+        BackRight.spin(vex::reverse, axis3 - axis1, vex::percent);
       } else {
         FrontLeft.spin(vex::reverse, axis3, vex::percent);
         FrontRight.spin(vex::reverse, axis2, vex::percent);
