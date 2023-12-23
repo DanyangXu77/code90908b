@@ -48,6 +48,8 @@ bool stopMotorsInPID = false;
 
 bool arcade = true;
 
+bool arcade2 = true;
+
 char* mode = "no_auton";
 
 bool sussyAmoger = false;
@@ -398,6 +400,15 @@ void usercontrol(void) {
 
     // cout << axis1 << ", " << axis3 << endl;
 
+    if (Controller.ButtonY.pressing()) {
+      if (arcade2) {
+        arcade = !arcade;
+        arcade2 = false;
+      }
+    } else {
+      arcade2 = true;
+    }
+
     if (Controller.ButtonR1.pressing()) {
       Intake.spin(vex::forward, 200, vex::rpm);
     } else if (Controller.ButtonR2.pressing()) {
@@ -415,7 +426,7 @@ void usercontrol(void) {
     } else {
       wingsOn2 = true;
     }
-
+    Controller.Screen.clearLine();
     Controller.Screen.print("drive = ");
     if (arcade) Controller.Screen.print("arcade"); else Controller.Screen.print("tank");
 
