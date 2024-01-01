@@ -14,6 +14,7 @@ extern digital_out Wings;
 extern motor Intake;
 extern motor CatapultLift;
 extern motor Catapult;
+extern digital_out Ratchet;
 extern digital_out CatapultRelease;
 extern controller Controller;
 

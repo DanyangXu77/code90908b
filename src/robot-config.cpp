@@ -17,6 +17,7 @@ motor MiddleRight = motor(PORT7, ratio6_1, true);
 motor BackLeft = motor(PORT6, ratio6_1, false);
 motor BackRight = motor(PORT5, ratio6_1, true);
 digital_out Wings = digital_out(Brain.ThreeWirePort.A);
+digital_out Ratchet = digital_out(Brain.ThreeWirePort.B);
 motor Intake = motor(PORT4, ratio18_1, false);
 motor CatapultLift = motor(PORT18, ratio36_1, false);
 motor Catapult = motor(PORT19, ratio18_1, false);

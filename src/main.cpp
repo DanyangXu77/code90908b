@@ -38,7 +38,8 @@ bool pidOn = true;
 bool wingsOn = false;
 bool wingsOn2 = true;
 
-bool cata2 = true;
+bool cataOn = false;
+bool cataOn2 = true;
 
 bool autonStarted = false;
 
@@ -47,8 +48,10 @@ bool killPID = false;
 bool stopMotorsInPID = false;
 
 bool arcade = true;
-
 bool arcade2 = true;
+
+bool ratchet = false;
+bool ratchet2 = true;
 
 char* mode = "no_auton";
 
@@ -330,16 +333,18 @@ void autonomous(void) {
 void cata() {
   while (true) {
     if (Controller.ButtonB.pressing()) {
-      if (cata2) {
-        cata2 = false;
-        CatapultLift.spinFor(vex::forward, 540, vex::degrees, 160, vex::rpm, false);
-        Catapult.spin(vex::forward, 100, vex::rpm);      
-      } else {
-        CatapultLift.spinFor(vex::reverse, 540, vex::degrees, 160, vex::rpm, false);
-        Catapult.stop();
+      if (cataOn2) {
+        cataOn2 = false;
+        if (cataOn) {
+          CatapultLift.spinFor(vex::forward, 540, vex::degrees, 160, vex::rpm, false);
+          Catapult.spin(vex::forward, 100, vex::rpm);    
+        } else {
+          CatapultLift.spinFor(vex::reverse, 540, vex::degrees, 160, vex::rpm, false);
+          Catapult.stop();
+        }
       }
     } else {
-      cata2 = true;
+      cataOn2 = true;
     }
   }
 }
@@ -420,6 +425,16 @@ void usercontrol(void) {
       }
     } else {
       wingsOn2 = true;
+    }
+
+    if (Controller.ButtonDown.pressing()) {
+      if (ratchet2) {
+        ratchet = !ratchet;
+        Ratchet.set(ratchet);
+        ratchet2 = false;
+      }
+    } else {
+      ratchet2 = true;
     }
 
     Controller.Screen.clearLine();
