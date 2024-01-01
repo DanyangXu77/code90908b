@@ -335,6 +335,7 @@ void cata() {
     if (Controller.ButtonB.pressing()) {
       if (cataOn2) {
         cataOn2 = false;
+        cataOn = !cataOn;
         if (cataOn) {
           CatapultLift.spinFor(vex::forward, 540, vex::degrees, 160, vex::rpm, false);
           Catapult.spin(vex::forward, 100, vex::rpm);    
