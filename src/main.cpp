@@ -1,11 +1,11 @@
 #include <stdio.h>
-#include <string>
 #include <cmath>
 #include <robot-config.h>
 #include "amogus.cpp"
 #include "vex.h"
 using namespace vex;
 #include <iostream>
+using namespace std;
 
 competition Competition;
 
@@ -48,15 +48,65 @@ bool arcade2 = true;
 bool ratchet = false;
 bool ratchet2 = true;
 
-char* mode = "no_auton";
+std::string mode = "no_auton";
 
 directionType opposite(directionType direction) {
-  if (direction == forward) return reverse;
-  return forward;
+  if (direction == vex::forward) return reverse;
+  return vex::forward;
 }
 
-double sign(double i) {
-  return std::round(abs(i) / i);
+bool getController(std::string input) {
+  if (input == "L1") return Controller.ButtonL1.pressing();
+  if (input == "L2") return Controller.ButtonL2.pressing();
+  if (input == "R1") return Controller.ButtonR1.pressing();
+  if (input == "R2") return Controller.ButtonR2.pressing();
+  if (input == "A") return Controller.ButtonA.pressing();
+  if (input == "B") return Controller.ButtonB.pressing();
+  if (input == "X") return Controller.ButtonX.pressing();
+  if (input == "Y") return Controller.ButtonY.pressing();
+  if (input == "R") return Controller.ButtonRight.pressing();
+  if (input == "D") return Controller.ButtonDown.pressing();
+  if (input == "L") return Controller.ButtonLeft.pressing();
+  if (input == "U") return Controller.ButtonUp.pressing();
+  // switch (input) {
+  //   case 10:
+  //     return Controller.ButtonA.pressing();
+  //     break;
+  //   case 11:
+  //     return Controller.ButtonB.pressing();
+  //     break;
+  //   case 12:
+  //     return Controller.ButtonX.pressing();
+  //     break;
+  //   case 13:
+  //     return Controller.ButtonY.pressing();
+  //     break;
+  //   case 20:
+  //     return Controller.ButtonRight.pressing();
+  //     break;
+  //   case 21:
+  //     return Controller.ButtonDown.pressing();
+  //     break;
+  //   case 22:
+  //     return Controller.ButtonLeft.pressing();
+  //     break;
+  //   case 23:
+  //     return Controller.ButtonUp.pressing();
+  //     break;
+  //   case 30:
+  //     return Controller.ButtonL1.pressing();
+  //     break;
+  //   case 31:
+  //     return Controller.ButtonL2.pressing();
+  //     break;
+  //   case 32: 
+  //     return Controller.ButtonR1.pressing();
+  //     break;
+  //   case 33:
+  //     return Controller.ButtonL2.pressing();
+  //     break;
+  // }
+  return false;
 }
 
 void resetDriveSensors() {
@@ -96,7 +146,7 @@ void stopIntake() {
 
 void unIntake() {
   std::cout << "intake forward" << std::endl;
-  startIntake(forward);
+  startIntake(vex::forward);
   wait(500, msec);
   startIntake(reverse);
   std::cout << "intake reverse" << std::endl;
@@ -108,10 +158,10 @@ char* dtc(double d) {
   return buffer;
 }
 
-void centrePrintAt(int xPos, int yPos, char* txt) {
-  int xDiff = Brain.Screen.getStringWidth(txt);
-  int yDiff = Brain.Screen.getStringHeight(txt);
-  Brain.Screen.printAt(xPos - xDiff / 2, yPos + yDiff / 2, txt);
+void centrePrintAt(int xPos, int yPos, std::string txt) {
+  int xDiff = Brain.Screen.getStringWidth(txt.c_str());
+  int yDiff = Brain.Screen.getStringHeight(txt.c_str());
+  Brain.Screen.printAt(xPos - xDiff / 2, yPos + yDiff / 2, txt.c_str());
 }
 
 void pid() {
@@ -162,12 +212,12 @@ void pid() {
         BackLeft.stop();
         BackRight.stop();
       } else {
-        FrontLeft.spin(forward, (lateralMotorPower + turnMotorPower) * leftMultiplier * pidDampening, percent);
-        FrontRight.spin(forward, (lateralMotorPower - turnMotorPower) * rightMultiplier * pidDampening, percent);
-        MiddleLeft.spin(forward, (lateralMotorPower + turnMotorPower) * leftMultiplier * pidDampening, percent);
-        MiddleRight.spin(forward, (lateralMotorPower - turnMotorPower) * rightMultiplier * pidDampening, percent);
-        BackLeft.spin(forward, (lateralMotorPower + turnMotorPower) * leftMultiplier * pidDampening, percent);
-        BackRight.spin(forward, (lateralMotorPower - turnMotorPower) * rightMultiplier * pidDampening, percent);
+        FrontLeft.spin(vex::forward, (lateralMotorPower + turnMotorPower) * leftMultiplier * pidDampening, percent);
+        FrontRight.spin(vex::forward, (lateralMotorPower - turnMotorPower) * rightMultiplier * pidDampening, percent);
+        MiddleLeft.spin(vex::forward, (lateralMotorPower + turnMotorPower) * leftMultiplier * pidDampening, percent);
+        MiddleRight.spin(vex::forward, (lateralMotorPower - turnMotorPower) * rightMultiplier * pidDampening, percent);
+        BackLeft.spin(vex::forward, (lateralMotorPower + turnMotorPower) * leftMultiplier * pidDampening, percent);
+        BackRight.spin(vex::forward, (lateralMotorPower - turnMotorPower) * rightMultiplier * pidDampening, percent);
       }
     }
 
@@ -187,7 +237,7 @@ void drive(double angle) {
   desiredLateralValue = -1 * angle * driveInches;
   desiredTurnValue = 0;
   wait(20, msec);
-  while (abs(lateralError) > 3) {
+  while (fabs(lateralError) > 3) {
     wait(20, msec);
   }
   stopMotorsInPID = true;
@@ -205,7 +255,7 @@ void turn(double angle) {
   desiredLateralValue = 0;
   desiredTurnValue = angle * driveDegrees;
   wait(20, msec);
-  while (abs(turnError) > 3) {
+  while (fabs(turnError) > 3) {
     wait(20, msec);
   }
   stopMotorsInPID = true;
@@ -341,18 +391,18 @@ void autonomous(void) {
 void cata() {
   CatapultLift.setStopping(brake);
   while (true) {
-    if (Controller.ButtonA.pressing()) {
+    if (getController(catapultControl)) {
       Catapult.spin(reverse, 100, rpm);
     } else {
       Catapult.stop();
     }
-    if (Controller.ButtonB.pressing()) {
+    if (getController(catapultLiftControl)) {
       if (cataOn2) {
         cataOn2 = false;
         cataOn = !cataOn;
         if (cataOn) {
           // CatapultLift.spin(forward, 160, rpm);
-          CatapultLift.spinFor(forward, moveDegrees, degrees, 160, rpm, true);
+          CatapultLift.spinFor(vex::forward, moveDegrees, degrees, 160, rpm, true);
           // waitUntil(CatapultTop.value());
           CatapultLift.stop();
         } else {
@@ -385,19 +435,19 @@ void usercontrol(void) {
 
     if (reversed) {
       if (arcade) {
-        FrontLeft.spin(forward, axis3 + axis1, percent);
-        FrontRight.spin(forward, axis3 - axis1, percent);
-        MiddleLeft.spin(forward, axis3 + axis1, percent);
-        MiddleRight.spin(forward, axis3 - axis1, percent);
-        BackLeft.spin(forward, axis3 + axis1, percent);
-        BackRight.spin(forward, axis3 - axis1, percent);
+        FrontLeft.spin(vex::forward, axis3 + axis1, percent);
+        FrontRight.spin(vex::forward, axis3 - axis1, percent);
+        MiddleLeft.spin(vex::forward, axis3 + axis1, percent);
+        MiddleRight.spin(vex::forward, axis3 - axis1, percent);
+        BackLeft.spin(vex::forward, axis3 + axis1, percent);
+        BackRight.spin(vex::forward, axis3 - axis1, percent);
       } else {
-        FrontLeft.spin(forward, axis3, percent);
-        FrontRight.spin(forward, axis2, percent);
-        MiddleLeft.spin(forward, axis3, percent);
-        MiddleRight.spin(forward, axis2, percent);
-        BackLeft.spin(forward, axis3, percent);
-        BackRight.spin(forward, axis2, percent);
+        FrontLeft.spin(vex::forward, axis3, percent);
+        FrontRight.spin(vex::forward, axis2, percent);
+        MiddleLeft.spin(vex::forward, axis3, percent);
+        MiddleRight.spin(vex::forward, axis2, percent);
+        BackLeft.spin(vex::forward, axis3, percent);
+        BackRight.spin(vex::forward, axis2, percent);
       }
     } else {
       if (arcade) {
@@ -419,7 +469,7 @@ void usercontrol(void) {
 
     // std::cout << axis1 << ", " << axis3 << std::endl;
 
-    if (Controller.ButtonY.pressing()) {
+    if (getController(driveModeControl)) {
       if (arcade2) {
         arcade = !arcade;
         arcade2 = false;
@@ -428,15 +478,15 @@ void usercontrol(void) {
       arcade2 = true;
     }
 
-    if (Controller.ButtonR1.pressing()) {
-      Intake.spin(forward, 200, rpm);
-    } else if (Controller.ButtonR2.pressing()) {
+    if (getController(intakeControl)) {
+      Intake.spin(vex::forward, 200, rpm);
+    } else if (getController(reverseIntakeControl)) {
       Intake.spin(reverse, 200, rpm);
     } else {
       Intake.stop();
     }
 
-    if (Controller.ButtonL1.pressing()) {
+    if (getController(wingsControl)) {
       if (wingsOn2) {
         wingsOn = !wingsOn;
         Wings.set(wingsOn);
@@ -446,7 +496,7 @@ void usercontrol(void) {
       wingsOn2 = true;
     }
 
-    if (Controller.ButtonDown.pressing()) {
+    if (getController(ratchetControl)) {
       if (ratchet2) {
         ratchet = !ratchet;
         Ratchet.set(ratchet);
@@ -456,7 +506,7 @@ void usercontrol(void) {
       ratchet2 = true;
     }
 
-    if (Controller.ButtonX.pressing()) {
+    if (getController(holdControl)) {
       setMotorsType(hold);
     } else {
       setMotorsType(coast);

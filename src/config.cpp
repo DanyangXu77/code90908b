@@ -1,4 +1,32 @@
 #include "amogus.cpp"
+#include <string>
+using namespace std;
+
+// ------ CONTROLS CONFIG ------
+
+    // catapult (hold)
+    string catapultControl = "A";
+
+    // catapult lift (toggle)
+    string catapultLiftControl = "B";
+
+    // intake (hold)
+    string intakeControl = "R1";
+
+    // reverse intake (hold)
+    string reverseIntakeControl = "R2";
+
+    // wings (toggle)
+    string wingsControl = "L1";
+
+    // ratchet (toggle)
+    string ratchetControl = "D";
+
+    // hold drivetrain motors (hold)
+    string holdControl = "X";
+
+    // driving mode (toggle)
+    string driveModeControl = "Y";
 
 // ------  PID CONFIG  ------
 
