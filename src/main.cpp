@@ -162,7 +162,6 @@ void pid() {
         BackLeft.stop();
         BackRight.stop();
       } else {
-        double signMultiplier = sign(desiredLateralValue + desiredTurnValue);
         FrontLeft.spin(forward, (lateralMotorPower + turnMotorPower) * leftMultiplier * pidDampening, percent);
         FrontRight.spin(forward, (lateralMotorPower - turnMotorPower) * rightMultiplier * pidDampening, percent);
         MiddleLeft.spin(forward, (lateralMotorPower + turnMotorPower) * leftMultiplier * pidDampening, percent);
@@ -277,13 +276,14 @@ void autonomous(void) {
 
   std::cout << "program start" << std::endl;
 
-  bool testing = false;
+  bool testing = true;
 
   resetDriveSensors();
 
   // mode = "no_auton";
 
   if (testing) {
+    turn(100);
   } else if (mode == "close_auton") {
     std::cout << "start close_auton" << std::endl;
     Wings.set(true);
@@ -336,7 +336,10 @@ void autonomous(void) {
   stopMotors();
 }
 
+// NOTE: LIMITSWITCHES ARE NOT INSTALLED, WHEN THEY ARE ON THE ROBOT COMMENT OUT THE `spinFor' FUNCTIONS AND UNCOMMENT THE ONES THAT ARE COMMENTED.
+
 void cata() {
+  CatapultLift.setStopping(brake);
   while (true) {
     if (Controller.ButtonA.pressing()) {
       Catapult.spin(reverse, 100, rpm);
@@ -348,12 +351,14 @@ void cata() {
         cataOn2 = false;
         cataOn = !cataOn;
         if (cataOn) {
-          CatapultLift.spin(forward, 160, rpm);
-          waitUntil(CatapultTop.value());
+          // CatapultLift.spin(forward, 160, rpm);
+          CatapultLift.spinFor(forward, moveDegrees, degrees, 160, rpm, true);
+          // waitUntil(CatapultTop.value());
           CatapultLift.stop();
         } else {
-          CatapultLift.spin(reverse, 160, rpm);
-          waitUntil(CatapultBottom.value());
+          // CatapultLift.spin(reverse, 160, rpm);
+          CatapultLift.spinFor(reverse, moveDegrees, degrees, 160, rpm, true);
+          // waitUntil(CatapultBottom.value());
           CatapultLift.stop();
         }
       }

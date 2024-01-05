@@ -2,16 +2,17 @@
 
 // ------  PID CONFIG  ------
 
-// lateral tuning
-double lateralkP = 0.12, lateralkI = 0.000001, lateralkD = 0.01;
+    // lateral tuning
+    double lateralkP = 0.1, lateralkI = 0.00000001, lateralkD = 0.001;
 
-// turn tuning
-double turnkP = 0.125, turnkI = 0.000001, turnkD = 0.025;
+    // turn tuning
+    double turnkP = 0.1, turnkI = 0.00000001, turnkD = 0.001;
 
-// multiplier
-double driveInches = 57, driveDegrees = 5.67;
+    // multiplier
+    double driveInches = 1, driveDegrees = 1;
+
 
 // ------ CATA CONFIG ------
 
-// lift turn value
-int moveDegrees = 690; // nice
+    // lift turn value
+    int moveDegrees = 690; // nice
