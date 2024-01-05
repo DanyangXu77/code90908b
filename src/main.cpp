@@ -298,7 +298,34 @@ void autonomous(void) {
     drive(-6);
     drive(8);
   } else if (mode == "far_auton") {
-    
+    resetDriveSensors();
+    std::cout << "start far_auton" << std::endl;
+    Wings.set(true);
+    drive(48);
+    turn(90);
+    drive(2);
+    unIntake();
+    waitUntil(!Intake.isSpinning());
+    // drive(-6);
+    // drive(6);
+    drive(-24);
+    Wings.set(false);
+    wait(1000, vex::msec);
+    drive(27);
+    Wings.set(true);
+    // turn(-120);
+    // susDrive(10);
+    // turn(120);
+    // waitUntil(!Intake.isSpinning());
+    // turn(161.6);
+    // drive(38);
+    // drive(-38);
+    // turn(-161.6);
+    // unIntake();
+    // waitUntil(!Intake.isSpinning());
+    // turn(161.6);
+    // drive(38);
+    // drive(-38);
   } else {
     killPID = true;
     pidOn = false;
@@ -321,9 +348,13 @@ void cata() {
         cataOn2 = false;
         cataOn = !cataOn;
         if (cataOn) {
-          CatapultLift.spinFor(forward, moveDegrees, degrees, 160, rpm, false);
+          CatapultLift.spin(forward, 160, rpm);
+          waitUntil(CatapultTop.value());
+          CatapultLift.stop();
         } else {
-          CatapultLift.spinFor(reverse, moveDegrees, degrees, 160, rpm, false);
+          CatapultLift.spin(reverse, 160, rpm);
+          waitUntil(CatapultBottom.value());
+          CatapultLift.stop();
         }
       }
     } else {

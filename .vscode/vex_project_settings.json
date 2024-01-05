@@ -1,7 +1,7 @@
 {
 	"project": {
 		"name": "test",
-		"slot": 2,
+		"slot": 1,
 		"description": "description",
 		"platform": "V5",
 		"creationDate": "Sat, 16 Dec 2023 03:12:20 GMT",
