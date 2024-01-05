@@ -6,7 +6,6 @@
 #include "vex.h"
 using namespace vex;
 #include <iostream>
-using namespace std;
 
 competition Competition;
 
@@ -51,9 +50,9 @@ bool ratchet2 = true;
 
 char* mode = "no_auton";
 
-vex::directionType opposite(vex::directionType direction) {
-  if (direction == vex::forward) return vex::reverse;
-  return vex::forward;
+directionType opposite(directionType direction) {
+  if (direction == forward) return reverse;
+  return forward;
 }
 
 double sign(double i) {
@@ -69,7 +68,7 @@ void resetDriveSensors() {
   BackRight.resetPosition();
 }
 
-void setMotorsType(vex::brakeType type) {
+void setMotorsType(brakeType type) {
   FrontLeft.setBrake(type);
   FrontRight.setBrake(type);
   MiddleLeft.setBrake(type);
@@ -87,8 +86,8 @@ void stopMotors() {
   BackRight.stop();
 }
 
-void startIntake(vex::directionType direction) {
-  Intake.spin(direction, 200, vex::rpm);
+void startIntake(directionType direction) {
+  Intake.spin(direction, 200, rpm);
 }
 
 void stopIntake() {
@@ -96,11 +95,11 @@ void stopIntake() {
 }
 
 void unIntake() {
-  cout << "intake forward" << endl;
-  startIntake(vex::forward);
-  vex::wait(500, vex::msec);
-  startIntake(vex::reverse);
-  cout << "intake reverse" << endl;
+  std::cout << "intake forward" << std::endl;
+  startIntake(forward);
+  wait(500, msec);
+  startIntake(reverse);
+  std::cout << "intake reverse" << std::endl;
 }
 
 char* dtc(double d) {
@@ -118,8 +117,8 @@ void centrePrintAt(int xPos, int yPos, char* txt) {
 void pid() {
   while (true) {
     if (pidOn) {
-      double leftMotorPosition = MiddleLeft.position(vex::degrees);
-      double rightMotorPosition = MiddleRight.position(vex::degrees);
+      double leftMotorPosition = MiddleLeft.position(degrees);
+      double rightMotorPosition = MiddleRight.position(degrees);
       double averageMotorPosition = (leftMotorPosition + rightMotorPosition) / 2;
       double turnDifference = (leftMotorPosition - rightMotorPosition) / 2;
 
@@ -148,9 +147,9 @@ void pid() {
 
       previousTurnError = turnError;
       
-      wait(20, vex::msec);
+      wait(20, msec);
 
-      cout << leftMotorPosition << ", " << rightMotorPosition << ", " << lateralError << endl;
+      std::cout << leftMotorPosition << ", " << rightMotorPosition << ", " << lateralError << std::endl;
 
       if (stopMotorsInPID) {
         desiredLateralValue = 0;
@@ -164,12 +163,12 @@ void pid() {
         BackRight.stop();
       } else {
         double signMultiplier = sign(desiredLateralValue + desiredTurnValue);
-        FrontLeft.spin(vex::forward, (lateralMotorPower + turnMotorPower) * leftMultiplier * pidDampening, vex::percent);
-        FrontRight.spin(vex::forward, (lateralMotorPower - turnMotorPower) * rightMultiplier * pidDampening, vex::percent);
-        MiddleLeft.spin(vex::forward, (lateralMotorPower + turnMotorPower) * leftMultiplier * pidDampening, vex::percent);
-        MiddleRight.spin(vex::forward, (lateralMotorPower - turnMotorPower) * rightMultiplier * pidDampening, vex::percent);
-        BackLeft.spin(vex::forward, (lateralMotorPower + turnMotorPower) * leftMultiplier * pidDampening, vex::percent);
-        BackRight.spin(vex::forward, (lateralMotorPower - turnMotorPower) * rightMultiplier * pidDampening, vex::percent);
+        FrontLeft.spin(forward, (lateralMotorPower + turnMotorPower) * leftMultiplier * pidDampening, percent);
+        FrontRight.spin(forward, (lateralMotorPower - turnMotorPower) * rightMultiplier * pidDampening, percent);
+        MiddleLeft.spin(forward, (lateralMotorPower + turnMotorPower) * leftMultiplier * pidDampening, percent);
+        MiddleRight.spin(forward, (lateralMotorPower - turnMotorPower) * rightMultiplier * pidDampening, percent);
+        BackLeft.spin(forward, (lateralMotorPower + turnMotorPower) * leftMultiplier * pidDampening, percent);
+        BackRight.spin(forward, (lateralMotorPower - turnMotorPower) * rightMultiplier * pidDampening, percent);
       }
     }
 
@@ -180,7 +179,7 @@ void pid() {
 }
 
 void drive(double angle) {
-  cout << "start drive " << angle << endl;
+  std::cout << "start drive " << angle << std::endl;
   resetDriveSensors();
   pidOn = true;
   stopMotorsInPID = false;
@@ -188,17 +187,17 @@ void drive(double angle) {
   totalTurnError = 0;
   desiredLateralValue = -1 * angle * driveInches;
   desiredTurnValue = 0;
-  wait(20, vex::msec);
+  wait(20, msec);
   while (abs(lateralError) > 3) {
-    wait(20, vex::msec);
+    wait(20, msec);
   }
   stopMotorsInPID = true;
-  cout << "end drive " << angle << endl;
+  std::cout << "end drive " << angle << std::endl;
   stopMotors();
 }
 
 void turn(double angle) {
-  cout << "start turn " << angle << endl;
+  std::cout << "start turn " << angle << std::endl;
   resetDriveSensors();
   pidOn = true;
   stopMotorsInPID = false;
@@ -206,12 +205,12 @@ void turn(double angle) {
   totalTurnError = 0;
   desiredLateralValue = 0;
   desiredTurnValue = angle * driveDegrees;
-  wait(20, vex::msec);
+  wait(20, msec);
   while (abs(turnError) > 3) {
-    wait(20, vex::msec);
+    wait(20, msec);
   }
   stopMotorsInPID = true;
-  cout << "end turn " << angle << endl;
+  std::cout << "end turn " << angle << std::endl;
   stopMotors();
 }
 
@@ -264,19 +263,19 @@ void preauton() {
         centrePrintAt(120, 120, "CLOSE AUTON");
       }
     }
-    wait(20, vex::msec);
+    wait(20, msec);
   }
 }
 
 void autonomous(void) {
-  vex::thread p(pid);
-  setMotorsType(vex::brake);
+  thread p(pid);
+  setMotorsType(brake);
   autonStarted = true;
   Brain.Screen.clearScreen();
   centrePrintAt(240, 120, "using mode");
   centrePrintAt(240, 180, mode);
 
-  cout << "program start" << endl;
+  std::cout << "program start" << std::endl;
 
   bool testing = false;
 
@@ -301,18 +300,19 @@ void autonomous(void) {
 
 void cata() {
   while (true) {
+    if (Controller.ButtonA.pressing()) {
+      Catapult.spin(reverse, 100, rpm);
+    } else {
+      Catapult.stop();
+    }
     if (Controller.ButtonB.pressing()) {
       if (cataOn2) {
         cataOn2 = false;
         cataOn = !cataOn;
         if (cataOn) {
-          CatapultLift.spinFor(vex::forward, moveDegrees, vex::degrees, 160, vex::rpm, false);
-          if (Controller.ButtonA.pressing()) {
-            Catapult.spin(vex::forward, 100, vex::rpm);
-          }
+          CatapultLift.spinFor(forward, moveDegrees, degrees, 160, rpm, false);
         } else {
-          CatapultLift.spinFor(vex::reverse, moveDegrees, vex::degrees, 160, vex::rpm, false);
-          Catapult.stop();
+          CatapultLift.spinFor(reverse, moveDegrees, degrees, 160, rpm, false);
         }
       }
     } else {
@@ -322,55 +322,55 @@ void cata() {
 }
 
 void usercontrol(void) {
-  vex::thread c(cata);
+  thread c(cata);
   killPID = true;
   stopMotors();
   Intake.stop();
-  setMotorsType(vex::coast);
+  setMotorsType(coast);
   pidOn = false;
   killPID = true;
   int axis1, axis2, axis3;
   while (1) {
-    cout << "sus" << endl;
-    axis1 = Controller.Axis1.position(vex::percent);
-    axis2 = Controller.Axis2.position(vex::percent);
-    axis3 = Controller.Axis3.position(vex::percent);
+    std::cout << "sus" << std::endl;
+    axis1 = Controller.Axis1.position(percent);
+    axis2 = Controller.Axis2.position(percent);
+    axis3 = Controller.Axis3.position(percent);
 
     if (reversed) {
       if (arcade) {
-        FrontLeft.spin(vex::forward, axis3 + axis1, vex::percent);
-        FrontRight.spin(vex::forward, axis3 - axis1, vex::percent);
-        MiddleLeft.spin(vex::forward, axis3 + axis1, vex::percent);
-        MiddleRight.spin(vex::forward, axis3 - axis1, vex::percent);
-        BackLeft.spin(vex::forward, axis3 + axis1, vex::percent);
-        BackRight.spin(vex::forward, axis3 - axis1, vex::percent);
+        FrontLeft.spin(forward, axis3 + axis1, percent);
+        FrontRight.spin(forward, axis3 - axis1, percent);
+        MiddleLeft.spin(forward, axis3 + axis1, percent);
+        MiddleRight.spin(forward, axis3 - axis1, percent);
+        BackLeft.spin(forward, axis3 + axis1, percent);
+        BackRight.spin(forward, axis3 - axis1, percent);
       } else {
-        FrontLeft.spin(vex::forward, axis3, vex::percent);
-        FrontRight.spin(vex::forward, axis2, vex::percent);
-        MiddleLeft.spin(vex::forward, axis3, vex::percent);
-        MiddleRight.spin(vex::forward, axis2, vex::percent);
-        BackLeft.spin(vex::forward, axis3, vex::percent);
-        BackRight.spin(vex::forward, axis2, vex::percent);
+        FrontLeft.spin(forward, axis3, percent);
+        FrontRight.spin(forward, axis2, percent);
+        MiddleLeft.spin(forward, axis3, percent);
+        MiddleRight.spin(forward, axis2, percent);
+        BackLeft.spin(forward, axis3, percent);
+        BackRight.spin(forward, axis2, percent);
       }
     } else {
       if (arcade) {
-        FrontLeft.spin(vex::reverse, axis3 + axis1, vex::percent);
-        FrontRight.spin(vex::reverse, axis3 - axis1, vex::percent);
-        MiddleLeft.spin(vex::reverse, axis3 + axis1, vex::percent);
-        MiddleRight.spin(vex::reverse, axis3 - axis1, vex::percent);
-        BackLeft.spin(vex::reverse, axis3 + axis1, vex::percent);
-        BackRight.spin(vex::reverse, axis3 - axis1, vex::percent);
+        FrontLeft.spin(reverse, axis3 + axis1, percent);
+        FrontRight.spin(reverse, axis3 - axis1, percent);
+        MiddleLeft.spin(reverse, axis3 + axis1, percent);
+        MiddleRight.spin(reverse, axis3 - axis1, percent);
+        BackLeft.spin(reverse, axis3 + axis1, percent);
+        BackRight.spin(reverse, axis3 - axis1, percent);
       } else {
-        FrontLeft.spin(vex::reverse, axis3, vex::percent);
-        FrontRight.spin(vex::reverse, axis2, vex::percent);
-        MiddleLeft.spin(vex::reverse, axis3, vex::percent);
-        MiddleRight.spin(vex::reverse, axis2, vex::percent);
-        BackLeft.spin(vex::reverse, axis3, vex::percent);
-        BackRight.spin(vex::reverse, axis2, vex::percent);
+        FrontLeft.spin(reverse, axis3, percent);
+        FrontRight.spin(reverse, axis2, percent);
+        MiddleLeft.spin(reverse, axis3, percent);
+        MiddleRight.spin(reverse, axis2, percent);
+        BackLeft.spin(reverse, axis3, percent);
+        BackRight.spin(reverse, axis2, percent);
       }
     }
 
-    // cout << axis1 << ", " << axis3 << endl;
+    // std::cout << axis1 << ", " << axis3 << std::endl;
 
     if (Controller.ButtonY.pressing()) {
       if (arcade2) {
@@ -382,9 +382,9 @@ void usercontrol(void) {
     }
 
     if (Controller.ButtonR1.pressing()) {
-      Intake.spin(vex::forward, 200, vex::rpm);
+      Intake.spin(forward, 200, rpm);
     } else if (Controller.ButtonR2.pressing()) {
-      Intake.spin(vex::reverse, 200, vex::rpm);
+      Intake.spin(reverse, 200, rpm);
     } else {
       Intake.stop();
     }
@@ -410,13 +410,13 @@ void usercontrol(void) {
     }
 
     if (Controller.ButtonX.pressing()) {
-      setMotorsType(vex::hold);
+      setMotorsType(hold);
     } else {
-      setMotorsType(vex::coast);
+      setMotorsType(coast);
     }
   }
 
-  wait(20, vex::msec);
+  wait(20, msec);
 }
 
 int main() {
@@ -428,6 +428,6 @@ int main() {
   preauton();
 
   while (true) {
-    wait(100, vex::msec);
+    wait(100, msec);
   }
 }

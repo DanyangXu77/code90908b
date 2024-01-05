@@ -11,7 +11,7 @@ double turnkP = 0.125, turnkI = 0.000001, turnkD = 0.025;
 // multiplier
 double driveInches = 57, driveDegrees = 5.67;
 
-// ------ CATAP CONFIG ------
+// ------ CATA CONFIG ------
 
 // lift turn value
 int moveDegrees = 690; // nice
