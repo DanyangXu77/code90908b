@@ -2,25 +2,21 @@
 #include <string>
 #include <cmath>
 #include <robot-config.h>
-#include <future>
-#include <vex.h>
+#include "amogus.cpp"
+#include "vex.h"
 using namespace vex;
 #include <iostream>
 using namespace std;
 
 competition Competition;
 
+// Variables 
 double dummy = 0;
 
 double pi = 3.14159265358979323846264338327950288419716939937510582097494459;
 
-double driveInches = 57;
-double driveDegrees = 5.67;
-
 bool reversed = false;
 
-double lateralkP = 0.12, lateralkI = 0.000001, lateralkD = 0.01;
-double turnkP = 0.125, turnkI = 0.000001, turnkD = 0.025;
 double lateralError, previousLateralError, turnError, previousTurnError;
 double leftMultiplier = 1.0, rightMultiplier = 1.0;
 
@@ -54,10 +50,6 @@ bool ratchet = false;
 bool ratchet2 = true;
 
 char* mode = "no_auton";
-
-bool sussyAmoger = false;
-
-// extern uint32_t pic_map[];
 
 vex::directionType opposite(vex::directionType direction) {
   if (direction == vex::forward) return vex::reverse;
@@ -160,12 +152,6 @@ void pid() {
 
       cout << leftMotorPosition << ", " << rightMotorPosition << ", " << lateralError << endl;
 
-      if (sussyAmoger && lateralError > -800) {
-        cout << "SUS AMOGUS WARNING!!11!1!!!1" << endl;
-        Brain.Screen.print("sus amogus warning");
-        Wings.set(false);
-      }
-
       if (stopMotorsInPID) {
         desiredLateralValue = 0;
         desiredTurnValue = 0;
@@ -204,25 +190,6 @@ void drive(double angle) {
   desiredTurnValue = 0;
   wait(20, vex::msec);
   while (abs(lateralError) > 3) {
-    wait(20, vex::msec);
-  }
-  stopMotorsInPID = true;
-  cout << "end drive " << angle << endl;
-  stopMotors();
-}
-
-void susDrive(double angle) {
-  cout << "start drive " << angle << endl;
-  resetDriveSensors();
-  pidOn = true;
-  stopMotorsInPID = false;
-  totalLateralError = 0;
-  totalTurnError = 0;
-  desiredLateralValue = -1 * angle * driveInches;
-  desiredTurnValue = 0;
-  sussyAmoger = true;
-  wait(20, vex::msec);
-  while (abs(lateralError) > 3){
     wait(20, vex::msec);
   }
   stopMotorsInPID = true;
@@ -319,7 +286,9 @@ void autonomous(void) {
 
   if (testing) {
   } else if (mode == "close_auton") {
+
   } else if (mode == "far_auton") {
+    
   } else {
     killPID = true;
     pidOn = false;
@@ -337,10 +306,12 @@ void cata() {
         cataOn2 = false;
         cataOn = !cataOn;
         if (cataOn) {
-          CatapultLift.spinFor(vex::forward, 630, vex::degrees, 160, vex::rpm, false);
-          Catapult.spin(vex::forward, 100, vex::rpm);    
+          CatapultLift.spinFor(vex::forward, moveDegrees, vex::degrees, 160, vex::rpm, false);
+          if (Controller.ButtonA.pressing()) {
+            Catapult.spin(vex::forward, 100, vex::rpm);
+          }
         } else {
-          CatapultLift.spinFor(vex::reverse, 630, vex::degrees, 160, vex::rpm, false);
+          CatapultLift.spinFor(vex::reverse, moveDegrees, vex::degrees, 160, vex::rpm, false);
           Catapult.stop();
         }
       }
@@ -437,10 +408,6 @@ void usercontrol(void) {
     } else {
       ratchet2 = true;
     }
-
-    Controller.Screen.clearLine();
-    Controller.Screen.print("drive = ");
-    if (arcade) Controller.Screen.print("arcade"); else Controller.Screen.print("tank");
 
     if (Controller.ButtonX.pressing()) {
       setMotorsType(vex::hold);
