@@ -285,7 +285,18 @@ void autonomous(void) {
 
   if (testing) {
   } else if (mode == "close_auton") {
-
+    std::cout << "start close_auton" << std::endl;
+    Wings.set(true);
+    drive(48);
+    turn(50);
+    drive(10);
+    drive(-10);
+    turn(-135);
+    drive(3);
+    unIntake();
+    waitUntil(!Intake.isSpinning());
+    drive(-6);
+    drive(8);
   } else if (mode == "far_auton") {
     
   } else {
