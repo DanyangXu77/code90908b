@@ -351,23 +351,23 @@ void autonomous(void) {
   } else if (mode == "far_auton") {
     resetDriveSensors();
     std::cout << "start far_auton" << std::endl;
-    drive(49);
+    drive(47);
     turn(95);
     drive(3);
     unIntake();
     waitUntil(!Intake.isSpinning());
     // drive(-6);
     // drive(6);
-    drive(-29);
+    drive(-28);
     Wings.set(false);
-    drive(30.5);
+    drive(29.5);
     Wings.set(true);
     drive(-4);
-    turn(162);
+    turn(159);
     startIntake(vex::forward);
     drive(26);
     drive(-26);
-    turn(-165);
+    turn(-167);
     unIntake();
     drive(-6);
     Wings.set(false);

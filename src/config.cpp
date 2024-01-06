@@ -52,7 +52,7 @@ using namespace std;
     int moveDegrees = 720; // will get deprecated with addition of limitswitch
 
     // speed of cata
-    int cataSpeed = 120;
+    int cataSpeed = 170;
 
 
     /* -------------------------------------------------
