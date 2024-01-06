@@ -402,6 +402,9 @@ void cata() {
       }
     } else {
       cataOn2 = true;
+      if (CatapultLift.velocity(rpm) == 0) {
+        Catapult.stop();
+      }
     }
   }
 }
