@@ -51,6 +51,8 @@ using namespace std;
     // lift turn value
     int moveDegrees = 690; // will get deprecated with addition of limitswitch
 
+    // speed of cata
+    int cataSpeed = 170;
 
 
     /* -------------------------------------------------

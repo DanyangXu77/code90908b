@@ -457,7 +457,7 @@ void usercontrol(void) {
       if (cataSpin2) {
         cataSpin = !cataSpin;
         if (cataSpin) {
-          Catapult.spin(vex::reverse, 100, rpm);
+          Catapult.spin(vex::reverse, cataSpeed, rpm);
         } else {
           Catapult.stop();
         }

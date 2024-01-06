@@ -8,6 +8,7 @@ extern double lateralkP, lateralkI, lateralkD;
 extern double turnkP, turnkI, turnkD;
 extern double leftMultiplier, rightMultiplier;
 extern int moveDegrees;
+extern int cataSpeed;
 extern string catapultControl;
 extern string catapultLiftControl;
 extern string intakeControl;
