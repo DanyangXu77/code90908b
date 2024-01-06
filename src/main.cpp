@@ -320,14 +320,14 @@ void autonomous(void) {
 
   std::cout << "program start" << std::endl;
 
-  bool testing = true;
+  bool testing = false;
 
   resetDriveSensors();
 
   // mode = "no_auton";
 
   if (testing) {
-    drive(24);
+    turn(90);
   } else if (mode == "close_auton") {
     std::cout << "start close_auton" << std::endl;
     drive(48);
@@ -336,7 +336,7 @@ void autonomous(void) {
     unIntake();
     waitUntil(!Intake.isSpinning());
     drive(-6);
-    drive(6);
+    drive(8);
   } else if (mode == "far_auton") {
     std::cout << "start close_auton" << std::endl;
     drive(48);
@@ -345,7 +345,7 @@ void autonomous(void) {
     unIntake();
     waitUntil(!Intake.isSpinning());
     drive(-6);
-    drive(6);
+    drive(8);
   } else {
     killPID = true;
     pidOn = false;

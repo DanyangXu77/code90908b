@@ -36,13 +36,13 @@ using namespace std;
     --------------------------------------------------*/
 
     // lateral tuning
-    double lateralkP = 0.1, lateralkI = 0.00000001, lateralkD = 0.001;
+    double lateralkP = 0.1, lateralkI = 0.000000011, lateralkD = 0.001;
 
     // turn tuning
-    double turnkP = 0.1, turnkI = 0.00000001, turnkD = 0.001;
+    double turnkP = 0.1, turnkI = 0.000000011, turnkD = 0.001;
 
     // multiplier
-    double driveInches = 56, driveDegrees = -5.35;
+    double driveInches = 56.1, driveDegrees = -5.32;
 
     /* -------------------------------------------------
     |  CATAPULT CONFIG                                 |
