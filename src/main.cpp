@@ -346,6 +346,16 @@ void autonomous(void) {
     waitUntil(!Intake.isSpinning());
     drive(-6);
     drive(8);
+    drive(-3);
+    startIntake(vex::forward);
+    turn(-135);
+    drive(5);
+    drive(-5);
+    turn(135);
+    drive(3);
+    unIntake();
+    drive(-3);
+    drive(3);
   } else {
     killPID = true;
     pidOn = false;
