@@ -367,11 +367,11 @@ void autonomous(void) {
     startIntake(vex::forward);
     drive(26);
     drive(-26);
-    turn(-160);
+    turn(-165);
     unIntake();
     drive(-6);
     Wings.set(false);
-    drive(10);
+    drive(17);
     // turn(-120);
     // susDrive(10);
     // turn(120);
@@ -401,10 +401,10 @@ void cata() {
   Wings.set(true);
   Ratchet.set(false);
 
-  CatapultLift.setStopping(brake);
+  CatapultLift.setStopping(hold);
   while (true) {
     if (getController(catapultControl)) {
-      Catapult.spin(reverse, 100, rpm);
+      Catapult.spin(reverse, cataSpeed, rpm);
     } else {
       Catapult.stop();
     }
