@@ -391,7 +391,7 @@ void cata() {
     } else {
       cataOn2 = true;
       if (CatapultLift.velocity(rpm) == 0) {
-        Catapult.stop();
+        CatapultLift.stop();
       }
     }
   }
@@ -463,8 +463,7 @@ void usercontrol(void) {
         }
         cataSpin2 = false;
       }
-    }
-    else {
+    } else {
       cataSpin2 = true;
     }
   }
