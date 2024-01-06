@@ -2,7 +2,9 @@
 #include <string>
 using namespace std;
 
-// ------ CONTROLS CONFIG ------
+    /* -------------------------------------------------
+    |  CONTROLS CONFIG                                 |
+    --------------------------------------------------*/
 
     // catapult (hold)
     string catapultControl = "A";
@@ -29,13 +31,9 @@ using namespace std;
     string driveModeControl = "Y";
 
 
-// ------ DRIVING CONFIG ------
-
-    // motor multiplier
-    double leftMultiplier = 0.998, rightMultiplier = 1.002;
-
-
-// ------  PID CONFIG  ------
+    /* -------------------------------------------------
+    |  PID CONFIG                                      |
+    --------------------------------------------------*/
 
     // lateral tuning
     double lateralkP = 0.1, lateralkI = 0.00000001, lateralkD = 0.001;
@@ -46,8 +44,18 @@ using namespace std;
     // multiplier
     double driveInches = 56, driveDegrees = -5.35;
 
-
-// ------ CATA CONFIG ------
+    /* -------------------------------------------------
+    |  CATAPULT CONFIG                                 |
+    --------------------------------------------------*/
 
     // lift turn value
-    int moveDegrees = 690; // nice
+    int moveDegrees = 690; // will get deprecated with addition of limitswitch
+
+
+
+    /* -------------------------------------------------
+    |  OTHER                                           |
+    --------------------------------------------------*/
+
+    // motor multiplier
+    double leftMultiplier = 0.998, rightMultiplier = 1.002;
