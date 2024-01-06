@@ -375,7 +375,7 @@ void cata() {
       if (cataSpin2) {
         cataSpin2 = false;
         cataSpin = !cataSpin;
-        if (cata) {
+        if (cataSpin) {
           Catapult.spin(vex::reverse, 100, rpm);
         } else {
           Catapult.stop();
@@ -390,12 +390,12 @@ void cata() {
         cataOn = !cataOn;
         if (cataOn) {
           // CatapultLift.spin(forward, 160, rpm);
-          CatapultLift.spinFor(vex::forward, moveDegrees, degrees, 160, rpm, true);
+          CatapultLift.spinFor(vex::forward, moveDegrees, degrees, 160, rpm, false);
           // waitUntil(CatapultTop.value());
           CatapultLift.stop();
         } else {
           // CatapultLift.spin(reverse, 160, rpm);
-          CatapultLift.spinFor(reverse, moveDegrees, degrees, 160, rpm, true);
+          CatapultLift.spinFor(reverse, moveDegrees, degrees, 160, rpm, false);
           // waitUntil(CatapultBottom.value());
           CatapultLift.stop();
         }
