@@ -371,19 +371,6 @@ void autonomous(void) {
 void cata() {
   CatapultLift.setStopping(hold);
   while (true) {
-    if (getController(catapultControl)) {
-      if (cataSpin2) {
-        cataSpin = !cataSpin;
-        if (cataSpin) {
-          Catapult.spin(vex::reverse, 100, rpm);
-        } else {
-          Catapult.stop();
-        }
-        cataSpin2 = false;
-      }
-    } else {
-      cataSpin2 = true;
-    }
     if (getController(catapultLiftControl)) {
       if (cataOn2) {
         cataOn2 = false;
@@ -464,6 +451,21 @@ void usercontrol(void) {
       Intake.spin(reverse, 200, rpm);
     } else {
       Intake.stop();
+    }
+
+    if (getController(catapultControl)) {
+      if (cataSpin2) {
+        cataSpin = !cataSpin;
+        if (cataSpin) {
+          Catapult.spin(vex::reverse, 100, rpm);
+        } else {
+          Catapult.stop();
+        }
+        cataSpin2 = false;
+      }
+    }
+    else {
+      cataSpin2 = true;
     }
   }
 
