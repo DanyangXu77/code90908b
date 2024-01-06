@@ -404,6 +404,7 @@ void cata() {
       cataOn2 = true;
       if (CatapultLift.velocity(rpm) == 0) {
         Catapult.stop();
+        std::cout << "aorgheosudhofdbhorevfdbngejdrweovngbrtfev" << std::endl;
       }
     }
   }
