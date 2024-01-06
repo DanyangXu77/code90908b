@@ -17,7 +17,6 @@ double pi = 3.14159265358979323846264338327950288419716939937510582097494459;
 bool reversed = false;
 
 double lateralError, previousLateralError, turnError, previousTurnError;
-double leftMultiplier = 1.0, rightMultiplier = 1.0;
 
 double lateralErrorDifference, turnErrorDifference;
 
@@ -326,18 +325,18 @@ void autonomous(void) {
 
   std::cout << "program start" << std::endl;
 
-  bool testing = true;
+  bool testing = false;
 
   resetDriveSensors();
 
   // mode = "no_auton";
 
   if (testing) {
-    turn(100);
+    turn(90);
   } else if (mode == "close_auton") {
     std::cout << "start close_auton" << std::endl;
     Wings.set(true);
-    drive(48);
+    drive(50);
     turn(50);
     drive(10);
     drive(-10);
@@ -346,23 +345,31 @@ void autonomous(void) {
     unIntake();
     waitUntil(!Intake.isSpinning());
     drive(-6);
-    drive(8);
+    drive(11);
   } else if (mode == "far_auton") {
     resetDriveSensors();
     std::cout << "start far_auton" << std::endl;
     Wings.set(true);
-    drive(48);
-    turn(90);
-    drive(2);
+    drive(49);
+    turn(95);
+    drive(3);
     unIntake();
     waitUntil(!Intake.isSpinning());
     // drive(-6);
     // drive(6);
-    drive(-24);
+    drive(-29);
     Wings.set(false);
-    wait(1000, vex::msec);
-    drive(27);
+    drive(30);
     Wings.set(true);
+    drive(-4);
+    turn(160);
+    startIntake(vex::forward);
+    drive(26);
+    drive(-26);
+    turn(-172);
+    unIntake();
+    drive(-6);
+    drive(10);
     // turn(-120);
     // susDrive(10);
     // turn(120);

@@ -28,6 +28,13 @@ using namespace std;
     // driving mode (toggle)
     string driveModeControl = "Y";
 
+
+// ------ DRIVING CONFIG ------
+
+    // motor multiplier
+    double leftMultiplier = 0.998, rightMultiplier = 1.002;
+
+
 // ------  PID CONFIG  ------
 
     // lateral tuning
@@ -37,7 +44,7 @@ using namespace std;
     double turnkP = 0.1, turnkI = 0.00000001, turnkD = 0.001;
 
     // multiplier
-    double driveInches = 1, driveDegrees = 1;
+    double driveInches = 56, driveDegrees = -5.35;
 
 
 // ------ CATA CONFIG ------
