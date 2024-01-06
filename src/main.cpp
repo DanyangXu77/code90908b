@@ -369,20 +369,20 @@ void autonomous(void) {
 // NOTE: LIMITSWITCHES ARE NOT INSTALLED, WHEN THEY ARE ON THE ROBOT COMMENT OUT THE `spinFor' FUNCTIONS AND UNCOMMENT THE ONES THAT ARE COMMENTED.
 
 void cata() {
-  CatapultLift.setStopping(brake);
+  CatapultLift.setStopping(hold);
   while (true) {
     if (getController(catapultControl)) {
       if (cataSpin2) {
-        cataSpin2 = false;
         cataSpin = !cataSpin;
         if (cataSpin) {
           Catapult.spin(vex::reverse, 100, rpm);
         } else {
           Catapult.stop();
         }
+        cataSpin2 = false;
       }
     } else {
-      cataSpin = true;
+      cataSpin2 = true;
     }
     if (getController(catapultLiftControl)) {
       if (cataOn2) {
@@ -392,19 +392,19 @@ void cata() {
           // CatapultLift.spin(forward, 160, rpm);
           CatapultLift.spinFor(vex::forward, moveDegrees, degrees, 160, rpm, false);
           // waitUntil(CatapultTop.value());
-          CatapultLift.stop();
+          // CatapultLift.stop();
         } else {
           // CatapultLift.spin(reverse, 160, rpm);
           CatapultLift.spinFor(reverse, moveDegrees, degrees, 160, rpm, false);
           // waitUntil(CatapultBottom.value());
-          CatapultLift.stop();
+          // CatapultLift.stop();
         }
+        wait(30, msec);
       }
     } else {
       cataOn2 = true;
       if (CatapultLift.velocity(rpm) == 0) {
         Catapult.stop();
-        std::cout << "aorgheosudhofdbhorevfdbngejdrweovngbrtfev" << std::endl;
       }
     }
   }
@@ -420,7 +420,6 @@ void usercontrol(void) {
   killPID = true;
   int axis1, axis2, axis3;
   while (1) {
-    std::cout << "sus" << std::endl;
     axis1 = Controller.Axis1.position(percent);
     axis2 = Controller.Axis2.position(percent);
     axis3 = Controller.Axis3.position(percent);
