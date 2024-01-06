@@ -52,7 +52,6 @@ using namespace std;
     int moveDegrees = 690; // will get deprecated with addition of limitswitch
 
 
-
     /* -------------------------------------------------
     |  OTHER                                           |
     --------------------------------------------------*/
