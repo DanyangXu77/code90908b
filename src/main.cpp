@@ -268,6 +268,7 @@ void preauton() {
   Brain.Screen.setPenWidth(20);
 
   Wings.set(true);
+  Ratchet.set(true);
 
   Brain.Screen.setPenColor(white);
   Brain.Screen.drawRectangle(10, 10, 210, 210);
@@ -331,11 +332,12 @@ void autonomous(void) {
 
   // mode = "no_auton";
 
+  Wings.set(true);
+
   if (testing) {
     turn(90);
   } else if (mode == "close_auton") {
     std::cout << "start close_auton" << std::endl;
-    Wings.set(true);
     drive(50);
     turn(50);
     drive(10);
@@ -349,7 +351,6 @@ void autonomous(void) {
   } else if (mode == "far_auton") {
     resetDriveSensors();
     std::cout << "start far_auton" << std::endl;
-    Wings.set(true);
     drive(49);
     turn(95);
     drive(3);
@@ -362,11 +363,11 @@ void autonomous(void) {
     drive(30.5);
     Wings.set(true);
     drive(-4);
-    turn(155);
+    turn(162);
     startIntake(vex::forward);
     drive(26);
     drive(-26);
-    turn(-165);
+    turn(-160);
     unIntake();
     drive(-6);
     Wings.set(false);
@@ -397,6 +398,9 @@ void autonomous(void) {
 // NOTE: LIMITSWITCHES ARE NOT INSTALLED, WHEN THEY ARE ON THE ROBOT COMMENT OUT THE `spinFor' FUNCTIONS AND UNCOMMENT THE ONES THAT ARE COMMENTED.
 
 void cata() {
+  Wings.set(true);
+  Ratchet.set(false);
+
   CatapultLift.setStopping(brake);
   while (true) {
     if (getController(catapultControl)) {
@@ -410,18 +414,21 @@ void cata() {
         cataOn = !cataOn;
         if (cataOn) {
           // CatapultLift.spin(forward, 160, rpm);
-          CatapultLift.spinFor(vex::forward, moveDegrees, degrees, 160, rpm, true);
+          CatapultLift.spinFor(vex::forward, moveDegrees, degrees, 160, rpm, false);
           // waitUntil(CatapultTop.value());
-          CatapultLift.stop();
+          // CatapultLift.stop();
         } else {
           // CatapultLift.spin(reverse, 160, rpm);
-          CatapultLift.spinFor(reverse, moveDegrees, degrees, 160, rpm, true);
+          CatapultLift.spinFor(reverse, moveDegrees, degrees, 160, rpm, false);
           // waitUntil(CatapultBottom.value());
-          CatapultLift.stop();
+          // CatapultLift.stop();
         }
       }
     } else {
       cataOn2 = true;
+      if (CatapultLift.velocity(rpm) == 0) {
+        CatapultLift.stop();
+      }
     }
   }
 }
