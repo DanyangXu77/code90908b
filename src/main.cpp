@@ -331,7 +331,7 @@ void autonomous(void) {
   resetDriveSensors();
 
   // mode = "no_auton";
-
+  
   Wings.set(true);
 
   if (testing) {
