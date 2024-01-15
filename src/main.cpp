@@ -32,6 +32,9 @@ bool pidOn = true;
 bool wingsOn = false;
 bool wingsOn2 = true;
 
+bool cata1 = false;
+bool cata2 = true;
+
 bool cataOn = false;
 bool cataOn2 = true;
 
@@ -349,15 +352,12 @@ void autonomous(void) {
     drive(-6);
     drive(11);
   } else if (mode == "far_auton") {
-    resetDriveSensors();
     std::cout << "start far_auton" << std::endl;
     drive(47);
     turn(95);
     drive(3);
     unIntake();
     waitUntil(!Intake.isSpinning());
-    // drive(-6);
-    // drive(6);
     drive(-28);
     Wings.set(false);
     drive(29.5);
@@ -372,19 +372,6 @@ void autonomous(void) {
     drive(-6);
     Wings.set(false);
     drive(17);
-    // turn(-120);
-    // susDrive(10);
-    // turn(120);
-    // waitUntil(!Intake.isSpinning());
-    // turn(161.6);
-    // drive(38);
-    // drive(-38);
-    // turn(-161.6);
-    // unIntake();
-    // waitUntil(!Intake.isSpinning());
-    // turn(161.6);
-    // drive(38);
-    // drive(-38);
   } else {
     killPID = true;
     pidOn = false;
@@ -404,24 +391,30 @@ void cata() {
   CatapultLift.setStopping(hold);
   while (true) {
     if (getController(catapultControl)) {
-      Catapult.spin(reverse, cataSpeed, rpm);
+      cata2 = false;
+      cata1 = !cata1;
+      if (cata1) {
+        Catapult.spin(reverse, cataSpeed, rpm);
+      } else {
+        Catapult.stop();
+      }
     } else {
-      Catapult.stop();
+      cata2 = true;
     }
     if (getController(catapultLiftControl)) {
       if (cataOn2) {
         cataOn2 = false;
         cataOn = !cataOn;
         if (cataOn) {
-          // CatapultLift.spin(forward, 160, rpm);
-          CatapultLift.spinFor(vex::forward, moveDegrees, degrees, 160, rpm, false);
-          // waitUntil(CatapultTop.value());
-          // CatapultLift.stop();
+          CatapultLift.spin(forward, 160, rpm);
+          // CatapultLift.spinFor(vex::forward, moveDegrees, degrees, 160, rpm, false);
+          waitUntil(CatapultTop.value());
+          CatapultLift.stop();
         } else {
-          // CatapultLift.spin(reverse, 160, rpm);
-          CatapultLift.spinFor(reverse, moveDegrees, degrees, 160, rpm, false);
-          // waitUntil(CatapultBottom.value());
-          // CatapultLift.stop();
+          CatapultLift.spin(reverse, 160, rpm);
+          // CatapultLift.spinFor(reverse, moveDegrees, degrees, 160, rpm, false);
+          waitUntil(CatapultBottom.value());
+          CatapultLift.stop();
         }
       }
     } else {
