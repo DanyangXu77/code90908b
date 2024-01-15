@@ -20,6 +20,7 @@ digital_out Wings = digital_out(Brain.ThreeWirePort.H);
 digital_out Ratchet = digital_out(Brain.ThreeWirePort.G);
 digital_out CatapultTop = digital_out(Brain.ThreeWirePort.A);
 digital_out CatapultBottom = digital_out(Brain.ThreeWirePort.B);
+digital_out MatchLoadLock = digital_out(Brain.ThreeWirePort.C);
 motor Intake = motor(PORT6, ratio18_1, false);
 motor CatapultLift = motor(PORT5, ratio36_1, false);
 motor Catapult = motor(PORT10, ratio18_1, false);

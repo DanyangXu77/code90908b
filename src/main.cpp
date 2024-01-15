@@ -393,6 +393,7 @@ void cata() {
     if (getController(catapultControl)) {
       cata2 = false;
       cata1 = !cata1;
+      MatchLoadLock.set(cata1);
       if (cata1) {
         Catapult.spin(reverse, cataSpeed, rpm);
       } else {
