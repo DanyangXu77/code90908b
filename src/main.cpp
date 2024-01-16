@@ -50,6 +50,8 @@ bool arcade2 = true;
 bool ratchet = false;
 bool ratchet2 = true;
 
+int brainLines = 0;
+
 std::string mode = "no_auton";
 
 directionType opposite(directionType direction) {
@@ -230,6 +232,8 @@ void pid() {
 }
 
 void drive(double angle) {
+  brainLines++;
+  Brain.Screen.printAt(brainLines, "start turn");
   std::cout << "start drive " << angle << std::endl;
   resetDriveSensors();
   pidOn = true;
@@ -239,7 +243,7 @@ void drive(double angle) {
   desiredLateralValue = -1 * angle * driveInches;
   desiredTurnValue = 0;
   wait(20, msec);
-  while (fabs(lateralError) > 3) {
+  while (fabs(desiredLateralValue - (MiddleLeft.position() + MiddleRight.position()) / 2) > 3) {
     wait(20, msec);
   }
   stopMotorsInPID = true;
@@ -248,6 +252,8 @@ void drive(double angle) {
 }
 
 void turn(double angle) {
+  brainLines++;
+  Brain.Screen.printAt(brainLines, "start turn");
   std::cout << "start turn " << angle << std::endl;
   resetDriveSensors();
   pidOn = true;
@@ -257,7 +263,7 @@ void turn(double angle) {
   desiredLateralValue = 0;
   desiredTurnValue = angle * driveDegrees;
   wait(20, msec);
-  while (fabs(turnError) > 3) {
+  while (fabs(fabs(desiredTurnValue - (MiddleLeft.position() - MiddleRight.position()) / 2)) > 3) {
     wait(20, msec);
   }
   stopMotorsInPID = true;
