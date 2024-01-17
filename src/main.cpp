@@ -247,6 +247,8 @@ void drive(double angle) {
     wait(20, msec);
   }
   stopMotorsInPID = true;
+  brainLines++;
+  Brain.Screen.printAt(brainLines, "end drive");
   std::cout << "end drive " << angle << std::endl;
   stopMotors();
 }
@@ -267,6 +269,8 @@ void turn(double angle) {
     wait(20, msec);
   }
   stopMotorsInPID = true;
+  brainLines++;
+  Brain.Screen.printAt(brainLines, "end turn");
   std::cout << "end turn " << angle << std::endl;
   stopMotors();
 }
