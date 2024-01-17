@@ -52,6 +52,8 @@ bool ratchet2 = true;
 
 int brainLines = 0;
 
+bool pidStarted = false;
+
 std::string mode = "no_auton";
 
 directionType opposite(directionType direction) {
@@ -170,6 +172,7 @@ void centrePrintAt(int xPos, int yPos, std::string txt) {
 
 void pid() {
   while (true) {
+    pidStarted = true;
     if (pidOn) {
       double leftMotorPosition = MiddleLeft.position(degrees);
       double rightMotorPosition = MiddleRight.position(degrees);
@@ -233,7 +236,7 @@ void pid() {
 
 void drive(double angle) {
   brainLines++;
-  Brain.Screen.printAt(brainLines, "start turn");
+  Brain.Screen.printAt(1, brainLines, "start turn");
   std::cout << "start drive " << angle << std::endl;
   resetDriveSensors();
   pidOn = true;
@@ -248,14 +251,14 @@ void drive(double angle) {
   }
   stopMotorsInPID = true;
   brainLines++;
-  Brain.Screen.printAt(brainLines, "end drive");
+  Brain.Screen.printAt(1, brainLines, "end drive");
   std::cout << "end drive " << angle << std::endl;
   stopMotors();
 }
 
 void turn(double angle) {
   brainLines++;
-  Brain.Screen.printAt(brainLines, "start turn");
+  Brain.Screen.printAt(1, brainLines, "start turn");
   std::cout << "start turn " << angle << std::endl;
   resetDriveSensors();
   pidOn = true;
@@ -270,7 +273,7 @@ void turn(double angle) {
   }
   stopMotorsInPID = true;
   brainLines++;
-  Brain.Screen.printAt(brainLines, "end turn");
+  Brain.Screen.printAt(1, brainLines, "end turn");
   std::cout << "end turn " << angle << std::endl;
   stopMotors();
 }
@@ -346,6 +349,8 @@ void autonomous(void) {
   // mode = "no_auton";
   
   Wings.set(true);
+
+  waitUntil(pidStarted);
 
   if (testing) {
     turn(90);
