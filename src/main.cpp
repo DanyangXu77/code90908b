@@ -246,7 +246,7 @@ void drive(double angle) {
   desiredLateralValue = -1 * angle * driveInches;
   desiredTurnValue = 0;
   wait(20, msec);
-  while (fabs(desiredLateralValue - (MiddleLeft.position() + MiddleRight.position()) / 2) > 3) {
+  while (fabs(desiredLateralValue - (MiddleLeft.position(degrees) + MiddleRight.position(degrees)) / 2) > 3) {
     wait(20, msec);
   }
   stopMotorsInPID = true;
@@ -268,7 +268,7 @@ void turn(double angle) {
   desiredLateralValue = 0;
   desiredTurnValue = angle * driveDegrees;
   wait(20, msec);
-  while (fabs(fabs(desiredTurnValue - (MiddleLeft.position() - MiddleRight.position()) / 2)) > 3) {
+  while (fabs(fabs(desiredTurnValue - (MiddleLeft.position(degrees) - MiddleRight.position(degrees)) / 2)) > 3) {
     wait(20, msec);
   }
   stopMotorsInPID = true;
