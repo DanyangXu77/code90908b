@@ -422,7 +422,7 @@ void cata() {
         cataOn2 = false;
         cataOn = !cataOn;
         if (cataOn) {
-          CatapultLift.spin(forward, 160, rpm);
+          CatapultLift.spin(vex::forward, 160, rpm);
           // CatapultLift.spinFor(vex::forward, moveDegrees, degrees, 160, rpm, false);
           waitUntil(CatapultTop.value());
           CatapultLift.stop();
