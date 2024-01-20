@@ -52,7 +52,11 @@ bool ratchet2 = true;
 
 int brainLines = 0;
 
+int steps;
+int totalSteps;
+
 bool pidStarted = false;
+int a = 0;
 
 std::string mode = "no_auton";
 
@@ -150,12 +154,28 @@ void stopIntake() {
   Intake.stop();
 }
 
+void centrePrintAt(int xPos, int yPos, std::string txt) {
+  int xDiff = Brain.Screen.getStringWidth(txt.c_str());
+  int yDiff = Brain.Screen.getStringHeight(txt.c_str());
+  Brain.Screen.printAt(xPos - xDiff / 2, yPos + yDiff / 2, txt.c_str());
+}
+
+void progressBarUpdate(int steps, int total) {
+  int width = steps / total * 240;
+  Brain.Screen.setPenWidth(10);
+  Brain.Screen.setPenColor(white);
+  Brain.Screen.drawRectangle(100, 40, 280, 40);
+  Brain.Screen.drawRectangle(120, 60, width, 0);
+}
+
 void unIntake() {
   std::cout << "intake forward" << std::endl;
   startIntake(vex::forward);
   wait(500, msec);
   startIntake(reverse);
   std::cout << "intake reverse" << std::endl;
+  steps++;
+  progressBarUpdate(steps, totalSteps);
 }
 
 char* dtc(double d) {
@@ -164,15 +184,8 @@ char* dtc(double d) {
   return buffer;
 }
 
-void centrePrintAt(int xPos, int yPos, std::string txt) {
-  int xDiff = Brain.Screen.getStringWidth(txt.c_str());
-  int yDiff = Brain.Screen.getStringHeight(txt.c_str());
-  Brain.Screen.printAt(xPos - xDiff / 2, yPos + yDiff / 2, txt.c_str());
-}
-
 void pid() {
   while (true) {
-    pidStarted = true;
     if (pidOn) {
       double leftMotorPosition = MiddleLeft.position(degrees);
       double rightMotorPosition = MiddleRight.position(degrees);
@@ -206,6 +219,10 @@ void pid() {
       
       wait(20, msec);
 
+      a++;
+      pidStarted = true;
+      Controller.Screen.clearLine();
+      Controller.Screen.print(a);
       std::cout << leftMotorPosition << ", " << rightMotorPosition << ", " << lateralError << std::endl;
 
       if (stopMotorsInPID) {
@@ -248,12 +265,15 @@ void drive(double angle) {
   wait(20, msec);
   while (fabs(desiredLateralValue - (MiddleLeft.position(degrees) + MiddleRight.position(degrees)) / 2) > 3) {
     wait(20, msec);
+    centrePrintAt(240, 210, dtc(lateralError / desiredLateralValue));
   }
   stopMotorsInPID = true;
   brainLines++;
   Brain.Screen.printAt(1, brainLines, "end drive");
   std::cout << "end drive " << angle << std::endl;
   stopMotors();
+  steps++;
+  progressBarUpdate(steps, totalSteps);
 }
 
 void turn(double angle) {
@@ -270,12 +290,15 @@ void turn(double angle) {
   wait(20, msec);
   while (fabs(fabs(desiredTurnValue - (MiddleLeft.position(degrees) - MiddleRight.position(degrees)) / 2)) > 3) {
     wait(20, msec);
+    centrePrintAt(240, 210, dtc(turnError / desiredTurnValue));
   }
   stopMotorsInPID = true;
   brainLines++;
   Brain.Screen.printAt(1, brainLines, "end turn");
   std::cout << "end turn " << angle << std::endl;
   stopMotors();
+  steps++;
+  progressBarUpdate(steps, totalSteps);
 }
 
 void preauton() {
@@ -336,26 +359,33 @@ void autonomous(void) {
   thread p(pid);
   setMotorsType(brake);
   autonStarted = true;
-  Brain.Screen.clearScreen();
-  centrePrintAt(240, 120, "using mode");
-  centrePrintAt(240, 180, mode);
+  Brain.Screen.clearScreen(black);
+  centrePrintAt(240, 120, mode);
 
   std::cout << "program start" << std::endl;
+
+  steps = 0;
 
   bool testing = false;
 
   resetDriveSensors();
 
   // mode = "no_auton";
+
+  pidOn = true;
   
   Wings.set(true);
 
   waitUntil(pidStarted);
+  centrePrintAt(240, 180, "pid started");
 
   if (testing) {
     turn(90);
   } else if (mode == "close_auton") {
     std::cout << "start close_auton" << std::endl;
+    progressBarUpdate(0, 1);
+    totalSteps = 10;
+    centrePrintAt(240, 150, "auton started");
     drive(50);
     turn(50);
     drive(10);
@@ -365,29 +395,36 @@ void autonomous(void) {
     unIntake();
     waitUntil(!Intake.isSpinning());
     drive(-6);
-    drive(11);
+    drive(10);
+    drive(-4);
   } else if (mode == "far_auton") {
     std::cout << "start far_auton" << std::endl;
-    drive(47);
+    progressBarUpdate(0, 1);
+    totalSteps = 15;
+    centrePrintAt(240, 150, "auton started");
+    drive(46.5);
     turn(95);
     drive(3);
     unIntake();
     waitUntil(!Intake.isSpinning());
     drive(-28);
     Wings.set(false);
-    drive(29.5);
+    drive(29);
     Wings.set(true);
     drive(-4);
-    turn(159);
+    turn(156);
     startIntake(vex::forward);
     drive(26);
     drive(-26);
-    turn(-167);
+    turn(-156);
     unIntake();
     drive(-6);
     Wings.set(false);
-    drive(17);
+    drive(10);
+    drive(-4);
   } else {
+    progressBarUpdate(0, 1);
+    centrePrintAt(240, 150, "no auton started");
     killPID = true;
     pidOn = false;
     stopMotors();
@@ -406,13 +443,15 @@ void cata() {
   CatapultLift.setStopping(hold);
   while (true) {
     if (getController(catapultControl)) {
-      cata2 = false;
-      cata1 = !cata1;
-      MatchLoadLock.set(cata1);
-      if (cata1) {
-        Catapult.spin(reverse, cataSpeed, rpm);
-      } else {
-        Catapult.stop();
+      if (cata2) {
+        cata2 = false;
+        cata1 = !cata1;
+        MatchLoadLock.set(cata1);
+        if (cata1) {
+          Catapult.spin(reverse, cataSpeed, rpm);
+        } else {
+          Catapult.stop();
+        }
       }
     } else {
       cata2 = true;
@@ -423,15 +462,14 @@ void cata() {
         cataOn2 = false;
         cataOn = !cataOn;
         if (cataOn) {
-          CatapultLift.spin(vex::forward, 160, rpm);
-          // CatapultLift.spinFor(vex::forward, moveDegrees, degrees, 160, rpm, false);
-          waitUntil(getController(catapultLiftControl) || CatapultTop.value());
-          CatapultLift.stop();
+          // CatapultLift.spin(vex::forward, 160, rpm);
+          CatapultLift.spinFor(vex::forward, moveDegrees, degrees, 160, rpm, false);
+          // waitUntil(getController(catapultLiftControl) || CatapultTop.value());
+          // CatapultLift.stop();
         } else {
           // CatapultLift.spin(reverse, 160, rpm);
           CatapultLift.spinFor(reverse, moveDegrees, degrees, 160, rpm, false);
-          waitUntil(abs(CatapultLift.velocity()) < 0.5);
-          CatapultLift.stop();
+          // CatapultLift.stop();
         }
       }
     } else {
@@ -453,7 +491,7 @@ void usercontrol(void) {
   killPID = true;
   int axis1, axis2, axis3;
   while (1) {
-    std::cout << "sus" << std::endl;
+    // std::cout << "sus" << std::endl;
     axis1 = Controller.Axis1.position(percent);
     axis2 = Controller.Axis2.position(percent);
     axis3 = Controller.Axis3.position(percent);
