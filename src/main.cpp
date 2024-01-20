@@ -417,6 +417,7 @@ void cata() {
     } else {
       cata2 = true;
     }
+    
     if (getController(catapultLiftControl)) {
       if (cataOn2) {
         cataOn2 = false;
@@ -424,12 +425,12 @@ void cata() {
         if (cataOn) {
           CatapultLift.spin(vex::forward, 160, rpm);
           // CatapultLift.spinFor(vex::forward, moveDegrees, degrees, 160, rpm, false);
-          waitUntil(CatapultTop.value());
+          waitUntil(getController(catapultLiftControl) || CatapultTop.value());
           CatapultLift.stop();
         } else {
-          CatapultLift.spin(reverse, 160, rpm);
-          // CatapultLift.spinFor(reverse, moveDegrees, degrees, 160, rpm, false);
-          waitUntil(CatapultBottom.value());
+          // CatapultLift.spin(reverse, 160, rpm);
+          CatapultLift.spinFor(reverse, moveDegrees, degrees, 160, rpm, false);
+          waitUntil(abs(CatapultLift.velocity()) < 0.5);
           CatapultLift.stop();
         }
       }
