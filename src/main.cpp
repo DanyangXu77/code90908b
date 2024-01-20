@@ -420,7 +420,7 @@ void autonomous(void) {
     startIntake(vex::forward);
     drive(26);
     drive(-26);
-    turn(-156);
+    turn(-170);
     unIntake();
     drive(-6);
     Wings.set(false);
