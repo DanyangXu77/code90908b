@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <cmath>
-#include <robot-config.h>
+#include "robot-config.h"
 #include "amogus.cpp"
 #include "vex.h"
 using namespace vex;
