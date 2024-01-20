@@ -186,6 +186,11 @@ char* dtc(double d) {
 
 void pid() {
   while (true) {
+    a++;
+    pidStarted = true;
+    Controller.Screen.clearLine();
+    Controller.Screen.print(a);
+    centrePrintAt(440, 200, dtc(a));
     if (pidOn) {
       double leftMotorPosition = MiddleLeft.position(degrees);
       double rightMotorPosition = MiddleRight.position(degrees);
@@ -219,10 +224,6 @@ void pid() {
       
       wait(20, msec);
 
-      a++;
-      pidStarted = true;
-      Controller.Screen.clearLine();
-      Controller.Screen.print(a);
       std::cout << leftMotorPosition << ", " << rightMotorPosition << ", " << lateralError << std::endl;
 
       if (stopMotorsInPID) {
@@ -246,6 +247,9 @@ void pid() {
     }
 
     if (killPID) {
+      Brain.Screen.setPenColor(red);
+      Brain.Screen.setPenWidth(80);
+      Brain.Screen.drawRectangle(0, 0, 0, 0);
       break;
     }
   }
@@ -483,12 +487,13 @@ void cata() {
 
 void usercontrol(void) {
   thread c(cata);
-  killPID = true;
+  if (autonStarted) {
+    killPID = true;
+  }
   stopMotors();
   Intake.stop();
   setMotorsType(coast);
   pidOn = false;
-  killPID = true;
   int axis1, axis2, axis3;
   while (1) {
     // std::cout << "sus" << std::endl;
