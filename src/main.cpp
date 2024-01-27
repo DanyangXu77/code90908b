@@ -119,6 +119,7 @@ bool getController(std::string input) {
   return false;
 }
 
+// QOL FUNCTIONS
 void resetDriveSensors() {
   FrontLeft.resetPosition();
   FrontRight.resetPosition();
@@ -184,6 +185,7 @@ char* dtc(double d) {
   return buffer;
 }
 
+// PID FUNCTIONS
 void pid() {
   while (true) {
     a++;
@@ -305,6 +307,7 @@ void turn(double angle) {
   progressBarUpdate(steps, totalSteps);
 }
 
+// PREAUTON
 void preauton() {
   Intake.setStopping(brake);
 
@@ -359,6 +362,7 @@ void preauton() {
   }
 }
 
+// AUTONOMOUS 
 void autonomous(void) {
   thread p(pid);
   setMotorsType(brake);
@@ -385,7 +389,9 @@ void autonomous(void) {
 
   if (testing) {
     turn(90);
-  } else if (mode == "close_auton") {
+  } else if (mode == "skills_auton") { // PROGRAMMING SKILLS AUTON
+
+  } else if (mode == "close_auton") { // CLOSE SIDE AUTON
     std::cout << "start close_auton" << std::endl;
     progressBarUpdate(0, 1);
     totalSteps = 10;
@@ -401,7 +407,7 @@ void autonomous(void) {
     drive(-6);
     drive(10);
     drive(-4);
-  } else if (mode == "far_auton") {
+  } else if (mode == "far_auton") { // FAR SIDE AUTON
     std::cout << "start far_auton" << std::endl;
     progressBarUpdate(0, 1);
     totalSteps = 15;
@@ -440,7 +446,7 @@ void autonomous(void) {
 
 // NOTE: LIMITSWITCHES ARE NOT INSTALLED, WHEN THEY ARE ON THE ROBOT COMMENT OUT THE `spinFor' FUNCTIONS AND UNCOMMENT THE ONES THAT ARE COMMENTED.
 
-void cata() {
+void cata() { // CATAPULT CONTROL
   Wings.set(true);
   Ratchet.set(false);
 
@@ -476,6 +482,7 @@ void cata() {
           // CatapultLift.stop();
         }
       }
+      wait(20, msec);
     } else {
       cataOn2 = true;
       if (CatapultLift.velocity(rpm) == 0) {
@@ -496,7 +503,7 @@ void usercontrol(void) {
   pidOn = false;
   int axis1, axis2, axis3;
   while (1) {
-    // std::cout << "sus" << std::endl;
+    // DRIVETRAIN CONTROL
     axis1 = Controller.Axis1.position(percent);
     axis2 = Controller.Axis2.position(percent);
     axis3 = Controller.Axis3.position(percent);
@@ -535,8 +542,7 @@ void usercontrol(void) {
       }
     }
 
-    // std::cout << axis1 << ", " << axis3 << std::endl;
-
+    // OTHER CONTROLS
     if (getController(driveModeControl)) {
       if (arcade2) {
         arcade = !arcade;
