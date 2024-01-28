@@ -195,27 +195,10 @@ void pid() {
     Controller.Screen.print(a);
     centrePrintAt(440, 200, dtc(a));
     if (pidOn) {
-      if (usingGPS) {
-        distanceError = sqrt(pow(desiredX - currentX, 2) + pow(desiredY - currentY, 2));
-        gpsTurnError = desiredRotation - Inertial.position(degrees);
-
-        distanceErrorDifference = distanceError - previousDistanceError;
-        gpsTurnErrorDifference = gpsTurnError - previousGpsTurnError;
-
-        totalDistanceError += distanceError;
-        totalGpsTurnError += gpsTurnError;
-
-        if (totalDistanceError > 10) totalDistanceError = 10;
-        if (totalDistanceError < -10) totalDistanceError = -10;
-        if (totalGpsTurnError > 10) totalGpsTurnError = 10;
-        if (totalGpsTurnError < -10) totalGpsTurnError = -10;
-        
-        
-      } else {
-        double leftMotorPosition = MiddleLeft.position(degrees);
-        double rightMotorPosition = MiddleRight.position(degrees);
-        double averageMotorPosition = (leftMotorPosition + rightMotorPosition) / 2;
-        double turnDifference = (leftMotorPosition - rightMotorPosition) / 2;
+      double leftMotorPosition = MiddleLeft.position(degrees);
+      double rightMotorPosition = MiddleRight.position(degrees);
+      double averageMotorPosition = (leftMotorPosition + rightMotorPosition) / 2;
+      double turnDifference = (leftMotorPosition - rightMotorPosition) / 2;
 
         lateralError = desiredLateralValue - averageMotorPosition;
         lateralErrorDifference = lateralError - previousLateralError;
