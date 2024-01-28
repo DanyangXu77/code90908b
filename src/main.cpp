@@ -26,6 +26,7 @@ double pidDampening = 1;
 
 double desiredLateralValue = 0, desiredTurnValue = 0;
 double desiredX = 0, desiredY = 0, desiredRotation = 0;
+double currentX, currentY;
 
 bool pidOn = true;
 bool usingGPS = false;
@@ -171,9 +172,11 @@ void progressBarUpdate(int steps, int total) {
 }
 
 void unIntake() {
+  std::cout << "intake forward" << std::endl;
   startIntake(vex::forward);
   wait(500, msec);
   startIntake(reverse);
+  std::cout << "intake reverse" << std::endl;
   steps++;
   progressBarUpdate(steps, totalSteps);
 }
@@ -193,10 +196,27 @@ void pid() {
     Controller.Screen.print(a);
     centrePrintAt(440, 200, dtc(a));
     if (pidOn) {
-      double leftMotorPosition = MiddleLeft.position(degrees);
-      double rightMotorPosition = MiddleRight.position(degrees);
-      double averageMotorPosition = (leftMotorPosition + rightMotorPosition) / 2;
-      double turnDifference = (leftMotorPosition - rightMotorPosition) / 2;
+      if (usingGPS) {
+        distanceError = sqrt(pow(desiredX - currentX, 2) + pow(desiredY - currentY, 2));
+        gpsTurnError = desiredRotation - Inertial.rotation(degrees);
+
+        distanceErrorDifference = distanceError - previousDistanceError;
+        gpsTurnErrorDifference = gpsTurnError - previousGpsTurnError;
+
+        totalDistanceError += distanceError;
+        totalGpsTurnError += gpsTurnError;
+
+        if (totalDistanceError > 10) totalDistanceError = 10;
+        if (totalDistanceError < -10) totalDistanceError = -10;
+        if (totalGpsTurnError > 10) totalGpsTurnError = 10;
+        if (totalGpsTurnError < -10) totalGpsTurnError = -10;
+
+        // NOT DONE
+      } else {
+        double leftMotorPosition = MiddleLeft.position(degrees);
+        double rightMotorPosition = MiddleRight.position(degrees);
+        double averageMotorPosition = (leftMotorPosition + rightMotorPosition) / 2;
+        double turnDifference = (leftMotorPosition - rightMotorPosition) / 2;
 
         lateralError = desiredLateralValue - averageMotorPosition;
         lateralErrorDifference = lateralError - previousLateralError;
@@ -223,24 +243,25 @@ void pid() {
         wait(20, msec);
 
         std::cout << leftMotorPosition << ", " << rightMotorPosition << ", " << lateralError << std::endl;
-      }
-      if (stopMotorsInPID) {
-        desiredLateralValue = 0;
-        desiredTurnValue = 0;
-        resetDriveSensors();
-        FrontLeft.stop();
-        FrontRight.stop();
-        MiddleLeft.stop();
-        MiddleRight.stop();
-        BackLeft.stop();
-        BackRight.stop();
-      } else {
-        FrontLeft.spin(vex::forward, (lateralMotorPower + turnMotorPower) * leftMultiplier * pidDampening, percent);
-        FrontRight.spin(vex::forward, (lateralMotorPower - turnMotorPower) * rightMultiplier * pidDampening, percent);
-        MiddleLeft.spin(vex::forward, (lateralMotorPower + turnMotorPower) * leftMultiplier * pidDampening, percent);
-        MiddleRight.spin(vex::forward, (lateralMotorPower - turnMotorPower) * rightMultiplier * pidDampening, percent);
-        BackLeft.spin(vex::forward, (lateralMotorPower + turnMotorPower) * leftMultiplier * pidDampening, percent);
-        BackRight.spin(vex::forward, (lateralMotorPower - turnMotorPower) * rightMultiplier * pidDampening, percent);
+      
+        if (stopMotorsInPID) {
+          desiredLateralValue = 0;
+          desiredTurnValue = 0;
+          resetDriveSensors();
+          FrontLeft.stop();
+          FrontRight.stop();
+          MiddleLeft.stop();
+          MiddleRight.stop();
+          BackLeft.stop();
+          BackRight.stop();
+        } else {
+          FrontLeft.spin(vex::forward, (lateralMotorPower + turnMotorPower) * leftMultiplier * pidDampening, percent);
+          FrontRight.spin(vex::forward, (lateralMotorPower - turnMotorPower) * rightMultiplier * pidDampening, percent);
+          MiddleLeft.spin(vex::forward, (lateralMotorPower + turnMotorPower) * leftMultiplier * pidDampening, percent);
+          MiddleRight.spin(vex::forward, (lateralMotorPower - turnMotorPower) * rightMultiplier * pidDampening, percent);
+          BackLeft.spin(vex::forward, (lateralMotorPower + turnMotorPower) * leftMultiplier * pidDampening, percent);
+            BackRight.spin(vex::forward, (lateralMotorPower - turnMotorPower) * rightMultiplier * pidDampening, percent);
+        }
       }
     }
 
@@ -303,10 +324,9 @@ void turn(double angle) {
   progressBarUpdate(steps, totalSteps);
 }
 
-void gotolocation(int desiredX, int desiredY) {
-  int currentX = GPS.xPosition;
-  int currentY = GPS.yPosition;
-  turn();
+void getLocation() {
+  currentX = GPS.xPosition();
+  currentY = GPS.yPosition();
 }
 
 // PREAUTON
