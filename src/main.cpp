@@ -16,18 +16,19 @@ double pi = 3.14159265358979323846264338327950288419716939937510582097494459;
 
 bool reversed = false;
 
-double lateralError, previousLateralError, turnError, previousTurnError;
+double lateralError, previousLateralError, lateralErrorDifference, totalLateralError;
+double turnError, previousTurnError, turnErrorDifference, totalTurnError;
 
-double lateralErrorDifference, turnErrorDifference;
-
-double totalLateralError, totalTurnError;
+double distanceError, previousDistanceError, distanceErrorDifference, totalDistanceError;
+double gpsTurnError, previousGpsTurnError, gpsTurnErrorDifference, totalGpsTurnError;
 
 double pidDampening = 1;
 
-double desiredLateralValue = 0;
-double desiredTurnValue = 0;
+double desiredLateralValue = 0, desiredTurnValue = 0;
+double desiredX = 0, desiredY = 0, desiredRotation = 0;
 
 bool pidOn = true;
+bool usingGPS = false;
 
 bool wingsOn = false;
 bool wingsOn2 = true;
@@ -194,40 +195,54 @@ void pid() {
     Controller.Screen.print(a);
     centrePrintAt(440, 200, dtc(a));
     if (pidOn) {
-      double leftMotorPosition = MiddleLeft.position(degrees);
-      double rightMotorPosition = MiddleRight.position(degrees);
-      double averageMotorPosition = (leftMotorPosition + rightMotorPosition) / 2;
-      double turnDifference = (leftMotorPosition - rightMotorPosition) / 2;
+      if (usingGPS) {
+        distanceError = sqrt(pow(desiredX - currentX, 2) + pow(desiredY - currentY, 2));
+        gpsTurnError = desiredRotation - Inertial.position(degrees);
 
-      lateralError = desiredLateralValue - averageMotorPosition;
+        distanceErrorDifference = distanceError - previousDistanceError;
+        gpsTurnErrorDifference = gpsTurnError - previousGpsTurnError;
 
-      lateralErrorDifference = lateralError - previousLateralError;
+        totalDistanceError += distanceError;
+        totalGpsTurnError += gpsTurnError;
 
-      turnError = desiredTurnValue - turnDifference;
+        if (totalDistanceError > 10) totalDistanceError = 10;
+        if (totalDistanceError < -10) totalDistanceError = -10;
+        if (totalGpsTurnError > 10) totalGpsTurnError = 10;
+        if (totalGpsTurnError < -10) totalGpsTurnError = -10;
+        
+        // havent finished :skull:
+      } else {
+        double leftMotorPosition = MiddleLeft.position(degrees);
+        double rightMotorPosition = MiddleRight.position(degrees);
+        double averageMotorPosition = (leftMotorPosition + rightMotorPosition) / 2;
+        double turnDifference = (leftMotorPosition - rightMotorPosition) / 2;
 
-      turnErrorDifference = turnError - previousTurnError;
+        lateralError = desiredLateralValue - averageMotorPosition;
+        lateralErrorDifference = lateralError - previousLateralError;
 
-      totalLateralError += lateralError;
+        turnError = desiredTurnValue - turnDifference;
+        turnErrorDifference = turnError - previousTurnError;
 
-      totalTurnError += turnError;
+        totalLateralError += lateralError;
+        totalTurnError += turnError;
 
-      if (totalLateralError > 1000) totalLateralError = 1000;
-      if (totalTurnError < -1000) totalTurnError = -1000;
-      if (totalLateralError > 1000) totalLateralError = 1000;
-      if (totalTurnError < -1000) totalTurnError = -1000;
+        if (totalLateralError > 1000) totalLateralError = 1000;
+        if (totalTurnError < -1000) totalTurnError = -1000;
+        if (totalLateralError > 1000) totalLateralError = 1000;
+        if (totalTurnError < -1000) totalTurnError = -1000;
 
-      double lateralMotorPower = lateralError * lateralkP + totalLateralError * lateralkI + lateralErrorDifference * lateralkD;
+        double lateralMotorPower = lateralError * lateralkP + totalLateralError * lateralkI + lateralErrorDifference * lateralkD;
 
-      double turnMotorPower = turnError * turnkP + totalTurnError * turnkI + turnErrorDifference * turnkD;
+        double turnMotorPower = turnError * turnkP + totalTurnError * turnkI + turnErrorDifference * turnkD;
 
-      previousLateralError = lateralError;
+        previousLateralError = lateralError;
 
-      previousTurnError = turnError;
+        previousTurnError = turnError;
       
-      wait(20, msec);
+        wait(20, msec);
 
-      std::cout << leftMotorPosition << ", " << rightMotorPosition << ", " << lateralError << std::endl;
-
+        std::cout << leftMotorPosition << ", " << rightMotorPosition << ", " << lateralError << std::endl;
+      }
       if (stopMotorsInPID) {
         desiredLateralValue = 0;
         desiredTurnValue = 0;
@@ -305,6 +320,12 @@ void turn(double angle) {
   stopMotors();
   steps++;
   progressBarUpdate(steps, totalSteps);
+}
+
+void gotolocation(int desiredX, int desiredY) {
+  int currentX = GPS.xPosition;
+  int currentY = GPS.yPosition;
+  turn();
 }
 
 // PREAUTON
