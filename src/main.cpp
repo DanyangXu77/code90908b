@@ -171,11 +171,9 @@ void progressBarUpdate(int steps, int total) {
 }
 
 void unIntake() {
-  std::cout << "intake forward" << std::endl;
   startIntake(vex::forward);
   wait(500, msec);
   startIntake(reverse);
-  std::cout << "intake reverse" << std::endl;
   steps++;
   progressBarUpdate(steps, totalSteps);
 }
