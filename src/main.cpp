@@ -210,7 +210,7 @@ void pid() {
         if (totalGpsTurnError > 10) totalGpsTurnError = 10;
         if (totalGpsTurnError < -10) totalGpsTurnError = -10;
         
-        // havent finished :skull:
+        
       } else {
         double leftMotorPosition = MiddleLeft.position(degrees);
         double rightMotorPosition = MiddleRight.position(degrees);
@@ -490,14 +490,17 @@ void cata() { // CATAPULT CONTROL
     
     if (getController(catapultLiftControl)) {
       if (cataOn2) {
+        cout << "input recieved" << endl;
         cataOn2 = false;
         cataOn = !cataOn;
         if (cataOn) {
+          cout << "raising catapult" << endl;
           // CatapultLift.spin(vex::forward, 160, rpm);
           CatapultLift.spinFor(vex::forward, moveDegrees, degrees, 160, rpm, false);
           // waitUntil(getController(catapultLiftControl) || CatapultTop.value());
           // CatapultLift.stop();
         } else {
+          cout << "lowering catapult" << endl;
           // CatapultLift.spin(reverse, 160, rpm);
           CatapultLift.spinFor(reverse, moveDegrees, degrees, 160, rpm, false);
           // CatapultLift.stop();
@@ -507,6 +510,7 @@ void cata() { // CATAPULT CONTROL
     } else {
       cataOn2 = true;
       if (CatapultLift.velocity(rpm) == 0) {
+        cout << "stopping catapult" << endl;
         CatapultLift.stop();
       }
     }
