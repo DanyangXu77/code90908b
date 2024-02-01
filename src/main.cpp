@@ -492,16 +492,19 @@ void cata() { // CATAPULT CONTROL
     if (getController(catapultLiftControl)) {
       if (cataOn2) {
         cout << "input recieved" << endl;
+        centrePrintAt(240, 220, "input recieved");
         cataOn2 = false;
         cataOn = !cataOn;
         if (cataOn) {
           cout << "raising catapult" << endl;
+          centrePrintAt(240, 220, "raising catapult");
           // CatapultLift.spin(vex::forward, 160, rpm);
           CatapultLift.spinFor(vex::forward, moveDegrees, degrees, 160, rpm, false);
           // waitUntil(getController(catapultLiftControl) || CatapultTop.value());
           // CatapultLift.stop();
         } else {
           cout << "lowering catapult" << endl;
+          centrePrintAt(240, 220, "lowering catapult");
           // CatapultLift.spin(reverse, 160, rpm);
           CatapultLift.spinFor(reverse, moveDegrees, degrees, 160, rpm, false);
           // CatapultLift.stop();
@@ -512,6 +515,7 @@ void cata() { // CATAPULT CONTROL
       cataOn2 = true;
       if (CatapultLift.velocity(rpm) == 0) {
         cout << "stopping catapult" << endl;
+        centrePrintAt(240, 220, "stopping catapult");
         CatapultLift.stop();
       }
     }
