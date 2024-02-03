@@ -44,6 +44,11 @@ bool stopMotorsInPID = false;
 bool arcade = false;
 bool arcade2 = true;
 
+int steps;
+int totalSteps;
+
+bool pidStarted = false;
+
 std::string mode = "no_auton";
 
 directionType opposite(directionType direction) {
@@ -162,6 +167,7 @@ void centrePrintAt(int xPos, int yPos, std::string txt) {
 
 void pid() {
   while (true) {
+    pidStarted = true;
     if (pidOn) {
       double leftMotorPosition = MiddleLeft.position(degrees);
       double rightMotorPosition = MiddleRight.position(degrees);
@@ -314,13 +320,17 @@ void autonomous(void) {
   thread p(pid);
   setMotorsType(brake);
   autonStarted = true;
-  Brain.Screen.clearScreen();
-  centrePrintAt(240, 120, "using mode");
-  centrePrintAt(240, 180, mode);
+  Brain.Screen.clearScreen(black);
+  centrePrintAt(240, 120, mode);
 
   std::cout << "program start" << std::endl;
 
   bool testing = false;
+
+  pidOn = true;
+
+  waitUntil(pidStarted);
+  centrePrintAt(240, 180, "pid started");
 
   resetDriveSensors();
 
