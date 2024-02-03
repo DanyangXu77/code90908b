@@ -517,7 +517,7 @@ void cata() { // CATAPULT CONTROL
       wait(20, msec);
     } else {
       cataOn2 = true;
-      if (cataOn CatapultLift.velocity(rpm) == 0) {
+      if (cataOn && CatapultLift.velocity(rpm) == 0) {
         cout << "stopping catapult" << endl;
         centrePrintAt(240, 220, "stopping catapult");
         CatapultLift.stop();
