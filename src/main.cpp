@@ -473,6 +473,8 @@ void autonomous(void) {
 // NOTE: LIMITSWITCHES ARE NOT INSTALLED, WHEN THEY ARE ON THE ROBOT COMMENT OUT THE `spinFor' FUNCTIONS AND UNCOMMENT THE ONES THAT ARE COMMENTED.
 
 void cata() { // CATAPULT CONTROL
+  cout << "buttons pressed: " << "l1 - " << Controller.ButtonL1.pressing() << "; l2 - " << Controller.ButtonL2.pressing() << "; r1 - " << Controller.ButtonR1.pressing() << "; r2 - " << Controller.ButtonR2.pressing() << "; a - " << Controller.ButtonA.pressing() << "; b - " << Controller.ButtonB.pressing() << "; x - " << Controller.ButtonX.pressing() << "; y - " << Controller.ButtonY.pressing() << "; right - " << Controller.ButtonRight.pressing() << "; down - " << Controller.ButtonDown.pressing() << "; left - " << Controller.ButtonLeft.pressing() << "; up - " << Controller.ButtonUp.pressing() << endl;
+
   Wings.set(true);
   Ratchet.set(false);
 
@@ -620,8 +622,6 @@ void usercontrol(void) {
       setMotorsType(coast);
     }
   }
-
-  cout << "buttons pressed: " << "l1 - " << Controller.ButtonL1.pressing() << "; l2 - " << Controller.ButtonL2.pressing() << "; r1 - " << Controller.ButtonR1.pressing() << "; r2 - " << Controller.ButtonR2.pressing() << "; a - " << Controller.ButtonA.pressing() << "; b - " << Controller.ButtonB.pressing() << "; x - " << Controller.ButtonX.pressing() << "; y - " << Controller.ButtonY.pressing() << "; right - " << Controller.ButtonRight.pressing() << "; down - " << Controller.ButtonDown.pressing() << "; left - " << Controller.ButtonLeft.pressing() << "; up - " << Controller.ButtonUp.pressing() << endl;
 
   wait(20, msec);
 }
