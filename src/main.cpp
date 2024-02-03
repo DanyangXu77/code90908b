@@ -24,9 +24,31 @@ void preauton() {
 void autonomous(void) {
 }
 
+void nothing() cout << "a" << endl;
+
+void catapult() {
+
+}
+
+void checkInputs() {
+  Controller.ButtonA.pressed(nothing);
+  Controller.ButtonB.pressed(nothing);
+  Controller.ButtonX.pressed(nothing);
+  Controller.ButtonY.pressed(nothing);
+  Controller.ButtonUp.pressed(nothing);
+  Controller.ButtonRight.pressed(nothing);
+  Controller.ButtonDown.pressed(nothing);
+  Controller.ButtonLeft.pressed(nothing);
+  Controller.ButtonL1.pressed(nothing);
+  Controller.ButtonL2.pressed(nothing);
+  Controller.ButtonR1.pressed(nothing);
+  Controller.ButtonR2.pressed(nothing);
+}
+
 void usercontrol(void) {
+  checkInputs();
   while (true) {
-    Controller.ButtonL1.pressed(cout << "a" << endl);
+    
     vex::wait(20, msec);
   }
 }
