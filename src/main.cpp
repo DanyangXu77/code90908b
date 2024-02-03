@@ -468,6 +468,8 @@ void usercontrol(void) {
     }
   }
 
+  cout << "buttons pressed: " << "l1 - " << Controller.ButtonL1.pressing() << "; l2 - " << Controller.ButtonL2.pressing() << "; r1 - " << Controller.ButtonR1.pressing() << "; r2 - " << Controller.ButtonR2.pressing() << "; a - " << Controller.ButtonA.pressing() << "; b - " << Controller.ButtonB.pressing() << "; x - " << Controller.ButtonX.pressing() << "; y - " << Controller.ButtonY.pressing() << "; right - " << Controller.ButtonRight.pressing() << "; down - " << Controller.ButtonDown.pressing() << "; left - " << Controller.ButtonLeft.pressing() << "; up - " << Controller.ButtonUp.pressing() << endl;
+
   wait(20, msec);
 }
 
