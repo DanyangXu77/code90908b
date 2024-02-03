@@ -412,6 +412,10 @@ void autonomous(void) {
   if (testing) {
     turn(90);
   } else if (mode == "skills_auton") { // PROGRAMMING SKILLS AUTON
+    std::cout << "start skills_auton" << std::endl;
+    progressBarUpdate(0, 1);
+    totalSteps = 4294967296;
+    centrePrintAt(240, 150, "auton started");
 
   } else if (mode == "close_auton") { // CLOSE SIDE AUTON
     std::cout << "start close_auton" << std::endl;
