@@ -625,6 +625,7 @@ void usercontrol(void) {
 }
 
 int main() {
+  cout << "main() started" << endl;
   Competition.bStopAllTasksBetweenModes = true;
 
   Competition.autonomous(autonomous);
