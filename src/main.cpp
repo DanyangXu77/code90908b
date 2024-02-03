@@ -478,7 +478,6 @@ void cata() { // CATAPULT CONTROL
 
   CatapultLift.setStopping(hold);
   while (true) {
-    cout << "buttons pressed: " << "l1 - " << Controller.ButtonL1.pressing() << "; l2 - " << Controller.ButtonL2.pressing() << "; r1 - " << Controller.ButtonR1.pressing() << "; r2 - " << Controller.ButtonR2.pressing() << "; a - " << Controller.ButtonA.pressing() << "; b - " << Controller.ButtonB.pressing() << "; x - " << Controller.ButtonX.pressing() << "; y - " << Controller.ButtonY.pressing() << "; right - " << Controller.ButtonRight.pressing() << "; down - " << Controller.ButtonDown.pressing() << "; left - " << Controller.ButtonLeft.pressing() << "; up - " << Controller.ButtonUp.pressing() << endl;
     if (getController(catapultControl)) {
       if (cata2) {
         cata2 = false;
@@ -538,6 +537,7 @@ void usercontrol(void) {
   pidOn = false;
   int axis1, axis2, axis3;
   while (1) {
+    cout << "buttons pressed: " << "l1 - " << Controller.ButtonL1.pressing() << "; l2 - " << Controller.ButtonL2.pressing() << "; r1 - " << Controller.ButtonR1.pressing() << "; r2 - " << Controller.ButtonR2.pressing() << "; a - " << Controller.ButtonA.pressing() << "; b - " << Controller.ButtonB.pressing() << "; x - " << Controller.ButtonX.pressing() << "; y - " << Controller.ButtonY.pressing() << "; right - " << Controller.ButtonRight.pressing() << "; down - " << Controller.ButtonDown.pressing() << "; left - " << Controller.ButtonLeft.pressing() << "; up - " << Controller.ButtonUp.pressing() << endl;
     // DRIVETRAIN CONTROL
     axis1 = Controller.Axis1.position(percent);
     axis2 = Controller.Axis2.position(percent);
