@@ -16,13 +16,10 @@ motor BackLeft = motor(PORT21, ratio6_1, false);
 motor BackRight = motor(PORT2, ratio6_1, true);
 digital_out Wings = digital_out(Brain.ThreeWirePort.H);
 digital_out Ratchet = digital_out(Brain.ThreeWirePort.G);
-digital_out CatapultTop = digital_out(Brain.ThreeWirePort.A);
 digital_out MatchLoadLock = digital_out(Brain.ThreeWirePort.C);
 motor Intake = motor(PORT6, ratio18_1, false);
 motor CatapultLift = motor(PORT5, ratio36_1, false);
 motor Catapult = motor(PORT10, ratio18_1, false);
-inertial Inertial = inertial(PORT11);
-gps GPS = gps(PORT12, 0.00, 0.00, mm, 180);
 
 bool RemoteControlCodeEnabled = true;
 
