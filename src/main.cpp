@@ -84,7 +84,7 @@ void pid() {
       
       wait(20, msec);
 
-      cout << leftMotorPosition << ", " << rightMotorPosition << ", " << lateralError << endl;
+      cout << leftMotorPosition << ", " << rightMotorPosition << ", " << lateralError << ", " << turnError << endl;
       
       Left.spin(vex::forward, (lateralMotorPower + turnMotorPower), percent);
       Right.spin(vex::forward, (lateralMotorPower - turnMotorPower), percent);
@@ -114,7 +114,7 @@ void turn(double angle) {
   totalTurnError = 0;
   desiredLateralValue = 0;
   desiredTurnValue = angle * turnMultiplier;
-  while (fabs(fabs(desiredTurnValue - (Left.position(degrees) - Right.position(degrees)) / 2)) > 3) {
+  while (fabs(desiredTurnValue - (Left.position(degrees) - Right.position(degrees)) / 2) > 3) {
     wait(20, msec);
   }
   cout << "end turn " << angle << endl;
@@ -130,9 +130,12 @@ void preauton() {
 
 void autonomous() {
   cout << "auton started" << endl;
+  Left.setStopping(brake);
+  Right.setStopping(brake);
   autonStarted = true;
-  thread pid(pid);
+  thread p(pid);
   pidOn = true;
+  autonMode = "far";
   if (autonMode == "close") {
     cout << "start close_auton" << endl;
     drive(50);
@@ -171,7 +174,7 @@ void autonomous() {
   } else if (autonMode == "skills") {
 
   } else {
-
+    turn(90);
   }
 
   killPID = true;
@@ -204,9 +207,9 @@ void catapultLift() {
     allowCatapultLiftControl = false;
     catapultLiftOn = !catapultLiftOn;
     if (catapultLiftOn) {
-      CatapultLift.spinFor(vex::forward, 700, vex::degrees, 200, vex::rpm);
+      CatapultLift.spinFor(vex::forward, 1400, vex::degrees, 200, vex::rpm, false);
     } else {
-      CatapultLift.spinFor(vex::reverse, 700, vex::degrees, 200, vex::rpm);
+      CatapultLift.spinFor(vex::reverse, 1600, vex::degrees, 200, vex::rpm, false);
     }
   }
 }
@@ -270,7 +273,15 @@ void handleDriving() {
   Right.spin(vex::reverse, axis3 - axis1, vex::percent);
 }
 
+void checkCollision() {
+  if (CatapultLift.velocity(rpm) == 0 && !allowCatapultLiftControl) {
+    CatapultLift.stop();
+  }
+}
+
 void usercontrol() {
+  Left.setStopping(coast);
+  Right.setStopping(coast);
   cout << "usercontrol started" << endl;
   if (autonStarted) { killPID = true; pidOn = false; stopMotors(); }
   addInputControls();
