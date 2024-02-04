@@ -41,13 +41,6 @@ void startIntake(vex::directionType direction) {
 void stopIntake() {
   Intake.stop();
 }
-void unIntake() {
-  cout << "intake forward" << endl;
-  startIntake(vex::forward);
-  wait(500, msec);
-  startIntake(vex::reverse);
-  cout << "intake reverse" << endl;
-}
 
 void pid() {
   while (true) {
@@ -135,39 +128,46 @@ void autonomous() {
   pidOn = true;
   if (autonMode == "close") {
     cout << "start close_auton" << endl;
-    drive(50);
-    turn(50);
-    drive(10);
-    drive(-10);
-    turn(-135);
-    drive(3);
-    unIntake();
-    waitUntil(!Intake.isSpinning());
-    drive(-6);
-    drive(10);
-    drive(-4);
+    // drive(50);
+    // turn(50);
+    // drive(10);
+    // drive(-10);
+    // turn(-135);
+    // drive(3);
+    // unIntake();
+    // waitUntil(!Intake.isSpinning());
+    // drive(-6);
+    // drive(10);
+    // drive(-4);
   } else if (autonMode == "far") {
     cout << "start far auton" << endl;
-    drive(46.5);
-    turn(95);
-    drive(3);
-    unIntake();
-    waitUntil(!Intake.isSpinning());
-    drive(-28);
-    Wings.set(false);
-    drive(29);
-    Wings.set(true);
-    drive(-4);
-    turn(156);
+    // drive(46.5);
+    // turn(95);
+    // drive(3);
+    // unIntake();
+    // waitUntil(!Intake.isSpinning());
+    // drive(-28);
+    // Wings.set(false);
+    // drive(29);
+    // Wings.set(true);
+    // drive(-4);
+    // turn(156);
+    // startIntake(vex::forward);
+    // drive(26);
+    // drive(-26);
+    // turn(-170);
+    // unIntake();
+    // drive(-6);
+    // Wings.set(false);
+    // drive(10);
+    // drive(-4);
+    drive(-55);
+    turn(90);
+    drive(25);
     startIntake(vex::forward);
-    drive(26);
-    drive(-26);
-    turn(-170);
-    unIntake();
-    drive(-6);
-    Wings.set(false);
-    drive(10);
-    drive(-4);
+    drive(-5);
+    turn(-85);
+    drive(55);
   } else if (autonMode == "skills") {
 
   } else {
@@ -212,7 +212,7 @@ void catapultLift() {
 }
 void intake() {
   cout << "input >> intake" << endl;
-  Intake.spin(vex::forward, 200, rpm);
+  Intake.spin(vex::reverse, 200, rpm);
 }
 void ratchet() {
   cout << "input >> ratchet" << endl;
@@ -224,7 +224,7 @@ void ratchet() {
 }
 void reverseIntake() {
   cout << "input >> reverseIntake" << endl;
-  Intake.spin(vex::reverse, 200, rpm);
+  Intake.spin(vex::forward, 200, rpm);
 }
 void wings() {
   cout << "input >> wings" << endl;
