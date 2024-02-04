@@ -19,7 +19,7 @@ double turnError, previousTurnError, turnErrorDifference, totalTurnError;
 double desiredLateralValue = 0, desiredTurnValue = 0;
 
 bool allowCatapultControl, allowCatapultLiftControl, allowRatchetControl, allowWingsControl;
-bool catapultOn, catapultLiftOn, ratchetOn, wingsOn;
+bool catapultOn = false, catapultLiftOn = false, ratchetOn = true, wingsOn = true;
 
 bool autonStarted = false, killPID = false;
 
@@ -123,6 +123,9 @@ void turn(double angle) {
 
 void preauton() {
   cout << "preauton started" << endl;
+  CatapultLift.setStopping(vex::hold);
+  Ratchet.set(true);
+  Wings.set(true);
 }
 
 void autonomous() {
@@ -189,7 +192,7 @@ void catapult() {
     allowCatapultControl = false;
     catapultOn = !catapultOn;
     if (catapultOn) {
-      Catapult.spin(vex::forward, 200, vex::rpm);
+      Catapult.spin(vex::reverse, 200, vex::rpm);
     } else {
       Catapult.stop();
     }
@@ -252,8 +255,8 @@ void addInputControls() {
   Controller.ButtonY      .released(nothing);
   Controller.ButtonL1     .released(allowControls);
   Controller.ButtonL2     .released(nothing);
-  Controller.ButtonR1     .released(allowControls);
-  Controller.ButtonR2     .released(allowControls);
+  Controller.ButtonR1     .released(stopIntake);
+  Controller.ButtonR2     .released(stopIntake);
   Controller.ButtonUp     .released(nothing);
   Controller.ButtonRight  .released(nothing);
   Controller.ButtonDown   .released(nothing);
