@@ -29,10 +29,22 @@ void preauton() {
 void autonomous(void) {
 }
 
-void nothing() cout << "input ignored" << endl;
+void nothing() { cout << "input >> nothing" << endl; }
 
 void catapult() {
+  cout << "input >> catapult" << endl;
+}
 
+void catapultLift() {
+  cout << "input >> catapultLift" << endl;
+}
+
+void intake() {
+  cout << "input >> intake" << endl;
+}
+
+void reverseIntake() {
+  cout << "input >> reverseIntake" << endl;
 }
 
 void addInputControls() {
@@ -51,10 +63,10 @@ void addInputControls() {
 }
 
 void handleDriving() {
-  double axis1 = Controller.Axis1.value(percent);  
-  double axis3 = Controller.Axis3.value(percent);
-  Left.spin(forward, axis3 + axis1, percent);
-  Right.spin(forward, axis3 - axis1, percent);
+  double axis1 = Controller.Axis1.value();  
+  double axis3 = Controller.Axis3.value();
+  Left.spin(vex::forward, axis3 + axis1, vex::percent);
+  Right.spin(vex::forward, axis3 - axis1, vex::percent);
 }
 
 void usercontrol(void) {
@@ -66,7 +78,6 @@ void usercontrol(void) {
 }
 
 int main() {
-  cout << "main() started" << endl;
   Competition.bStopAllTasksBetweenModes = true;
 
   Competition.autonomous(autonomous);
@@ -75,6 +86,6 @@ int main() {
   preauton();
 
   while (true) {
-    wait(100, msec);
+    vex::wait(20, msec);
   }
 }
