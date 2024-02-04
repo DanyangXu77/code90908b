@@ -170,7 +170,9 @@ void autonomous() {
     startIntake(vex::forward);
     drive(-5);
     turn(-85);
+    startIntake(vex::reverse);
     drive(55);
+
   } else if (autonMode == "skills") {
 
   } else {
