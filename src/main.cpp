@@ -135,21 +135,21 @@ void autonomous() {
   autonStarted = true;
   thread p(pid);
   pidOn = true;
-  autonMode = "far";
+  autonMode = "close";
   Wings.set(true);
   if (autonMode == "close") {
     cout << "start close_auton" << endl;
-    // drive(50);
-    // turn(50);
-    // drive(10);
-    // drive(-10);
-    // turn(-135);
-    // drive(3);
-    // unIntake();
-    // waitUntil(!Intake.isSpinning());
-    // drive(-6);
-    // drive(10);
-    // drive(-4);
+    drive(50);
+    turn(50);
+    drive(7);
+    drive(-7);
+    turn(-135);
+    drive(3);
+    unIntake();
+    waitUntil(!Intake.isSpinning());
+    drive(-6);
+    drive(10);
+    drive(-4);
   } else if (autonMode == "far") {
     cout << "start far auton" << endl;
     drive(46.5);
@@ -164,8 +164,8 @@ void autonomous() {
     drive(-4);
     turn(156);
     startIntake(vex::forward);
-    drive(25);
-    drive(-25);
+    drive(24);
+    drive(-24);
     turn(-170);
     unIntake();
     drive(-6);
