@@ -34,9 +34,16 @@ void resetDriveSensors() {
 void stopMotors() {
   Left.stop();
   Right.stop();
-};
+}
 void startIntake(vex::directionType direction) {
   Intake.spin(direction, 200, vex::rpm);
+}
+void unIntake() {
+  cout << "intake forward" << endl;
+  startIntake(vex::reverse);
+  wait(500, msec);
+  startIntake(vex::forward);
+  cout << "intake reverse" << endl;
 }
 void stopIntake() {
   Intake.stop();
@@ -51,7 +58,7 @@ void pid() {
     }
     if (pidOn) {
       double leftMotorPosition = Left.position(degrees);
-      double rightMotorPosition = Left.position(degrees);
+      double rightMotorPosition = Right.position(degrees);
       double averageMotorPosition = (leftMotorPosition + rightMotorPosition) / 2;
       double turnDifference = (leftMotorPosition - rightMotorPosition) / 2;
 
@@ -93,7 +100,7 @@ void drive(double angle) {
   totalTurnError = 0;
   desiredLateralValue = angle * lateralMultiplier;
   desiredTurnValue = 0;
-  while (fabs(desiredLateralValue - (Left.position(degrees) + Left.position(degrees)) / 2) > 3) {
+  while (fabs(desiredLateralValue - (Left.position(degrees) + Left.position(degrees)) / 2) > sqrt(fabs(angle))) {
     wait(20, msec);
   }
   cout << "end drive " << angle << endl;
@@ -128,55 +135,67 @@ void autonomous() {
   autonStarted = true;
   thread p(pid);
   pidOn = true;
-  autonMode = "far";
+  autonMode = "close";
+  Wings.set(true);
   if (autonMode == "close") {
     cout << "start close_auton" << endl;
-    // drive(50);
-    // turn(50);
-    // drive(10);
-    // drive(-10);
-    // turn(-135);
-    // drive(3);
-    // unIntake();
-    // waitUntil(!Intake.isSpinning());
-    // drive(-6);
-    // drive(10);
-    // drive(-4);
+    drive(50);
+    turn(50);
+    drive(7);
+    drive(-7);
+    turn(-135);
+    drive(3);
+    unIntake();
+    waitUntil(!Intake.isSpinning());
+    drive(-6);
+    drive(10);
+    drive(-4);
   } else if (autonMode == "far") {
     cout << "start far auton" << endl;
-    // drive(46.5);
-    // turn(95);
-    // drive(3);
-    // unIntake();
-    // waitUntil(!Intake.isSpinning());
-    // drive(-28);
-    // Wings.set(false);
-    // drive(29);
-    // Wings.set(true);
-    // drive(-4);
-    // turn(156);
-    // startIntake(vex::forward);
-    // drive(26);
-    // drive(-26);
-    // turn(-170);
-    // unIntake();
-    // drive(-6);
-    // Wings.set(false);
-    // drive(10);
-    // drive(-4);
-    drive(-55);
-    turn(90);
-    drive(25);
+    drive(46.5);
+    turn(95);
+    drive(3);
+    unIntake();
+    waitUntil(!Intake.isSpinning());
+    drive(-28);
+    Wings.set(false);
+    drive(29);
+    Wings.set(true);
+    drive(-4);
+    turn(156);
     startIntake(vex::forward);
-    drive(-5);
-    turn(-85);
-    startIntake(vex::reverse);
-    drive(55);
-
+    drive(24);
+    drive(-24);
+    turn(-170);
+    unIntake();
+    drive(-6);
+    Wings.set(false);
+    drive(10);
+    drive(-4);
+    // startIntake(vex::reverse);
+    // drive(5);
+    // drive(3);
+    // drive(-35);
+    // turn(135);
+    // startIntake(vex::forward);
+    // drive(24);
+    // drive(-5);
+    // turn(-110);
+    // startIntake(vex::reverse);
+    // drive(45);
+    // turn(150);
+    // startIntake(vex::forward);
+    // drive(25);
+    // drive(-25);
+    // startIntake(vex::reverse);
+    // Wings.set(false);
+    // drive(25);
+    // drive(-10);
+    // drive(10);
   } else if (autonMode == "skills") {
 
   } else {
-    turn(90);
+    Wings.set(true);
   }
 
   killPID = true;
