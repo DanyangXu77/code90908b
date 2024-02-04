@@ -1,4 +1,4 @@
-// 0
+// 1
 #include <stdio.h>
 #include <cmath>
 #include "robot-config.h"
@@ -12,7 +12,7 @@ motor_group Left(FrontLeft, MiddleLeft, BackLeft);
 motor_group Right(FrontRight, MiddleRight, BackRight);
 
 double lateralkP = 0.1, lateralkI = 0.00000001, lateralkD = 0.001, turnkP = 0.1, turnkI = 0.00000001, turnkD = 0.001;
-double lateralMultiplier = 56, turnMultiplier = -5.35;
+double lateralMultiplier = -56, turnMultiplier = -5.35;
 
 double lateralError, previousLateralError, lateralErrorDifference, totalLateralError;
 double turnError, previousTurnError, turnErrorDifference, totalTurnError;
@@ -21,25 +21,168 @@ double desiredLateralValue = 0, desiredTurnValue = 0;
 bool allowCatapultControl, allowCatapultLiftControl, allowRatchetControl, allowWingsControl;
 bool catapultOn, catapultLiftOn, ratchetOn, wingsOn;
 
-void pid() {
+bool autonStarted = false, killPID = false;
 
+string autonMode = "no_auton";
+
+bool pidOn = false;
+
+void resetDriveSensors() {
+  Left.resetPosition();
+  Right.resetPosition();
+}
+void stopMotors() {
+  Left.stop();
+  Right.stop();
+};
+void startIntake(vex::directionType direction) {
+  Intake.spin(direction, 200, vex::rpm);
+}
+void stopIntake() {
+  Intake.stop();
+}
+void unIntake() {
+  cout << "intake forward" << endl;
+  startIntake(vex::forward);
+  wait(500, msec);
+  startIntake(vex::reverse);
+  cout << "intake reverse" << endl;
+}
+
+void pid() {
+  while (true) {
+    if (killPID) {
+      resetDriveSensors();
+      stopMotors();
+      break;
+    }
+    if (pidOn) {
+      double leftMotorPosition = Left.position(degrees);
+      double rightMotorPosition = Left.position(degrees);
+      double averageMotorPosition = (leftMotorPosition + rightMotorPosition) / 2;
+      double turnDifference = (leftMotorPosition - rightMotorPosition) / 2;
+
+      lateralError = desiredLateralValue - averageMotorPosition;
+      lateralErrorDifference = lateralError - previousLateralError;
+      turnError = desiredTurnValue - turnDifference;
+      turnErrorDifference = turnError - previousTurnError;
+      totalLateralError += lateralError;
+      totalTurnError += turnError;
+
+      if (totalLateralError > 1000) totalLateralError = 1000;
+      if (totalTurnError < -1000) totalTurnError = -1000;
+      if (totalLateralError > 1000) totalLateralError = 1000;
+      if (totalTurnError < -1000) totalTurnError = -1000;
+
+      double lateralMotorPower = lateralError * lateralkP + totalLateralError * lateralkI + lateralErrorDifference * lateralkD;
+
+      double turnMotorPower = turnError * turnkP + totalTurnError * turnkI + turnErrorDifference * turnkD;
+
+      previousLateralError = lateralError;
+
+      previousTurnError = turnError;
+      
+      wait(20, msec);
+
+      cout << leftMotorPosition << ", " << rightMotorPosition << ", " << lateralError << endl;
+      
+      Left.spin(vex::forward, (lateralMotorPower + turnMotorPower), percent);
+      Right.spin(vex::forward, (lateralMotorPower - turnMotorPower), percent);
+    }
+  }
+}
+
+void drive(double angle) {
+  cout << "start drive " << angle << endl;
+  resetDriveSensors();
+  pidOn = true;
+  totalLateralError = 0;
+  totalTurnError = 0;
+  desiredLateralValue = angle * lateralMultiplier;
+  desiredTurnValue = 0;
+  while (fabs(desiredLateralValue - (Left.position(degrees) + Left.position(degrees)) / 2) > 3) {
+    wait(20, msec);
+  }
+  cout << "end drive " << angle << endl;
+  stopMotors();
+}
+void turn(double angle) {
+  cout << "start turn " << angle << endl;
+  resetDriveSensors();
+  pidOn = true;
+  totalLateralError = 0;
+  totalTurnError = 0;
+  desiredLateralValue = 0;
+  desiredTurnValue = angle * turnMultiplier;
+  while (fabs(fabs(desiredTurnValue - (Left.position(degrees) - Right.position(degrees)) / 2)) > 3) {
+    wait(20, msec);
+  }
+  cout << "end turn " << angle << endl;
+  stopMotors();
 }
 
 void preauton() {
+  cout << "preauton started" << endl;
 }
 
-void autonomous(void) {
+void autonomous() {
+  cout << "auton started" << endl;
+  autonStarted = true;
+  thread pid(pid);
+  pidOn = true;
+  if (autonMode == "close") {
+    cout << "start close_auton" << endl;
+    drive(50);
+    turn(50);
+    drive(10);
+    drive(-10);
+    turn(-135);
+    drive(3);
+    unIntake();
+    waitUntil(!Intake.isSpinning());
+    drive(-6);
+    drive(10);
+    drive(-4);
+  } else if (autonMode == "far") {
+    cout << "start far auton" << endl;
+    drive(46.5);
+    turn(95);
+    drive(3);
+    unIntake();
+    waitUntil(!Intake.isSpinning());
+    drive(-28);
+    Wings.set(false);
+    drive(29);
+    Wings.set(true);
+    drive(-4);
+    turn(156);
+    startIntake(vex::forward);
+    drive(26);
+    drive(-26);
+    turn(-170);
+    unIntake();
+    drive(-6);
+    Wings.set(false);
+    drive(10);
+    drive(-4);
+  } else if (autonMode == "skills") {
+
+  } else {
+
+  }
+
+  killPID = true;
 }
 
-void nothing() { cout << "input >> nothing" << endl; }
-
+void nothing() {
+  cout << "input >> nothing" << endl;
+}
 void allowControls() {
   allowCatapultControl = true;
   allowCatapultLiftControl = true;
   allowRatchetControl = true;
   allowWingsControl = true;
 }
-
 void catapult() {
   cout << "input >> catapult" << endl;
   if (allowCatapultControl) {
@@ -52,7 +195,6 @@ void catapult() {
     }
   }
 }
-
 void catapultLift() {
   cout << "input >> catapultLift" << endl;
     if (allowCatapultLiftControl) {
@@ -65,12 +207,10 @@ void catapultLift() {
     }
   }
 }
-
 void intake() {
   cout << "input >> intake" << endl;
   Intake.spin(vex::forward, 200, rpm);
 }
-
 void ratchet() {
   cout << "input >> ratchet" << endl;
   if (allowRatchetControl) {
@@ -79,14 +219,17 @@ void ratchet() {
     Ratchet.set(ratchetOn);
   }
 }
-
 void reverseIntake() {
   cout << "input >> reverseIntake" << endl;
   Intake.spin(vex::reverse, 200, rpm);
 }
-
 void wings() {
   cout << "input >> wings" << endl;
+  if (allowWingsControl) {
+    allowWingsControl = false;
+    wingsOn = !wingsOn;
+    Wings.set(wingsOn);
+  }
 }
 
 void addInputControls() {
@@ -124,7 +267,9 @@ void handleDriving() {
   Right.spin(vex::reverse, axis3 - axis1, vex::percent);
 }
 
-void usercontrol(void) {
+void usercontrol() {
+  cout << "usercontrol started" << endl;
+  if (autonStarted) { killPID = true; pidOn = false; stopMotors(); }
   addInputControls();
   while (true) {
     handleDriving();
