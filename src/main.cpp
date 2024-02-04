@@ -63,10 +63,10 @@ void addInputControls() {
 }
 
 void handleDriving() {
-  double axis1 = Controller.Axis1.value();  
-  double axis3 = Controller.Axis3.value();
-  Left.spin(vex::forward, axis3 + axis1, vex::percent);
-  Right.spin(vex::forward, axis3 - axis1, vex::percent);
+  double axis1 = Controller.Axis1.position(vex::percent);  
+  double axis3 = Controller.Axis3.position(vex::percent);
+  Left.spin(vex::reverse, axis3 + axis1, vex::percent);
+  Right.spin(vex::reverse, axis3 - axis1, vex::percent);
 }
 
 void usercontrol(void) {
