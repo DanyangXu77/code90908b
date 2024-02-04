@@ -204,9 +204,9 @@ void catapultLift() {
     allowCatapultLiftControl = false;
     catapultLiftOn = !catapultLiftOn;
     if (catapultLiftOn) {
-      Catapult.spinFor(vex::forward, 700, vex::degrees, 200, vex::rpm);
+      CatapultLift.spinFor(vex::forward, 700, vex::degrees, 200, vex::rpm);
     } else {
-      Catapult.spinFor(vex::reverse, 700, vex::degrees, 200, vex::rpm);
+      CatapultLift.spinFor(vex::reverse, 700, vex::degrees, 200, vex::rpm);
     }
   }
 }
