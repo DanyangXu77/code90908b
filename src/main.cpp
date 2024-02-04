@@ -152,7 +152,9 @@ void autonomous() {
     drive(-4);
   } else if (autonMode == "far") {
     cout << "start far auton" << endl;
-    drive(46.5);
+    drive(2);
+    startIntake(vex::reverse);
+    drive(44.5);
     turn(95);
     drive(3);
     unIntake();
@@ -193,7 +195,12 @@ void autonomous() {
     // drive(-10);
     // drive(10);
   } else if (autonMode == "skills") {
-
+    Wings.set(true);
+    Ratchet.set(false);
+    drive(-4);
+    CatapultLift.spinFor(vex::forward, 700, vex::degrees, 200, vex::rpm);
+    Ratchet.set(true);
+    Catapult.spinFor(vex::reverse, );
   } else {
     Wings.set(true);
   }
